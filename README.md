@@ -10,4 +10,4 @@ Faça um pull request incluindo sua intenção de participar pra eu ter uma noç
 
 | @ do Twitter | Anos de XP | Stack |
 | --- | --- | --- |
-| .. | .. | .. |
+| [@coproduto](https://twitter.com/coproduto) | 12 | Elixir, Rust, Zig, Julia |
