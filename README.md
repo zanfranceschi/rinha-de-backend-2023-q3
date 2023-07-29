@@ -14,3 +14,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | --- | --- | --- |
 | [@coproduto](https://twitter.com/coproduto) | 12 | Elixir, Rust, Zig, Julia |
 | [@lffgz](https://twitter.com/lffgz) | 2 | Rust |
+| [@menta01001](https://twitter.com/Menta01001) | 2 | C# |
