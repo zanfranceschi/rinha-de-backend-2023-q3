@@ -13,3 +13,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | @ do Twitter | Anos de XP | Stack |
 | --- | --- | --- |
 | [@coproduto](https://twitter.com/coproduto) | 12 | Elixir, Rust, Zig, Julia |
+| [@lffgz](https://twitter.com/lffgz) | 2 | Rust |
