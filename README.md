@@ -79,6 +79,7 @@ O termo `q` para busca deve considerar os atributos `nome`, `apelido`, e os elem
 
 
 **GET /contagem-pessoas**
+
 Este é um endpoint especial que será usado para contar o total de registros armazenados com a requisição **POST /pessoas**. Note que ele não fará parte do teste de stress e, por tanto, não existe necessidade de ajustes de performance nele – apenas tome cuidado para evitar timeouts. A resposta deverá ser um status code 200 com o corpo em formato plain text contendo apenas o número de registros.
 
 
