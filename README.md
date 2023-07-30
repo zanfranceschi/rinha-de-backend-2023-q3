@@ -32,3 +32,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@Wuerike](https://twitter.com/Wuerike) | 2 | Python/C# |
 | [@atleastemotive](https://twitter.com/atleastemotive) | Java (8) Rust (2) | Rust |
 | [@joaovictorf01](https://twitter.com/joaovictorf01) | 2 | java/spring |
+| [@seuparada](https://twitter.com/seuparada) | 18 | JVM (Java ou Kotlin), SpringBoot, Quarkus |
