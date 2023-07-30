@@ -9,6 +9,7 @@ A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API 
 Sua API deverá ter os seguintes endpoints.
 
 **POST /pessoas**
+
 Deverá criar um registro de "pessoa" com o seguinte payload no formato JSON:
 ```json
 {
@@ -24,6 +25,7 @@ Deverá criar um registro de "pessoa" com o seguinte payload no formato JSON:
 
 
 **GET /pessoas/[:id]**
+
 Deverá retornar um recurso criado através da requisição **POST /pessoas** mencionada anteriormente. Caso o recurso não exista, a resposta deverá retornar um status code 404. Para requisições bem sucedidas, um payload como a seguir deverá ser retornado:
 ```json
 {
@@ -37,6 +39,7 @@ Deverá retornar um recurso criado através da requisição **POST /pessoas** me
 
 
 **GET /pessoas**
+
 Deverá retornar o resultado da busca por recursos cadastrados em **POST /pessoas** e exigir o string parameter `q` e aceitar o parâmetro opcinal `pagina` (`/pessoas?q=[termo da busca]&pagina=[número da página]`) – quando `pagina` não for informado, considerar o valor como `0`. Para requisições bem sucedidas, o status code deverá ser 200 com um payload como a seguir:
 ```json
 {
