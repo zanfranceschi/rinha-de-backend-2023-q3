@@ -42,3 +42,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@moretoend](https://twitter.com/moretoend) | 10 | Ruby, NodeJS, TS |
 | [@karlosdaniel451](https://twitter.com/karlosdaniel451) | 1 | Go e Python |
 | [@GutoDoBrownie](https://twitter.com/GutoDoBrownie) | 3 | NodeJs, Rust, Ruby on Rails |
+| [@doceazedo911](https://twitter.com/doceazedo911) | 5 | Node (SvelteKit), Kotlin (Ktor) |
