@@ -78,6 +78,6 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@v_hadara](https://twitter.com/v_hadara) | 11 | Golang, Node.JS, Python |
 | [@minha_logica](https://twitter.com/minha_logica) | 5 | Python, Java, PHP |
 | [@lliw_r](https://twitter.com/lliw_r) | 2 | Python, Node.JS, Java |
-| @leoralph(https://twitter.com/leoralph) | 2 | PHP, Laravel |
-| @caciolucas1(https://twitter.com/caciolucas1) | 5 | Python, Node, Laravel |
-| @MaikonWeber1(https://twitter.com/MaikonWeber1) | 6 | Javascript, Porém sou entusiasta em Rust kkk na para projeto NestJs com (Fastify) |
+| [@leoralph](https://twitter.com/leoralph) | 2 | PHP, Laravel |
+| [@caciolucas1](https://twitter.com/caciolucas1) | 5 | Python, Node, Laravel |
+| [@MaikonWeber1](https://twitter.com/MaikonWeber1) | 6 | Javascript, Porém sou entusiasta em Rust kkk na para projeto NestJs com (Fastify) |
