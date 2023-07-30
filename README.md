@@ -38,3 +38,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@GioriLucas](https://twitter.com/GioriLucas) | 3	| PHP |
 | [@bepizu](https://twitter.com/bepizu) | 14 | Nodejs, Golang e PHP |
 | [@seuparada](https://twitter.com/seuparada) | 18 | JVM (Java ou Kotlin), SpringBoot, Quarkus |
+| [@trajano_exe](https://twitter.com/trajano_exe) | 1 | C#, Go |
