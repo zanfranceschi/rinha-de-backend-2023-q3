@@ -5,13 +5,65 @@
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
 ## Instruções
-Sua aplicação deverá possuir um load balancer Nginx, uma API HTTP (com duas instâncias) e um Banco de Dados Relacional para persistência. Tudo isso será dockerizado via docker-compose.
+Sua aplicação deverá possuir um load balancer Nginx, uma API HTTP (com duas instâncias) e um Banco de Dados Relacional para persistência – Postgres especificamente. Tudo isso será dockerizado via docker-compose. O Nginx e o docker-compose deverão ser configurados para usar duas instâncias da sua API como no exemplo a seguir.
+
+```yml
+# exemplo do docker-compose
+version: '3.5'
+services:
+  api1:
+    image: api
+    hostname: api1
+    expose:
+      - "80"
+
+  api2:
+    image: api
+    hostname: api2
+    expose:
+      - "80"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+
+  db:
+   image: postgres
+   # declaração do serviço do banco com postgres
+   ...
+```
+
+```nginx
+events {
+    # configure como quiser
+}
+http {
+    upstream api {
+        server api1:80;
+        server api2:80;
+    }
+    server {
+        listen 9999;
+        location / {
+            proxy_pass http://api;
+        }
+    }
+}
+```
 
 Para que o torneio seja mais justo, haverá duas categorias para as APIs HTTP:
 - Linguagens interpretadas (Python, Ruby, etc.)
 - Linguagens compiladas (Java, Go, C#, etc.)
 
-*Obs.: Recursos como compilação AOT para linguagens interpretadas não poderão ser usados. Entretanto, interpretadores alternativos como PyPy para Python podem ser usados.*
+*Obs. 0: A imagem da sua API deverá estar publicamente disponível em algum serviço como o docker hub.*
+
+*Obs. 1: Recursos como compilação AOT para linguagens interpretadas não poderão ser usados. Entretanto, interpretadores alternativos como PyPy para Python podem ser usados.*
 
 *Obs 2.: O load balancer é para reforçar menor armazenamento de estado na API, pois numa estratégia round-robin de balanceamento armazenar estado no processo da API pode causar inconsistência.*
 
