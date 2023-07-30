@@ -6,17 +6,19 @@ A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API 
 
 ## Instruções
 
-Sua API deverá ter os seguintes endpoints.
+### Endpoints
+
+A API deverá ter os seguintes endpoints.
 
 **POST /pessoas**
 
 Deverá criar um registro de "pessoa" com o seguinte payload no formato JSON:
 ```json
 {
-    "apelido" : "[atributo obrigatório e único, string de até 32 caracteres – letras maiúsculas/minúsculas, números, símbolos, qq coisa]",
-    "nome" : "[atributo obrigatório, string de até 75 caracteres – apenas letras maiúsculas/minúsculas e espaços]",
-    "data_nascimento" : "[atributo obrigatório, string para data no formato AAAA-MM-DD]",
-    "stack" : "[atributo opcional, array de string de até 10 caracteres de qq coisa para cada elemento]"
+    "apelido" : [atributo obrigatório e único, string de até 32 caracteres – letras maiúsculas/minúsculas, números, símbolos, qq coisa],
+    "nome" : [atributo obrigatório, string de até 75 caracteres – apenas letras maiúsculas/minúsculas e espaços],
+    "data_nascimento" : [atributo obrigatório, string para data no formato AAAA-MM-DD],
+    "stack" : [atributo opcional, array de string de até 10 caracteres de qq coisa para cada elemento]
 }
 ```
 - A resposta duma requisição bem sucedida deverá ter o status code 201, um header `Location: /pessoas/[:id]` com a URL do novo recurso criado onde `/pessoas/[:id]` é a URL do novo recurso criado. Para o corpo, não há especificação – retorne o que quiser.
@@ -63,6 +65,23 @@ Se a busca não retornar resultados, o payload deve ser como o seguinte ainda co
 ```
 O termo `q` para busca deve considerar os atributos `nome`, `apelido`, e os elementos de `stack`. Pode diferenciar letras maiúsculas e minúsculas (a decisão é sua). A busca pode ser no estilo "contains" – ou seja, se houver um recurso de nome "Ana Barbosa", este deverá ser retornado para uma busca por apenas "Barbosa". 
 
+
+**GET /contagem-pessoas**
+Este é um endpoint especial que será usado para contar o total de registros armazenados com a requisição **POST /pessoas**. Note que ele não fará parte do teste de stress e, por tanto, não existe necessidade de ajustes de performance nele – apenas tome cuidado para evitar timeouts. A resposta deverá ser um status code 200 com o corpo em formato plain text contendo apenas o número de registros.
+
+
+### Regras
+A aplicação deve ter no mínimo dois processos/componentes. Um para a API HTTP e outro para o armazenamento em disco. O armazenamento final deve ser feito em disco (bancos relacionais, não relacionais, arquivo, kafka, etc) – armazenamentos em memória não poderão ser usados (Redis, por exemplo). Entretanto, você poderá usar recursos de cache em memória, etc, mas todos os registros/recursos devem ser persistidos em disco. O endpoint **GET /contagem-pessoas** deverá ler/contar direta e necessariamente de registros armazenados em disco (sem uso de cache).
+
+
+### Submissão/Execução/Deploy
+As submissões deverão ser feitas no formato [docker-compose](https://docs.docker.com/compose/). Seu time deverá fazer um pull request nesse repositório no diretório [/times](/times/) adicionando um arquivo nomeado `<seu-time>-docker-compose.yml`. Note que todas as imagens declaradas no arquivo YML devem estar publicamente disponíveis para que seja possível executá-las. A porta exposta para a API HTTP deverá ser a 9999.
+
+Sua aplicação deverá estar publicamente versionada via git (github, gitlab, bitbucket, etc.) e um link para ela deverá estar contido no arquivo YML submetido em formato de comentário.
+
+## Sobre o Teste
+
+O 
 
 ## Inscrições
 
