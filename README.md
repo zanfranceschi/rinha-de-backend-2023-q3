@@ -32,3 +32,8 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@Wuerike](https://twitter.com/Wuerike) | 2 | Python/C# |
 | [@atleastemotive](https://twitter.com/atleastemotive) | Java (8) Rust (2) | Rust |
 | [@joaovictorf01](https://twitter.com/joaovictorf01) | 2 | java/spring |
+| [@real_vvs_](https://twitter.com/real_vvs_)	| 2	| Java, Javascript/Typescript |
+| [@rwillians_](https://twitter.com/rwillians_)	| 10 | Elixir, JavaScript/Node, JavaScript/Bun, PHP, Ruby |
+| [@tinvidataeng](https://twitter.com/tinvidataeng) | 2	| Python |
+| [@GioriLucas](https://twitter.com/GioriLucas) | 3	| PHP |
+| [@bepizu](https://twitter.com/bepizu) | 14 | Nodejs, Golang e PHP |
