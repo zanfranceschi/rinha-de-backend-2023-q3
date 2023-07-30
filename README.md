@@ -5,10 +5,22 @@
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
 ## Instruções
+Sua aplicação deverá possuir uma API HTTP e um Banco de Dados Relacional para persistência.
 
+Para que o torneio seja mais justo, haverá duas categorias para as APIs HTTP:
+- Linguagens interpretadas (Python, Ruby, etc.)
+- Linguagens compiladas (Java, Go, C#, etc.)
+
+*Obs.: Recursos como compilação AOT para linguagens interpretadas não poderão ser usados. Entretanto, interpretadores alternativos como PyPy para Python podem ser usados.*
+
+### Banco de Dados
+Para uniformizar um pouco o torneio, Postgres deverá ser usado como banco de dados para a persistência dos registros.
+
+
+### API
 ### Endpoints
 
-A API deverá ter os seguintes endpoints.
+A API deverá expor os seguintes endpoints.
 
 **POST /pessoas**
 
@@ -77,14 +89,12 @@ A aplicação deve ter no mínimo dois processos/componentes. Um para a API HTTP
 ### Submissão/Execução/Deploy
 As submissões deverão ser feitas no formato [docker-compose](https://docs.docker.com/compose/). Seu time deverá fazer um pull request nesse repositório no diretório [/times](/times/) adicionando um arquivo nomeado `<seu-time>-docker-compose.yml`. Note que todas as imagens declaradas no arquivo YML devem estar publicamente disponíveis para que seja possível executá-las. A porta exposta para a API HTTP deverá ser a 9999.
 
-Sua aplicação deverá estar publicamente versionada via git (github, gitlab, bitbucket, etc.) e um link para ela deverá estar contido no arquivo YML submetido em formato de comentário.
+Sua aplicação deverá estar publicamente versionada via git (github, gitlab, bitbucket, etc.) e um link para ela deverá estar contido no arquivo YML em formato de comentário.
 
 ## Sobre o Teste
-
-O 
+O teste será surpresa, mas é possível adiantar que tanto aspectos de leitura, escrita e consistência serão testados (por exemplo, criar um recurso e logo consultá-lo).
 
 ## Inscrições
-
 Faça um pull request incluindo sua intenção de participar pra eu ter uma noção de quantas pessoas participariam, por favor.
 
 Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIpQLSevmaqfjh9r9K0f9l-MD-cNcM6Te4P4HnIvhM0-9WNxz5pwhg/viewform) aqui do Google em vez de fazer um PR.
