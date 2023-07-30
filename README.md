@@ -74,3 +74,5 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@menta01001](https://twitter.com/Menta01001) | 2 | C# |
 | [@v_hadara](https://twitter.com/v_hadara) | 11 | Golang, Node.JS, Python |
 | [@minha_logica](https://twitter.com/minha_logica) | 5 | Python, Java, PHP |
+| [@lliw_r](https://twitter.com/lliw_r) | 2 | Python, Node.JS, Java |
+
