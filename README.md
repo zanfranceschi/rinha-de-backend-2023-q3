@@ -14,3 +14,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | --- | --- | --- |
 | [@coproduto](https://twitter.com/coproduto) | 12 | Elixir, Rust, Zig, Julia |
 | [@lffgz](https://twitter.com/lffgz) | 2 | Rust |
+| [@minha_logica](https://twitter.com/minha_logica) | 5 | Python, Java, PHP |
