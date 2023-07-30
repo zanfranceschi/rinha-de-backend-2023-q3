@@ -1,0 +1,6 @@
+*.db
+.env
+config.yaml
+bin/
+/build
+/.build
