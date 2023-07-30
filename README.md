@@ -87,7 +87,7 @@ Deverá criar um registro de "pessoa" com o seguinte payload no formato JSON:
     "stack" : [atributo opcional, array de string de até 10 caracteres de qq coisa para cada elemento]
 }
 ```
-- A resposta duma requisição bem sucedida deverá ter o status code 201 (created), um header `Location: /pessoas/[:id]` com a URL do novo recurso criado onde `/pessoas/[:id]` é a URL do novo recurso criado. Para o corpo, não há especificação – retorne o que quiser.
+- A resposta duma requisição bem sucedida deverá ter o status code 201 (created), um header `Location: /pessoas/[:id]` com a URL do novo recurso criado onde `/pessoas/[:id]` é a URL do novo recurso criado. Para o corpo, não há especificação – retorne o que quiser. 
 
 - Para o caso de requisições inválidas (atributos obrigatórios não preenchidos, formato de data inválido, e/ou limites de caracteres excedidos, etc), a resposta deverá retornar um status code 422 (unprocessable entity/content). Para o corpo, não há especificação – retorne o que quiser.
 
@@ -115,7 +115,7 @@ Deverá retornar o resultado da busca por recursos cadastrados em **POST /pessoa
     "pagina": [número da página da busca – sim, o resultado precisa ser paginado de 10 em 10 registros],
     "anterior": [url da página anterior se houver, caso contrário null],
     "proxima": [url da próxima página se houver, caso contrário null],
-    "resultados": [uma lista contendo os recursos encontrados (como na resposta de GET /pessoas/[:id])]
+    "resultado": [uma lista contendo os recursos encontrados (como na resposta de GET /pessoas/[:id])]
 }
 ```
 
@@ -126,7 +126,7 @@ Se a busca não retornar resultados, o payload deve ser como o seguinte ainda co
     "pagina": 0,
     "anterior": null,
     "proxima": null,
-    "resultados": []
+    "resultado": []
 }
 ```
 O termo `q` para busca deve considerar os atributos `nome`, `apelido`, e os elementos de `stack`. Pode diferenciar letras maiúsculas e minúsculas (a decisão é sua). A busca pode ser no estilo "contains" – ou seja, se houver um recurso de nome "Ana Barbosa", este deverá ser retornado para uma busca por apenas "Barbosa". 
