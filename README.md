@@ -5,13 +5,15 @@
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
 ## Instruções
-Sua aplicação deverá possuir uma API HTTP e um Banco de Dados Relacional para persistência.
+Sua aplicação deverá possuir um load balancer Nginx, uma API HTTP (com duas instâncias) e um Banco de Dados Relacional para persistência. Tudo isso será dockerizado via docker-compose.
 
 Para que o torneio seja mais justo, haverá duas categorias para as APIs HTTP:
 - Linguagens interpretadas (Python, Ruby, etc.)
 - Linguagens compiladas (Java, Go, C#, etc.)
 
 *Obs.: Recursos como compilação AOT para linguagens interpretadas não poderão ser usados. Entretanto, interpretadores alternativos como PyPy para Python podem ser usados.*
+
+*Obs 2.: O load balancer é para reforçar menor armazenamento de estado na API, pois numa estratégia round-robin de balanceamento armazenar estado no processo da API pode causar inconsistência.*
 
 ### Banco de Dados
 Para uniformizar um pouco o torneio, Postgres deverá ser usado como banco de dados para a persistência dos registros.
@@ -33,14 +35,14 @@ Deverá criar um registro de "pessoa" com o seguinte payload no formato JSON:
     "stack" : [atributo opcional, array de string de até 10 caracteres de qq coisa para cada elemento]
 }
 ```
-- A resposta duma requisição bem sucedida deverá ter o status code 201, um header `Location: /pessoas/[:id]` com a URL do novo recurso criado onde `/pessoas/[:id]` é a URL do novo recurso criado. Para o corpo, não há especificação – retorne o que quiser.
+- A resposta duma requisição bem sucedida deverá ter o status code 201 (created), um header `Location: /pessoas/[:id]` com a URL do novo recurso criado onde `/pessoas/[:id]` é a URL do novo recurso criado. Para o corpo, não há especificação – retorne o que quiser.
 
-- Para o caso de requisições inválidas (atributos obrigatórios não preenchidos, formato de data inválido, e/ou limites de caracteres excedidos, etc), a resposta deverá retornar um status code 422. Para o corpo, não há especificação – retorne o que quiser.
+- Para o caso de requisições inválidas (atributos obrigatórios não preenchidos, formato de data inválido, e/ou limites de caracteres excedidos, etc), a resposta deverá retornar um status code 422 (unprocessable entity/content). Para o corpo, não há especificação – retorne o que quiser.
 
 
 **GET /pessoas/[:id]**
 
-Deverá retornar um recurso criado através da requisição **POST /pessoas** mencionada anteriormente. Caso o recurso não exista, a resposta deverá retornar um status code 404. Para requisições bem sucedidas, um payload como a seguir deverá ser retornado:
+Deverá retornar um recurso criado através da requisição **POST /pessoas** mencionada anteriormente. Caso o recurso não exista, a resposta deverá retornar um status code 404 (not found). Para requisições bem sucedidas, um payload como a seguir deverá ser retornado com o status code 200 (ok):
 ```json
 {
     "id": [depende da sua escolha de modelagem (número, string)],
@@ -80,20 +82,16 @@ O termo `q` para busca deve considerar os atributos `nome`, `apelido`, e os elem
 
 **GET /contagem-pessoas**
 
-Este é um endpoint especial que será usado para contar o total de registros armazenados com a requisição **POST /pessoas**. Note que ele não fará parte do teste de stress e, por tanto, não existe necessidade de ajustes de performance nele – apenas tome cuidado para evitar timeouts. A resposta deverá ser um status code 200 com o corpo em formato plain text contendo apenas o número de registros.
-
-
-### Regras
-A aplicação deve ter no mínimo dois processos/componentes. Um para a API HTTP e outro para o armazenamento em disco. O armazenamento final deve ser feito em disco (bancos relacionais, não relacionais, arquivo, kafka, etc) – armazenamentos em memória não poderão ser usados (Redis, por exemplo). Entretanto, você poderá usar recursos de cache em memória, etc, mas todos os registros/recursos devem ser persistidos em disco. O endpoint **GET /contagem-pessoas** deverá ler/contar direta e necessariamente de registros armazenados em disco (sem uso de cache).
+Este é um endpoint especial que será usado para contar o total de registros armazenados com a requisição **POST /pessoas**. Note que ele não fará parte do teste de stress e, por tanto, não existe necessidade de ajustes de performance nele – apenas tome cuidado para evitar timeouts. A resposta deverá ser um status code 200 com o corpo em formato plain text contendo apenas o número de registros. Nesse endpoint não será permitido o uso de qualquer tipo de cache ou materialziação no banco de dados – apenas um "count" simples deverá ser usado.
 
 
 ### Submissão/Execução/Deploy
-As submissões deverão ser feitas no formato [docker-compose](https://docs.docker.com/compose/). Seu time deverá fazer um pull request nesse repositório no diretório [/times](/times/) adicionando um arquivo nomeado `<seu-time>-docker-compose.yml`. Note que todas as imagens declaradas no arquivo YML devem estar publicamente disponíveis para que seja possível executá-las. A porta exposta para a API HTTP deverá ser a 9999.
+As submissões deverão ser feitas no formato [docker-compose](https://docs.docker.com/compose/). Seu time ou você deverá fazer um pull request nesse repositório no diretório [/times](/times/) adicionando um arquivo nomeado `<seu-time ou você>-docker-compose.yml`. Note que todas as imagens declaradas no arquivo YML devem estar publicamente disponíveis para que seja possível executá-las. A porta exposta para a API HTTP deverá ser a 9999.
 
 Sua aplicação deverá estar publicamente versionada via git (github, gitlab, bitbucket, etc.) e um link para ela deverá estar contido no arquivo YML em formato de comentário.
 
 ## Sobre o Teste
-O teste será surpresa, mas é possível adiantar que tanto aspectos de leitura, escrita e consistência serão testados (por exemplo, criar um recurso e logo consultá-lo).
+O teste será surpresa, entretanto espere testes que avaliem aspectos de leitura, escrita e consistência (por exemplo, criar um recurso e consultá-lo logo em seguida).
 
 ## Inscrições
 Faça um pull request incluindo sua intenção de participar pra eu ter uma noção de quantas pessoas participariam, por favor.
