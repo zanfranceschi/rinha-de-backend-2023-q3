@@ -40,3 +40,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@seuparada](https://twitter.com/seuparada) | 18 | JVM (Java ou Kotlin), SpringBoot, Quarkus |
 | [@trajano_exe](https://twitter.com/trajano_exe) | 1 | C#, Go |
 | [@moretoend](https://twitter.com/moretoend) | 10 | Ruby, NodeJS, TS |
+| [@karlosdaniel451](https://twitter.com/karlosdaniel451) | 1 | Go e Python |
