@@ -81,3 +81,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@leoralph](https://twitter.com/leoralph) | 2 | PHP, Laravel |
 | [@caciolucas1](https://twitter.com/caciolucas1) | 5 | Python, Node, Laravel |
 | [@MaikonWeber1](https://twitter.com/MaikonWeber1) | 6 | Javascript, Porém sou entusiasta em Rust kkk na para projeto NestJs com (Fastify) |
+| [@seuparada](https://twitter.com/seuparada) | 18 | JVM (Java ou Kotlin), SpringBoot, Quarkus |
