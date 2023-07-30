@@ -109,3 +109,7 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@leoralph](https://twitter.com/leoralph) | 2 | PHP, Laravel |
 | [@caciolucas1](https://twitter.com/caciolucas1) | 5 | Python, Node, Laravel |
 | [@MaikonWeber1](https://twitter.com/MaikonWeber1) | 6 | Javascript, Porém sou entusiasta em Rust kkk na para projeto NestJs com (Fastify) |
+| [@lazaronixon](https://twitter.com/lazaronixon) | 10+ | Ruby on Rails |
+| [@Wuerike](https://twitter.com/Wuerike) | 2 | Python/C# |
+| [@atleastemotive](https://twitter.com/atleastemotive) | Java (8) Rust (2) | Rust |
+| [@joaovictorf01](https://twitter.com/joaovictorf01) | 2 | java/spring |
