@@ -16,3 +16,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@lffgz](https://twitter.com/lffgz) | 2 | Rust |
 | [@menta01001](https://twitter.com/Menta01001) | 2 | C# |
 | [@v_hadara](https://twitter.com/v_hadara) | 11 | Golang, Node.JS, Python |
+| [@minha_logica](https://twitter.com/minha_logica) | 5 | Python, Java, PHP |
