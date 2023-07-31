@@ -99,3 +99,12 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@hyperruim](https://twitter.com/hyperruim) | 4 | C#, NodeJS e PHP |
 | [@arturbarth](https://twitter.com/arturbarth) | 13 | Java + Spring Boot + Quarkus + Micronaut |
 | [@ardurds](https://twitter.com/ardurds) | 1 | Node.JS |
+| [@_jguis](https://twitter.com/_jguis) | 4 | Node, mas vou brincar em Ruby |
+| [@bea_dadalto](https://twitter.com/bea_dadalto) | 1 | java / spring |
+| [@IrwiingT](https://twitter.com/IrwiingT) | 3 | C# .Net |
+| [@lsferreira42](https://twitter.com/lsferreira42) | 12 | golang, python, lua |
+| [@eduhenke](https://twitter.com/eduhenke) | 8 | Rust |
+| [@victorhbni](https://twitter.com/victorhbni) | 11 | PHP |
+| [@\_Gabriwl\_](https://twitter.com/_Gabriwl_) | Trabalhando 2, qnd comecei, 4 | Java & TypeScript |
+| [@GustavoKoefend1](https://twitter.com/GustavoKoefend1) | 2 | javascript |
+| [@JacksonLRS](https://twitter.com/JacksonLRS) | 3 | Node/javascript |
