@@ -100,3 +100,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@thiagochfc](https://twitter.com/thiagochfc) | 3 | C# |
 | [@edgarberlinck](https://twitter.com/edgarberlinck) | 23 | Node + TS |
 | [@eusouoJoaoLima](https://twitter.com/eusouoJoaoLima) | 1 | NodeJS, Java |
+| [@hyperruim](https://twitter.com/hyperruim) | 4 | C#, NodeJS e PHP |
