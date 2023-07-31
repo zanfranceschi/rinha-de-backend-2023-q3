@@ -51,3 +51,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@ravilock](https://github.com/ravilock) | 2 | Go e NodeJs |
 | [@leocavalcante](https://twitter.com/leocavalcante) | 15 | PHP com Swoole/Swow & Hyperf |
 | [@doceazedo911](https://twitter.com/doceazedo911) | 5 | Node (SvelteKit), Kotlin (Ktor) |
+| [@vimsos](https://twitter.com/vimsts) | 3 | Rust |
