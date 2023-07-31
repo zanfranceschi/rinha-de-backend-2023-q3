@@ -96,3 +96,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@thiagochfc](https://twitter.com/thiagochfc) | 3 | C# |
 | [@edgarberlinck](https://twitter.com/edgarberlinck) | 23 | Node + TS |
 | [@eusouoJoaoLima](https://twitter.com/eusouoJoaoLima) | 1 | NodeJS, Java |
+| [@ardurds](https://twitter.com/ardurds) | 1 | Node.JS |
