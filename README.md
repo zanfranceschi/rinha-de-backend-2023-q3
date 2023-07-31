@@ -42,6 +42,7 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@moretoend](https://twitter.com/moretoend) | 10 | Ruby, NodeJS, TS |
 | [@karlosdaniel451](https://twitter.com/karlosdaniel451) | 1 | Go e Python |
 | [@GutoDoBrownie](https://twitter.com/GutoDoBrownie) | 3 | NodeJs, Rust, Ruby on Rails |
+| [@nathsouzadev](https://twitter.com/nathsouzadev) | 3 | JS, TS e Clojure |
 | [@reinaldorauch](https://twitter.com/reinaldorauch) | 8 | Rust, NodeJS, PHP |
 | [@yuriwithowsky](https://github.com/yuriwithowsky) | 10+ | C#, JavaScript/TypeScript |
 | [@ravilock](https://github.com/ravilock) | 2 | Go e NodeJs |
