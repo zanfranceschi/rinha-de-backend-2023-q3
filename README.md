@@ -5,10 +5,10 @@
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
 ## Ideia Geral do Torneio
-- As APIs precisam expor endpoints iguais e usar um mesmo banco de dados (talvez Postgres).
+- As APIs precisam expor endpoints iguais e necessariamente usar um dos seguintes bancos de dados (à sua escolha): Postgres, MySQL, ou MongoDB.
 - O "deploy" da API seria feito via docker-compose com limites de CPU e memória.
-- O teste seria executado no meu note mesmo (por isso a limitação de CPI e memória) com a ferramenta [Gatling](https://gatling.io/).
-- Talvez separar o torneio em duas categorias: linguagens interpretadas e compiladas.
+- O teste seria executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
+- O torneio terá duas categorias: linguagens interpretadas e compiladas.
 - A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
 
 
@@ -98,3 +98,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@robertheorem](https://twitter.com/robertheorem) | 3 | NodeJS e Python |
 | [@comradsig](https://twitter.com/comradsig) | 3 | Typescript, Javascript |
 | [@thiagochfc](https://twitter.com/thiagochfc) | 3 | C# |
+| [@edgarberlinck](https://twitter.com/edgarberlinck) | 23 | Node + TS |
