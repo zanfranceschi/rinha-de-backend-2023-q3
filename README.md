@@ -53,3 +53,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@doceazedo911](https://twitter.com/doceazedo911) | 5 | Node (SvelteKit), Kotlin (Ktor) |
 | [@vimsos](https://twitter.com/vimsts) | 3 | Rust |
 | [@cristianoraffi](https://twitter.com/cristianoraffi) | 8 | C#, Node.js | 
+| [@goLeenss](https://twitter.com/goLeenss) | 6 | Golang |
