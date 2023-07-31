@@ -1,5 +1,7 @@
 # Instruções e Regras para Rinha de Backend - Edição 2023 Q3
 
+![logo da rinha de backend](/logo.jpg)
+
 ## Resumo
 
 - As APIs precisam expor endpoints iguais e necessariamente usar um dos seguintes bancos de dados (à sua escolha): Postgres, MySQL, ou MongoDB.
@@ -7,6 +9,7 @@
 - O teste seria executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
 - O torneio terá duas categorias: linguagens interpretadas e compiladas.
 - A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
+- Os detalhes do teste de stress serão surpresa, mas a ideia essencial é progressivamente ir aumentando o número de requisições nos endpoints até um dado limite de tempo (alguns minutos, por exemplo).
 
 
 ## Endpoints
