@@ -4,12 +4,8 @@
 
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
-## Ideia Geral do Torneio
-- As APIs precisam expor endpoints iguais e necessariamente usar um dos seguintes bancos de dados (à sua escolha): Postgres, MySQL, ou MongoDB.
-- O "deploy" da API seria feito via docker-compose com limites de CPU e memória.
-- O teste seria executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
-- O torneio terá duas categorias: linguagens interpretadas e compiladas.
-- A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
+## Instruções
+Acesse às [instruções do torneio aqui](/INSTRUCOES.md).
 
 
 ## Inscrições
@@ -101,3 +97,5 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@edgarberlinck](https://twitter.com/edgarberlinck) | 23 | Node + TS |
 | [@eusouoJoaoLima](https://twitter.com/eusouoJoaoLima) | 1 | NodeJS, Java |
 | [@hyperruim](https://twitter.com/hyperruim) | 4 | C#, NodeJS e PHP |
+| [@arturbarth](https://twitter.com/arturbarth) | 13 | Java + Spring Boot + Quarkus + Micronaut |
+| [@ardurds](https://twitter.com/ardurds) | 1 | Node.JS |
