@@ -112,3 +112,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@JacksonLRS](https://twitter.com/JacksonLRS) | 3 | Node/javascript |
 | [@andrewwbxd](https://twitter.com/andrewwbxd) | 1 | Java |
 | [@devdebugado](https://twitter.com/devdebugado) | 3 | Go, .Net, Node |
+| [@joaorflga](https://twitter.com/joaorflga) | 4 | Go, Rust, NodeJS |
