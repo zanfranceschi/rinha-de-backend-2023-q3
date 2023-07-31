@@ -54,3 +54,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@vimsos](https://twitter.com/vimsts) | 3 | Rust |
 | [@cristianoraffi](https://twitter.com/cristianoraffi) | 8 | C#, Node.js | 
 | [@goLeenss](https://twitter.com/goLeenss) | 6 | Golang |
+| [@__kauefraga](https://twitter.com/__kauefraga) | 1 | Javascript/Typescript, Node, Python e Golang |
