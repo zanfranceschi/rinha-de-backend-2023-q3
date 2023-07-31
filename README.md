@@ -49,4 +49,3 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@reinaldorauch](https://twitter.com/reinaldorauch) | 8 | Rust, NodeJS, PHP |
 | [@yuriwithowsky](https://github.com/yuriwithowsky) | 10+ | C#, JavaScript/TypeScript |
 | [@ravilock](https://github.com/ravilock) | 2 | Go e NodeJs |
-| [@nicolaslopess__](https://twitter.com/nicolaslopess__) | 3 | NodeJS, Rust, Go |
