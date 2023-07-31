@@ -55,3 +55,46 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@cristianoraffi](https://twitter.com/cristianoraffi) | 8 | C#, Node.js | 
 | [@goLeenss](https://twitter.com/goLeenss) | 6 | Golang |
 | [@__kauefraga](https://twitter.com/__kauefraga) | 1 | Javascript/Typescript, Node, Python e Golang |
+| [@wendryo_sales](https://twitter.com/wendryo_sales) | 2 | Node.js, python |
+| [@luizpbello](https://twitter.com/luizpbello) | 3 | Node.js |
+| [@razordiestxt](https://twitter.com/razordiestxt) | 4 | PHP, NODE, PYTHON |
+| [@distanteagle16](https://twitter.com/distanteagle16) | 8 | Rust, Java, Node.js |
+| [@devmessias](https://twitter.com/devmessias) | 6 | python, js (só quando pago), c++,  |
+| [@levys17_](https://twitter.com/levys17_) | 2 | Java, Spring |
+| [@pridecbello_](https://twitter.com/pridecbello_) | 4 | Java |
+| [@mfagundes](https://twitter.com/mfagundes) | 1 | Python |
+| [@andre_stibola](https://twitter.com/andre_stibola) | 6 | Java + Quarkus  |
+| [@a1010110010101](https://twitter.com/a1010110010101) | 1 | Java |
+| [@RaulMot91314914](https://twitter.com/RaulMot91314914) | 2 | Node js, PHP  |
+| [@rdrnavarro](https://twitter.com/rdrnavarro) | 15 | Rust, Haskell |
+| [@tuliocarvalh](https://twitter.com/tuliocarvalh) | 2 | Python | Ruby |
+| [@lucaix12](https://twitter.com/lucaix12) | Menos de 1 | C# |
+| [@lovefoqs](https://twitter.com/lovefoqs) | 1 | Ruby |
+| [@_felipeand1](https://twitter.com/_felipeand1) | 5 | .net |
+| [@rxdrigocosta](https://twitter.com/rxdrigocosta) | 3 | PHP, Laravel |
+| [@quesiacs](https://twitter.com/quesiacs) | 3 | Python, Go e Java |
+| [@compro1novouser](https://twitter.com/compro1novouser) | 6 | c#, python, node, go |
+| [@lucas_netto_](https://twitter.com/lucas_netto_) | 7 | Kotlin, Clojure |
+| [@burritosocks](https://twitter.com/burritosocks) | 9 meses | C# |
+| [@victorglds0](https://twitter.com/victorglds0) | 3 | Python, Golang |
+| [@hen_riap](https://twitter.com/hen_riap) | 4 | PHP / Lumen |
+| [@asg1719](https://twitter.com/asg1719) | 4 | Kotlin, Java, Go |
+| [@thiagoL1ttl3](https://twitter.com/thiagoL1ttl3) | 1.5 | Python, PHP  |
+| [@periclesluz](https://twitter.com/periclesluz) | 32 | Go |
+| [@pauloafpjunior](https://twitter.com/pauloafpjunior) | 1 | Go |
+| [@dipedro1](https://twitter.com/dipedro1) | 4 | NodeJS com Adonis ou Nest com express |
+| [@albertop_osrs](https://twitter.com/albertop_osrs) | 0 | Go, Java, Javascript/TypeScript, C# |
+| [@powerclonic](https://twitter.com/powerclonic) | 1,5 | Node.JS, PHP |
+| [@NicolasVycas](https://twitter.com/NicolasVycas) | 0 + alguns de estudo  | Node.js |
+| [@andr3marra](https://twitter.com/andr3marra) | 3 | C# .NET |
+| [@vinexcx](https://twitter.com/vinexcx) | 2 | Python com Falcon |
+| [@Ny62639087](https://twitter.com/Ny62639087) | 1 Ano  | Javascript |
+| [@ak_enjoyer](https://twitter.com/ak_enjoyer) | 1 | Python |
+| [@g__nog](https://twitter.com/g__nog) | 1 | Go, ruby, jvm |
+| [@Linkoml](https://twitter.com/Linkoml) | 1 | C# |
+| [@b_oakland](https://twitter.com/b_oakland) | 0 | Java / spring |
+| [@VMjunior](https://twitter.com/VMjunior) | 0 | Java + Spring Boot |
+| [@Isaacmacb](https://twitter.com/Isaacmacb) | 1,5 | Js, Node, Type, Bd, e um pouco de java. |
+| [@robertheorem](https://twitter.com/robertheorem) | 3 | NodeJS e Python |
+| [@comradsig](https://twitter.com/comradsig) | 3 | Typescript, Javascript |
+| [@thiagochfc](https://twitter.com/thiagochfc) | 3 | C# |
