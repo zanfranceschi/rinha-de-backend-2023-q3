@@ -108,3 +108,5 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@\_Gabriwl\_](https://twitter.com/_Gabriwl_) | Trabalhando 2, qnd comecei, 4 | Java & TypeScript |
 | [@GustavoKoefend1](https://twitter.com/GustavoKoefend1) | 2 | javascript |
 | [@JacksonLRS](https://twitter.com/JacksonLRS) | 3 | Node/javascript |
+| [@andrewwbxd](https://twitter.com/andrewwbxd) | 1 | Java |
+| [@devdebugado](https://twitter.com/devdebugado) | 3 | Go, .Net, Node |
