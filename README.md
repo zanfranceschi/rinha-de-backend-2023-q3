@@ -1,15 +1,13 @@
 # Rinha de Backend - Edição 2023 Q3
 
+![logo da rinha de backend](/logo.jpg)
+
 > Baseda nesse tuíte: https://twitter.com/zanfranceschi/status/1685083383397765120
 
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
-## Ideia Geral do Torneio
-- As APIs precisam expor endpoints iguais e necessariamente usar um dos seguintes bancos de dados (à sua escolha): Postgres, MySQL, ou MongoDB.
-- O "deploy" da API seria feito via docker-compose com limites de CPU e memória.
-- O teste seria executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
-- O torneio terá duas categorias: linguagens interpretadas e compiladas.
-- A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
+## Instruções
+Acesse às [instruções do torneio aqui](/INSTRUCOES.md).
 
 
 ## Inscrições
@@ -100,3 +98,24 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@thiagochfc](https://twitter.com/thiagochfc) | 3 | C# |
 | [@edgarberlinck](https://twitter.com/edgarberlinck) | 23 | Node + TS |
 | [@eusouoJoaoLima](https://twitter.com/eusouoJoaoLima) | 1 | NodeJS, Java |
+| [@hyperruim](https://twitter.com/hyperruim) | 4 | C#, NodeJS e PHP |
+| [@arturbarth](https://twitter.com/arturbarth) | 13 | Java + Spring Boot + Quarkus + Micronaut |
+| [@ardurds](https://twitter.com/ardurds) | 1 | Node.JS |
+| [@_jguis](https://twitter.com/_jguis) | 4 | Node, mas vou brincar em Ruby |
+| [@bea_dadalto](https://twitter.com/bea_dadalto) | 1 | java / spring |
+| [@IrwiingT](https://twitter.com/IrwiingT) | 3 | C# .Net |
+| [@lsferreira42](https://twitter.com/lsferreira42) | 12 | golang, python, lua |
+| [@eduhenke](https://twitter.com/eduhenke) | 8 | Rust |
+| [@victorhbni](https://twitter.com/victorhbni) | 11 | PHP |
+| [@\_Gabriwl\_](https://twitter.com/_Gabriwl_) | Trabalhando 2, qnd comecei, 4 | Java & TypeScript |
+| [@GustavoKoefend1](https://twitter.com/GustavoKoefend1) | 2 | javascript |
+| [@JacksonLRS](https://twitter.com/JacksonLRS) | 3 | Node/javascript |
+| [@andrewwbxd](https://twitter.com/andrewwbxd) | 1 | Java |
+| [@devdebugado](https://twitter.com/devdebugado) | 3 | Go, .Net, Node |
+| [@joaopalopess](https://twitter.com/joaopalopess) | 5 | PHP, Laravel |
+| [@dev_sauro](https://twitter.com/dev_sauro) | xp < 2 | python |
+| [@luaopestana](https://twitter.com/luaopestana) | 1 | Java e nodeJS |
+| [@\_\_nbdev\_\_](https://twitter.com/__nbdev__) | 3 | Python, Go  |
+| [@joaorflga](https://twitter.com/joaorflga) | 4 | Go, Rust, NodeJS |
+| [@natanaelsimoes](https://twitter.com/natanaelsimoes) | 14 | Node |
+| [@gustm](https://twitter.com/gustm) | 1 | C# |
