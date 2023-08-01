@@ -55,7 +55,7 @@ Exemplos de requisições válidas:
 ```
 Para requisições inválidas, o status code deve ser 422 - Unprocessable Entity/Content. Aqui, novamente, o conteúdo do corpo fica a seu critério.
 
-Exemplos de requisições válidas:
+Exemplos de requisições inválidas:
 ```json
 {
     "apelido" : "josé", // caso "josé" já tenha sido criado em outra requisição
