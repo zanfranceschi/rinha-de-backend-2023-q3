@@ -229,7 +229,7 @@ services:
           cpus: '0.25'
           memory: '0.5GB'
 
-  api2: # API - Instância 01
+  api2: # API - Instância 02
     image: api
     hostname: api2
     depends_on:
