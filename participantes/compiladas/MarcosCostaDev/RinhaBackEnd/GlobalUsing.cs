@@ -1,0 +1,9 @@
+﻿global using AutoMapper;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Flunt.Validations;
+global using Flunt.Notifications;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.OpenApi.Models;
+global using AutoMapper.QueryableExtensions;
+global using LinqKit;

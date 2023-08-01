@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  rinhabackend:
+    image: ${DOCKER_REGISTRY-}rinhabackend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  db:
+    image: 'postgres:latest'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
+    ports:
+       - 5432:5432
+    environment:
+       POSTGRES_USER: rinha
+       POSTGRES_PASSWORD: 7653e869faa3 
+       POSTGRES_DB: rinhadb
+  
