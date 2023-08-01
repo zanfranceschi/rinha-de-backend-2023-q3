@@ -119,3 +119,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@joaorflga](https://twitter.com/joaorflga) | 4 | Go, Rust, NodeJS |
 | [@natanaelsimoes](https://twitter.com/natanaelsimoes) | 14 | Node |
 | [@gustm](https://twitter.com/gustm) | 1 | C# |
+| [@pinhobrunodev](https://twitter.com/pinhobrunodev) | 4 | Java |
