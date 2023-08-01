@@ -4,6 +4,7 @@ namespace RinhaBackEnd.Domain
 {
     public class Person : Notifiable<Notification>
     {
+        protected Person() { }
         public Person(string apelido, string nome, DateTime nascimento)
         {
             Id = Guid.NewGuid();

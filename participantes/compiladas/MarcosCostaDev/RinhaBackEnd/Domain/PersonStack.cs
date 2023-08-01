@@ -4,6 +4,7 @@ namespace RinhaBackEnd.Domain
 {
     public class PersonStack : Notifiable<Notification>
     {
+        protected PersonStack() { }
         public PersonStack(Person person, Stack stack)
         {
             Person = person;

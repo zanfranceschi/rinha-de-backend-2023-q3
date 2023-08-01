@@ -1,7 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using RinhaBackEnd.Domain;
+﻿using RinhaBackEnd.Domain;
 using System.Diagnostics.CodeAnalysis;
-using System;
 
 namespace RinhaBackEnd.Infra.Contexts;
 
@@ -27,7 +25,7 @@ public class PeopleDbContext : DbContext
 
         builder.Entity<Stack>(entity =>
         {
-            entity.ToTable("People");
+            entity.ToTable("Stacks");
             entity.HasKey(p => p.Id);
         });
 

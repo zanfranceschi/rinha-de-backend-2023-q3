@@ -1,11 +1,11 @@
-﻿
-
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.DependencyInjection;
+using RinhaBackEnd.Infra.Contexts;
+using System.Diagnostics;
+using System;
 
 namespace RinhaBackEnd.Test;
 
-internal class ProgramFixture : WebApplicationFactory<Program>, IDisposable
+public class ProgramFixture : WebApplicationFactory<Program>, IDisposable
 {
     private HttpClient _httpClient;
     public HttpClient Client
@@ -37,15 +37,10 @@ internal class ProgramFixture : WebApplicationFactory<Program>, IDisposable
 
     private void DropTestDatabases()
     {
-        //var appdb = new SqliteConnection(Configuration.GetConnectionString("dbconnection"));
+        var appdb = new SqliteConnection(Configuration.GetConnectionString("PeopleDbConnection"));
 
-        //if (File.Exists(appdb.DataSource))
-        //    File.Delete(appdb.DataSource);
-
-        //var hangfiredb = new SqliteConnection(Configuration.GetConnectionString("hangfiredb"));
-
-        //if (File.Exists(hangfiredb.DataSource))
-        //    File.Delete(hangfiredb.DataSource);
+        if (File.Exists(appdb.DataSource))
+            File.Delete(appdb.DataSource);
     }
 
 
@@ -54,9 +49,47 @@ internal class ProgramFixture : WebApplicationFactory<Program>, IDisposable
         builder.UseContentRoot(Environment.CurrentDirectory)
                         .UseEnvironment("Testing")
                         .UseConfiguration(Configuration);
+
+        builder.ConfigureTestServices(services =>
+        {
+            var serviceProvider = services.BuildServiceProvider();
+
+            services.Remove(ServiceDescriptor.Scoped(typeof(PeopleDbContext), typeof(PeopleDbContext)));
+
+            services.AddDbContext<PeopleDbContext>(options =>
+            {
+
+                var sqliteConnectionString = Configuration.GetConnectionString("PeopleDbConnection");
+
+                sqliteConnectionString = sqliteConnectionString.Replace("./", Environment.CurrentDirectory + "/", StringComparison.OrdinalIgnoreCase);
+
+                options.UseSqlite(sqliteConnectionString);
+
+            }, ServiceLifetime.Scoped);
+        });
+
+
         base.ConfigureWebHost(builder);
     }
+    protected override IHost CreateHost(IHostBuilder builder)
+    {
+        var appdb = new SqliteConnection(Configuration.GetConnectionString("PeopleDbConnection"));
 
+        if (!File.Exists(appdb.DataSource))
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "App_Data");
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+        }
+        return base.CreateHost(builder);
+    }
+
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+    }
+
+    
     public void Dispose()
     {
         Dispose(true);
@@ -71,4 +104,9 @@ internal class ProgramFixture : WebApplicationFactory<Program>, IDisposable
         }
     }
 
+}
+
+[CollectionDefinition("API", DisableParallelization = true)]
+public class StartupFixtureCollection : ICollectionFixture<ProgramFixture>
+{
 }
