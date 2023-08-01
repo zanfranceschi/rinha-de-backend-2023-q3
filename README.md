@@ -116,3 +116,6 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@dev_sauro](https://twitter.com/dev_sauro) | xp < 2 | python |
 | [@luaopestana](https://twitter.com/luaopestana) | 1 | Java e nodeJS |
 | [@\_\_nbdev\_\_](https://twitter.com/__nbdev__) | 3 | Python, Go  |
+| [@joaorflga](https://twitter.com/joaorflga) | 4 | Go, Rust, NodeJS |
+| [@natanaelsimoes](https://twitter.com/natanaelsimoes) | 14 | Node |
+| [@gustm](https://twitter.com/gustm) | 1 | C# |

@@ -55,7 +55,7 @@ Exemplos de requisições válidas:
 ```
 Para requisições inválidas, o status code deve ser 422 - Unprocessable Entity/Content. Aqui, novamente, o conteúdo do corpo fica a seu critério.
 
-Exemplos de requisições válidas:
+Exemplos de requisições inválidas:
 ```json
 {
     "apelido" : "josé", // caso "josé" já tenha sido criado em outra requisição
@@ -68,7 +68,7 @@ Exemplos de requisições válidas:
 ```json
 {
     "apelido" : "ana",
-    "nome" : null, // não poder ser null
+    "nome" : null, // não pode ser null
     "nascimento" : "1985-09-23",
     "stack" : null
 }
@@ -290,10 +290,10 @@ http {
 ```
 
 ### Imagens Docker
-Você notou que o arquivo docker-compose.yml aponta para imagens da API que irá desenvolver, então é necessário que estas imagens estejam disponíveis publicamente em algo serviço como o [docker hub](https://hub.docker.com/), por exemplo. Caso contrário, eu não serei capaz de subir os contanineres. Por causa das minhas restrições de tempo, também não irei conseguir construir todas as imagens docker, por isso, novamente, é necessário que as imagens estejam publicamente disponíveis, ok?
+Você notou que o arquivo docker-compose.yml aponta para imagens da API que irá desenvolver, então é necessário que estas imagens estejam disponíveis publicamente em algo serviço como o [docker hub](https://hub.docker.com/), por exemplo. Caso contrário, eu não serei capaz de subir os contâineres. Por causa das minhas restrições de tempo, também não irei conseguir construir todas as imagens docker, por isso, novamente, é necessário que as imagens estejam publicamente disponíveis, ok?
 
 ### Sobre a Entrega para Participar
-Você precisa fazer o seguinte para participar.
+Você precisa fazer o seguinte para participar:
 
 - Criar um repositório git público com o código fonte da sua aplicação.
 - Fazer um pull request neste repositório criando um sub diretório em `/participantes/[compiladas/interpretadas]` (por exemplo: `/participantes/compiladas/meu-time` se seu time ou você estiver usando uma lang compilada) com os seguintes arquivos:
