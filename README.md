@@ -7,7 +7,7 @@
 A ideia é fazer um torneio de APIs que passariam por um teste de stress. A API que aguentar mais, ganha :)
 
 ## Instruções
-Acesse às [instruções do torneio aqui](/INSTRUCOES.md).
+Acesse as [instruções do torneio aqui](/INSTRUCOES.md).
 
 
 ## Inscrições
