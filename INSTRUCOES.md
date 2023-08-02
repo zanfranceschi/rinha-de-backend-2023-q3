@@ -7,13 +7,12 @@
 - As APIs precisam expor endpoints iguais e necessariamente usar um dos seguintes bancos de dados (à sua escolha): Postgres, MySQL, ou MongoDB.
 - O "deploy" da API seria feito via docker-compose com limites de CPU e memória.
 - O teste seria executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
-- O torneio terá duas categorias: linguagens interpretadas e compiladas.
 - A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
 - Os detalhes do teste de stress serão surpresa, mas a ideia essencial é progressivamente ir aumentando o número de requisições nos endpoints até um dado limite de tempo (alguns minutos, por exemplo).
 
 
 ## Endpoints
-As APIs precisam expor 3 endpoints:
+As APIs precisam expor 3 (4, na verdade) endpoints:
 
 - `POST /pessoas` – para criar um recurso pessoa.
 - `GET /pessoas/[:id]` – para consultar um recurso criado com a requisição anterior.
@@ -296,8 +295,7 @@ Você notou que o arquivo docker-compose.yml aponta para imagens da API que irá
 Você precisa fazer o seguinte para participar:
 
 - Criar um repositório git público com o código fonte da sua aplicação.
-- Fazer um pull request neste repositório criando um sub diretório em `/participantes/[compiladas/interpretadas]` (por exemplo: `/participantes/compiladas/meu-time` se seu time ou você estiver usando uma lang compilada) com os seguintes arquivos:
+- Fazer um pull request neste repositório criando um sub diretório em `/participantes/` (por exemplo: `/participantes/meu-time`) com os seguintes arquivos:
     - Um `README.md` com um link para o repositório git de onde o código fonte sua aplicação estiver.
     - Um `docker-compose.yml` com a declaração das imagens da sua aplicação e com os recursos já distribuídos corretamente.
     - Opcionalmente, um `nginx.conf` com as configurações de balanceamento caso for usar a imagem nginx padrão. Se não for, seu `docker-compose.yml` precisa apontar para uma imagem personalizada com essas configurações.
-
