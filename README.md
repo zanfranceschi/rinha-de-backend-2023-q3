@@ -128,3 +128,20 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@memory_vague_](https://twitter.com/gustm) | 0 | Perl |
 | [@pxzin](https://twitter.com/pxzin) | 18 | NodeJS, JS/TS |
 | [@marcoscostadev](https://twitter.com/MarcosCostaDev) | 10 | C# .Net |
+| [@arauhovitor](https://twitter.com/arauhovitor) | 0 | Node.js e Typescript |
+| [@messi_py](https://twitter.com/messi_py) | 3 | Java |
+| [@Robpauloo](https://twitter.com/Robpauloo) | 2 | C#, JavaScript |
+| [@ramon_developer](https://twitter.com/ramon_developer) | 4 | Java |
+| [@eimigueloliveir](https://twitter.com/eimigueloliveir) | 2 | C# |
+| [@adryellsz](https://twitter.com/adryellsz) | 2 anos (estudos) + 2 anos (profissional) | Rust, Python |
+| [@udyrcadeirante](https://twitter.com/@udyrcadeirante) | 2 anos (estudos) + 2 anos (profissional) | Rust, Python |
+| [@bonanacatt](https://twitter.com/bonanacatt) | 4 | NodeJS |
+| [@ygor_areda](https://twitter.com/ygor_areda) | 2 | C# |
+| [@pinhobrunodev](https://twitter.com/pinhobrunodev) | 4 | Java/Spring |
+| [@guisithos](https://twitter.com/guisithos) | 1 | Java |
+| [@eduardovictor88](https://twitter.com/eduardovictor88) | 4 | python |
+| [@obvioussssly](https://twitter.com/obvioussssly) | 3 | Rust, Haskell, Js, OCaml |
+| [@barizaah](https://twitter.com/barizaah) | 1 | PHP, Laravel, NodeJS |
+| [@\_jeffmedeiros\_](https://twitter.com/\_jeffmedeiros\_) | 0 | Java, Typescript, React |
+| [@p_balduino](https://twitter.com/p_balduino) | 28 | Clojure, Go |
+| [@\_ordepp](https://twitter.com/\_ordepp) | 2 | Python, C, C++, PHP, SQL |
