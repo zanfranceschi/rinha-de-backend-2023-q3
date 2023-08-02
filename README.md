@@ -120,3 +120,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@natanaelsimoes](https://twitter.com/natanaelsimoes) | 14 | Node |
 | [@gustm](https://twitter.com/gustm) | 1 | C# |
 | [@pxzin](https://twitter.com/pxzin) | 18 | NodeJS, JS/TS |
+| [@marcoscostadev](https://twitter.com/MarcosCostaDev) | 10 | C# .Net |
