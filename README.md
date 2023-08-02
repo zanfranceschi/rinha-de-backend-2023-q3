@@ -15,8 +15,8 @@ Faça um pull request incluindo sua intenção de participar pra eu ter uma noç
 
 Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIpQLSevmaqfjh9r9K0f9l-MD-cNcM6Te4P4HnIvhM0-9WNxz5pwhg/viewform) aqui do Google em vez de fazer um PR.
 
-## Total de participantes
-![Total de participantes](./contador-participantes/dist/number.svg)
+*Número de pré inscrições*
+![Número de pré inscrições](./contador-participantes/dist/number.svg)
 
 | @ do Twitter | Anos de XP | Stack |
 | --- | --- | --- |
