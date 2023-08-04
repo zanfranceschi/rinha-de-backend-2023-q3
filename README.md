@@ -145,3 +145,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@\_jeffmedeiros\_](https://twitter.com/\_jeffmedeiros\_) | 0 | Java, Typescript, React |
 | [@p_balduino](https://twitter.com/p_balduino) | 28 | Clojure, Go |
 | [@\_ordepp](https://twitter.com/\_ordepp) | 2 | Python, C, C++, PHP, SQL |
+| [@\_PedroAlonso\_](https://twitter.com/\_PedroAlonso\_) | 1.9 mercado + 4 estudando | Java, Node.js, Python, Go |
