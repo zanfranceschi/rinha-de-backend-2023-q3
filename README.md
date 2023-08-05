@@ -146,3 +146,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@p_balduino](https://twitter.com/p_balduino) | 28 | Clojure, Go |
 | [@\_ordepp](https://twitter.com/\_ordepp) | 2 | Python, C, C++, PHP, SQL |
 | [@aindatenhoconta](https://twitter.com/aindatenhoconta) | 11 (Python), 1 (C++), 0 (Javascript), 32 (outros) | Python (FastAPI / Quart), C++ (sem framework), Javascript (só pela zuera) |
+| [@otaviocapila](https://twitter.com/otaviocapila) | 6 | Javascript, Typescript, Node.JS(Express,Koa,Nest.JS) |
