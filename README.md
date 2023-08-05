@@ -149,3 +149,19 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@\_PedroAlonso\_](https://twitter.com/\_PedroAlonso\_) | 1.9 mercado + 4 estudando | Java, Node.js, Python, Go |
 | [@aindatenhoconta](https://twitter.com/aindatenhoconta) | 11 (Python), 1 (C++), 0 (Javascript), 32 (outros) | Python (FastAPI / Quart), C++ (sem framework), Javascript (só pela zuera) |
 | [@otaviocapila](https://twitter.com/otaviocapila) | 6 | Javascript, Typescript, Node.JS(Express,Koa,Nest.JS) |
+| [@math_senaa](https://twitter.com/math_senaa) | 5 | NodeJS e Python |
+| [@h4nkb31f0ng](https://twitter.com/h4nkb31f0ng) | 6 | Node.js; Go; Elixir; Java. |
+| [@otaviocapila](https://twitter.com/otaviocapila) | 7 | Javascript/Typescript, Node.JS(Express/Nest), PHP, Python |
+| [@viniciusdromano](https://twitter.com/viniciusdromano) | 5 | Nodejs |
+| [@niclolinhas](https://twitter.com/niclolinhas) | 0 | C# |
+| [@jazielloureiro](https://twitter.com/jazielloureiro) | 2 | .NET, Node.js, Python |
+| [@sylviot](https://twitter.com/sylviot) | 10+ | C# |
+| [@Nebulonit](https://twitter.com/Nebulonit) | 1 ano | Python |
+| [@daltonfontesdev](https://twitter.com/daltonfontesdev) | 1,5 | php, typescript |
+| [@Khy248](https://twitter.com/Khy248) | 2 | NodeJS e Python |
+| [@ChristCorrales](https://twitter.com/ChristCorrales) | 4 | Typescript, PHP, Node, Laravel  |
+| [@vidownzera](https://twitter.com/vidownzera) | 2 | NodeJS |
+| [@EuFountai](https://twitter.com/EuFountai) | 7 | Node.js, Python, SQL, C++, JS/TS |
+| [@Samwinches1](https://twitter.com/Samwinches1) | 1.5 | Node.js, Typescript, PostgreSQL |
+| [@JPBandolin](https://twitter.com/JPBandolin) | 5 | PHP, NodeJS |
+| [@johrney](https://twitter.com/johrney) | 10 | C#, Dart, PL/SQL, PHP, Java, Vala, VB Net, Rust |
