@@ -171,6 +171,8 @@ Uma requisição `GET /pessoas?t=Python`, deveria retornar o seguinte:
 []
 ```
 
+Se a query string `t` não for informada, a resposta deve ter seu status code para 400 - bad request com o corpo que quiser. Ou seja, informar `q` é obrigatório.
+
 ### Contagem de Pessoas - Endpoint Especial
 `GET /contagem-pessoas`
 
