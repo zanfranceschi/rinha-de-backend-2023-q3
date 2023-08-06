@@ -1,0 +1,77 @@
+version: "3.3"
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: rinha
+    ports:
+      - "3306:3306"
+    networks:
+      - app-tier
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '0.8GB'
+  nginx:
+      image: bandolin/nginxrinhaapi:latest
+      depends_on:
+        - api1
+        - api2
+      ports:
+        - '80:80'
+        - '443:443'
+        - '9999:9999'
+      networks:
+        - app-tier
+      deploy:
+        resources:
+          limits:
+            cpus: '0.3'
+            memory: '0.6GB'
+  api1:
+    image: bandolin/rinhabackend:latest
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - app-tier
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+  api2:
+    image: bandolin/rinhabackend:without_migrations
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - app-tier
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.5GB'
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - app-tier
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.6GB'
+networks:
+  app-tier:
+    driver: bridge
