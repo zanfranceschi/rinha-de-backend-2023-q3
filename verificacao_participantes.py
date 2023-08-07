@@ -16,10 +16,12 @@ for arquivo in glob.glob(dir):
         print(arquivo)
         for service_key in services:
             service = services[service_key]
+            if "deploy" not in service.keys():
+                continue
             memory = service["deploy"]["resources"]["limits"]["memory"]
             memory_num = re.sub(r'[a-zA-Z]', '', service["deploy"]["resources"]["limits"]["memory"])
             cpus = service["deploy"]["resources"]["limits"]["cpus"]
-            ports = service["ports"]
+            ports = service["ports"] if "ports" in service.keys() else []
             for port in ports:
                 p = port.split(':')[0]
                 all_ports.append(p)
@@ -27,11 +29,12 @@ for arquivo in glob.glob(dir):
             total_memory += float(memory_num)
             print(f"{service['image'].ljust(40)} memory: {memory} / cpus: {cpus} / ports: {ports}")
         print("-" * 100)
-        status = "INVÁLIDO" if total_cpus > 1.5 or total_memory > 3.0 else 'VÁLIDO'
+        total_cpus = round(total_cpus, 2)
+        total_memory = round(total_memory, 2)
+        status = "INVÁLIDO" if total_cpus > 1.50 or total_memory > 3.00 else 'VÁLIDO'
         contains_port_9999 = any([p == '9999' for p in all_ports])
         print(f"{'USO MEM/CPU'.ljust(40)} {status} - memory: {total_memory} / cpus: {total_cpus}")
-        print(f"{'PORTA 9999 EXPOSTA?'.ljust(40)} {contains_port_9999}")
-        print("=" * 100)
+        print(f"{'PORTA 9999 EXPOSTA?'.ljust(40)} {contains_port_9999}\n")
         
 
         
