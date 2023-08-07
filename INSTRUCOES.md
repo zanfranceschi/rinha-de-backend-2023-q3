@@ -82,6 +82,26 @@ Exemplos de requisições inválidas:
 }
 ```
 
+Para o caso de requisições sintaticamente inválidas, a resposta deverá ter o status code para 400 - bad request. Exemplos:
+
+```json
+{
+    "apelido" : "apelido",
+    "nome" : 1, // nome deve ser string e não número
+    "nascimento" : "1985-01-01",
+    "stack" : null
+}
+```
+
+```json
+{
+    "apelido" : "apelido",
+    "nome" : "nome",
+    "nascimento" : "1985-01-01",
+    "stack" : [1, "PHP"] // stack deve ser um array de apenas strings
+}
+```
+
 ### Detalhe de uma Pessoa
 `GET /pessoas/[:id]`
 
