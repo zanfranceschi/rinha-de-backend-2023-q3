@@ -166,3 +166,10 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@JPBandolin](https://twitter.com/JPBandolin) | 5 | PHP, NodeJS |
 | [@johrney](https://twitter.com/johrney) | 10 | C#, Dart, PL/SQL, PHP, Java, Vala, VB Net, Rust |
 | [@triangulo_dev](https://twitter.com/triangulo_dev) | 10 | TypeScript, Rust |
+| [@\_\_fallis\_\_](https://twitter.com/\_\_fallis\_\_) | 2.5 | Php + laravel |
+| [@idevlovin](https://twitter.com/idevlovin) | 1 | Javascript/Typescript, Golang |
+| [@ismael_Ezequiel](https://twitter.com/ismael_Ezequiel) | 6 | Node.js, Ruby on Rails |
+| [@jeannsebold](https://twitter.com/jeannsebold) | 15 | mestre supremo do c#, quebrador da corrente do php, o mestre do javascript |
+| [@MarioMazzottiYT](https://twitter.com/MarioMazzottiYT) | 14 | ASP.NET Core |
+| [@nantes\_10](https://twitter.com/nantes\_10) | 2 | .NET |
+| [@lrweck](https://twitter.com/lrweck) | 8 | Go |
