@@ -5,6 +5,8 @@ services:
   api01:
     container_name: api01
     image: 'marcoslcosta/rinhabackend'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - db
       - redis
@@ -19,6 +21,8 @@ services:
   api02:
     container_name: api02
     image: 'marcoslcosta/rinhabackend'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - db
       - redis
@@ -53,7 +57,7 @@ services:
       resources:
         limits:
           cpus: '0.3'
-          memory: '0.3GB'
+          memory: '0.4GB'
   proxy:
     container_name: proxy
     image: nginx:latest
@@ -68,4 +72,4 @@ services:
       resources:
         limits:
           cpus: '0.1'
-          memory: '0.2GB'
+          memory: '0.1GB'
