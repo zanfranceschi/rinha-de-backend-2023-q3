@@ -77,7 +77,7 @@ Exemplos de requisições inválidas:
 {
     "apelido" : null, // não pode ser null
     "nome" : "Ana Barbosa",
-    "nascimento" : "23-09-1985", // formato inválido
+    "nascimento" : "1985-01-23",
     "stack" : null
 }
 ```
