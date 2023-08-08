@@ -165,3 +165,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@Samwinches1](https://twitter.com/Samwinches1) | 1.5 | Node.js, Typescript, PostgreSQL |
 | [@JPBandolin](https://twitter.com/JPBandolin) | 5 | PHP, NodeJS |
 | [@johrney](https://twitter.com/johrney) | 10 | C#, Dart, PL/SQL, PHP, Java, Vala, VB Net, Rust |
+| [@triangulo_dev](https://twitter.com/triangulo_dev) | 10 | TypeScript, Rust |
