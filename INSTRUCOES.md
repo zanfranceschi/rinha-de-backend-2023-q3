@@ -8,7 +8,7 @@
 - O "deploy" da API será feito via docker-compose com limites de CPU e memória.
 - O teste será executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
 - A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
-- Os detalhes do teste de stress serão surpresa, mas a ideia essencial é progressivamente ir aumentando o número de requisições nos endpoints até um dado limite de tempo (cerca de 3 minutos, por exemplo).
+- Os detalhes do teste de stress [estão aqui!](/stress-test/README.md)
 
 
 ## Endpoints
