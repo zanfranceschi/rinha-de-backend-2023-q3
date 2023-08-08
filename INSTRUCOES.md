@@ -175,7 +175,7 @@ Uma requisição `GET /pessoas?t=node`, deveria retornar o seguinte:
 }]
 ```
 
-Uma requisição `GET /pessoas?t=beto`, deveria retornar o seguinte:
+Uma requisição `GET /pessoas?t=berto`, deveria retornar o seguinte:
 ```json
 [{
     "id" : "f7379ae8-8f9b-4cd5-8221-51efe19e721b",
