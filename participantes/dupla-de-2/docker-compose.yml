@@ -1,5 +1,4 @@
 version: '3.9'
-name: 'rinha-de-backend'
 
 services:
   spring-api1:
