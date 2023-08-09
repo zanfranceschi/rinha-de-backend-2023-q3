@@ -1,0 +1,109 @@
+version: "3.9"
+
+networks:
+  rinhabackend:
+
+services:
+
+  database:
+    container_name: database
+    image: 'postgres:latest'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.60'
+          memory: '1.5GB'
+    ports:
+       - 5432:5432
+    environment:
+       POSTGRES_USER: rinha
+       POSTGRES_PASSWORD: k8M9ODJ7d19FCs
+       POSTGRES_DB: rinha-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+     - rinhabackend
+
+  redis:
+    image: redis
+    container_name: cache
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: '0.3GB'
+    networks:
+     - rinhabackend
+
+  api-01:
+    container_name: api-01
+    image: isaacnborges/rinha-api
+    hostname: api-01
+    environment: 
+      - ConnectionStrings__DatabaseConnection=Host=database;Port=5432;Database=rinha-db;Username=rinha;Password=k8M9ODJ7d19FCs;
+      - ConnectionStrings__RedisConnection=redis:6379,abortConnect=False
+    depends_on:
+      database:
+        condition: service_healthy
+    expose:
+      - "80"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h database -p 5432 -q -U rinha"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.25GB'
+    networks:
+     - rinhabackend
+
+  api-02:
+    container_name: api-02
+    image: isaacnborges/rinha-api
+    hostname: api-02
+    environment: 
+      - ConnectionStrings__DatabaseConnection=Host=database;Port=5432;Database=rinha-db;Username=rinha;Password=k8M9ODJ7d19FCs;
+      - ConnectionStrings__RedisConnection=redis:6379,abortConnect=False
+    depends_on:
+      database:
+        condition: service_healthy
+    expose:
+      - "80"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h database -p 5432 -q -U rinha"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.25GB'
+    networks:
+     - rinhabackend
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    depends_on:
+      - api-01
+      - api-02
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+    networks:
+      - rinhabackend
