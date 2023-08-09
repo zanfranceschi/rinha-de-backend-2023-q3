@@ -173,3 +173,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@MarioMazzottiYT](https://twitter.com/MarioMazzottiYT) | 14 | ASP.NET Core |
 | [@nantes\_10](https://twitter.com/nantes\_10) | 2 | .NET |
 | [@lrweck](https://twitter.com/lrweck) | 8 | Go |
+| [@MrPowerGamerBR](https://twitter.com/MrPowerGamerBR) | 9 | Kotlin (my beloved), Java |

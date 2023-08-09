@@ -1,0 +1,80 @@
+version: '3.5'
+services:
+  rinha1:
+    hostname: "rinha1"
+    image: ghcr.io/mrpowergamerbr/rinha-de-backend-2023-q3@sha256:160373fff01b74891c613a06917859ecf845308819badc4466bd3777bd42bf93
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      POSTGRESQL_ADDRESS: db
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_PASSWORD: postgres
+      POSTGRESQL_DATABASE: rinhadebackend
+      WEBSERVER_PORT: 9999
+      JAVA_TOOL_OPTIONS: "-verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '1024MB'
+    networks:
+      - rinha-network
+
+  rinha2:
+    hostname: "rinha2"
+    image: ghcr.io/mrpowergamerbr/rinha-de-backend-2023-q3@sha256:160373fff01b74891c613a06917859ecf845308819badc4466bd3777bd42bf93
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      POSTGRESQL_ADDRESS: db
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_PASSWORD: postgres
+      POSTGRESQL_DATABASE: rinhadebackend
+      WEBSERVER_PORT: 9999
+      JAVA_TOOL_OPTIONS: "-verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '1024MB'
+    networks:
+      - rinha-network
+
+  db: # Banco de dados
+    image: postgres
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1024MB'
+    environment:
+      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rinhadebackend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rinha-network
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '256MB'
+    networks:
+      - rinha-network
+
+networks:
+  rinha-network:
