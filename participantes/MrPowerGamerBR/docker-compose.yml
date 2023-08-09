@@ -17,7 +17,7 @@ services:
       resources:
         limits:
           cpus: '0.25'
-          memory: '1024MB'
+          memory: '768MB'
     networks:
       - rinha-network
 
@@ -38,7 +38,7 @@ services:
       resources:
         limits:
           cpus: '0.25'
-          memory: '1024MB'
+          memory: '768MB'
     networks:
       - rinha-network
 
@@ -48,7 +48,7 @@ services:
       resources:
         limits:
           cpus: '0.75'
-          memory: '768MB'
+          memory: '1280MB'
     environment:
       PGUSER: postgres
       POSTGRES_USER: postgres
