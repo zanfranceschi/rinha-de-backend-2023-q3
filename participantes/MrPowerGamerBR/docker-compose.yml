@@ -48,7 +48,7 @@ services:
       resources:
         limits:
           cpus: '0.75'
-          memory: '1024MB'
+          memory: '768MB'
     environment:
       PGUSER: postgres
       POSTGRES_USER: postgres
