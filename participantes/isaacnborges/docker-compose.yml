@@ -11,8 +11,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.60'
-          memory: '1.5GB'
+          cpus: '0.5'
+          memory: '1.7GB'
     ports:
        - 5432:5432
     environment:
@@ -35,8 +35,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.20'
-          memory: '0.3GB'
+          cpus: '0.3'
+          memory: '0.4GB'
     networks:
      - rinhabackend
 
@@ -60,8 +60,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: '0.25GB'
+          cpus: '0.3'
+          memory: '0.4GB'
     networks:
      - rinhabackend
 
@@ -85,8 +85,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: '0.25GB'
+          cpus: '0.3'
+          memory: '0.4GB'
     networks:
      - rinhabackend
 
@@ -103,7 +103,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: '0.5GB'
+          cpus: '0.1'
+          memory: '0.1GB'
     networks:
       - rinhabackend
