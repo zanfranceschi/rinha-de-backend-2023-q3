@@ -175,3 +175,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@lrweck](https://twitter.com/lrweck) | 8 | Go |
 | [@jntsx](https://twitter.com/jntsx) | 0.5 | javascript no backend kkkkkkkkk |
 | [@alexrintt](https://tree.alexrintt.io) | 0 | nem beck-end eu sou \| dart |
+| [@MrPowerGamerBR](https://twitter.com/MrPowerGamerBR) | 9 | Kotlin (my beloved), Java |
