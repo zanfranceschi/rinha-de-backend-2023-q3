@@ -173,7 +173,8 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@MarioMazzottiYT](https://twitter.com/MarioMazzottiYT) | 14 | ASP.NET Core |
 | [@nantes\_10](https://twitter.com/nantes\_10) | 2 | .NET |
 | [@lrweck](https://twitter.com/lrweck) | 8 | Go |
+| [@isaacnborges](https://twitter.com/isaacnborges) | 9 | c# dotnet |
 | [@jntsx](https://twitter.com/jntsx) | 0.5 | javascript no backend kkkkkkkkk |
 | [@alexrintt](https://tree.alexrintt.io) | 0 | nem beck-end eu sou \| dart |
 | [@_p1som](https://twitter.com/_p1som) | 2.5 | Kotlin, Rust |
-
+| [@MrPowerGamerBR](https://twitter.com/MrPowerGamerBR) | 9 | Kotlin (my beloved), Java |

@@ -14,38 +14,53 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.7'
-          memory: '2.1GB'
+          cpus: '0.6'
+          memory: '1GB'
+
+  cache:
+    hostname: cache
+    image: redislabs/redisearch:latest
+    ports:
+      - '6379:6379'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.7GB'
   
   api01:
     image: zanfranceschi/rinha-api-2023
     hostname: rinha-api01
     depends_on:
       - db
+      - cache
     environment:
       - DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;Connection Pruning Interval=1;Connection Idle Lifetime=2;Enlist=false;No Reset On Close=true
+      - CACHE_CONNECTION_STRING=cache
     expose:
       - "80"
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.2'
+          memory: '0.5GB'
   
   api02:
     image: zanfranceschi/rinha-api-2023
     hostname: rinha-api02
     depends_on:
       - db
+      - cache
     environment:
       - DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;Connection Pruning Interval=1;Connection Idle Lifetime=2;Enlist=false;No Reset On Close=true
+      - CACHE_CONNECTION_STRING=cache
     expose:
       - "80"
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.2'
+          memory: '0.5GB'
   
   nginx:
     image: nginx:latest
@@ -59,8 +74,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
-          memory: '0.1GB'
+          cpus: '0.15'
+          memory: '0.3GB'
 
 networks:
   default:
