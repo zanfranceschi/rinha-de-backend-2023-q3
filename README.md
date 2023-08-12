@@ -21,7 +21,6 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 
 | @ do Twitter | Anos de XP | Stack |
 | --- | --- | --- |
-| [@PippiPatric](https://twitter.com/PippiPatric) | 6+ | C |
 | [@coproduto](https://twitter.com/coproduto) | 12 | Elixir, Rust, Zig, Julia |
 | [@lffgz](https://twitter.com/lffgz) | 2 | Rust |
 | [@menta01001](https://twitter.com/Menta01001) | 2 | C# |
@@ -179,3 +178,4 @@ Se preferir, preenche [esse formulário](https://docs.google.com/forms/d/e/1FAIp
 | [@alexrintt](https://tree.alexrintt.io) | 0 | nem beck-end eu sou \| dart |
 | [@_p1som](https://twitter.com/_p1som) | 2.5 | Kotlin, Rust |
 | [@MrPowerGamerBR](https://twitter.com/MrPowerGamerBR) | 9 | Kotlin (my beloved), Java |
+| [@PippiPatric](https://twitter.com/PippiPatric) | 6+ | C |
