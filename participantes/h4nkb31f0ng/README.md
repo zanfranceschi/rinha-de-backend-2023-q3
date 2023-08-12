@@ -1,5 +1,5 @@
 # h4nkb31f0ng - Golang
-[Repositório](https://github.com/leorcvargas/rinha-de-backend-2023-q3)
+[Repositório](https://github.com/leorcvargas/rinha-go)
 
 ## Tech
 - Go 1.21
