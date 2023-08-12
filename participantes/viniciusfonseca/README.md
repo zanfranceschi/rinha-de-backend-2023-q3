@@ -1,4 +1,4 @@
-# Rinha de Backend na linguagem mais _blazingly fast™_ do mercado.
+# Rinha de Backend na linguagem mais _blazingly fast™_ do mercado. 🦀🔥
 
 Stack:
 
