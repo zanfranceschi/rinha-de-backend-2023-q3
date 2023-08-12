@@ -15,6 +15,6 @@ Stack:
 
 Github: [viniciusfonseca](https://github.com/viniciusfonseca/)
 
-Twitter: [distanteagle16](https://github.com/viniciusfonseca/rinha-backend-rust/)
+Twitter: [@distanteagle16](https://twitter.com/distanteagle16)
 
 Repositório: [viniciusfonseca/rinha-backend-rust](https://github.com/viniciusfonseca/rinha-backend-rust/)
