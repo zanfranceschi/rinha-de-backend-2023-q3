@@ -18,11 +18,13 @@ services:
           memory: "1GB"
     volumes:
       - postgres-db:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
+    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
   api1:
     image: leorcvargas/rinha-go
@@ -83,3 +85,7 @@ services:
 
 volumes:
   postgres-db:
+
+networks:
+  default:
+    driver: bridge
