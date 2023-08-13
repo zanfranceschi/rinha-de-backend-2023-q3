@@ -27,7 +27,7 @@ services:
     command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
   api1:
-    image: leorcvargas/rinha-go
+    image: leorcvargas/rinha-go:main
     restart: always
     hostname: api1
     depends_on:
@@ -42,7 +42,7 @@ services:
           memory: "0.5GB"
 
   api2:
-    image: leorcvargas/rinha-go
+    image: leorcvargas/rinha-go:main
     restart: always
     hostname: api2
     depends_on:
