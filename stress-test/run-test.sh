@@ -13,4 +13,6 @@ sh $GATLING_BIN_DIR/gatling.sh -rm local -s RinhaBackendSimulation \
     -sf $WORKSPACE/user-files/simulations \
     -rsf $WORKSPACE/user-files/resources \
 
+sleep 3
+
 curl -v "http://localhost:9999/contagem-pessoas"
