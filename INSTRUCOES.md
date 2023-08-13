@@ -1,6 +1,6 @@
 # Instruções e Regras para Rinha de Backend - Edição 2023 Q3
 
-![logo da rinha de backend](/logo.jpg)
+![logo da rinha de backend](/misc/logo.jpg)
 
 ## Resumo
 
