@@ -9,6 +9,7 @@ GATLING_BIN_DIR=$HOME/gatling/bin
 WORKSPACE=$HOME/rinha-de-backend-2023-q3/stress-test
 
 sh $GATLING_BIN_DIR/gatling.sh -rm local -s RinhaBackendSimulation \
+    -rd "DESCRICAO" \
     -rf $WORKSPACE/user-files/results \
     -sf $WORKSPACE/user-files/simulations \
     -rsf $WORKSPACE/user-files/resources \
