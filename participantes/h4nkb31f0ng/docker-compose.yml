@@ -28,7 +28,6 @@ services:
 
   api1:
     image: leorcvargas/rinha-go:main
-    platform: linux/arm64
     restart: always
     hostname: api1
     depends_on:
@@ -44,7 +43,6 @@ services:
 
   api2:
     image: leorcvargas/rinha-go:main
-    platform: linux/arm64
     restart: always
     hostname: api2
     depends_on:
