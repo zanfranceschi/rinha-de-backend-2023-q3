@@ -12,7 +12,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: '0.15'
           memory: '0.4GB'
 
   api02: # API - Instância 02
@@ -26,7 +26,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: '0.15'
           memory: '0.4GB'
 
   nginx: # Load Balancer
@@ -41,7 +41,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.2'
           memory: '0.5GB'
 
   db: # Banco de dados
@@ -58,17 +58,18 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.55'
+          cpus: '0.9'
           memory: '1.4GB'
   redis:
     image: redis
     hostname: redis
     ports:
       - "6379:6379"
+    command: redis-server --save "" --appendonly no
     deploy:
       resources:
         limits:
-          cpus: '0.3'
+          cpus: '0.1'
           memory: '0.3GB'
 
 networks:
