@@ -7,4 +7,3 @@ Project Url [https://github.com/lazaronixon/rinha_de_backend](https://github.com
 ### Technologies
   - Ruby on Rails
   - Postgres (Database)
-  - Nginx (Load balancer)  
