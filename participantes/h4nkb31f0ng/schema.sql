@@ -2,8 +2,6 @@ CREATE EXTENSION IF NOT EXISTS "unaccent";
 
 CREATE EXTENSION IF NOT EXISTS "pg_trgm";
 
-CREATE EXTENSION IF NOT EXISTS "fuzzystrmatch";
-
 DROP TEXT SEARCH CONFIGURATION IF EXISTS public.people_terms CASCADE;
 
 CREATE TEXT SEARCH CONFIGURATION public.people_terms (COPY = pg_catalog.portuguese);
@@ -37,7 +35,8 @@ ADD
         )
     ) STORED;
 
-CREATE INDEX people_fts_q_idx ON public.people USING gin (fts_q);
+CREATE INDEX
+    CONCURRENTLY people_fts_q_idx ON public.people USING gin (fts_q);
 
 ALTER TABLE public.people
 ADD
@@ -46,4 +45,4 @@ ADD
     ) STORED;
 
 CREATE INDEX
-    idx_people_trigram ON public.people USING gist (trgm_q gist_trgm_ops);
+    CONCURRENTLY idx_people_trigram ON public.people USING gist (trgm_q gist_trgm_ops);
