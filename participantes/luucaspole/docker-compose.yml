@@ -11,38 +11,93 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.75'
+            cpus: '0.9'
             memory: '0.5GB'
   app1:
       image: lukas8219/rinha-be-2023-q3:latest
       environment:
         DB_URL: "postgres://postgres:12345678@postgres:5432/postgres"
-        BATCH: "true"
+        REDIS_URL: "redis://redis"
+        BATCH: "false"
         CLUSTER: "false"
+        PINO_LOG_LEVEL: "info"
+        REQ_TIMEOUT: "10000"
       ports:
         - "8080"
       depends_on:
         - postgres
+        - redis
       deploy:
         resources:
           limits:
-            cpus: '0.25'
-            memory: '0.5GB'
+            cpus: '0.1'
+            memory: '0.2GB'
   app2:
       image: lukas8219/rinha-be-2023-q3:latest
       environment:
         DB_URL: "postgres://postgres:12345678@postgres:5432/postgres"
-        BATCH: "true"
+        REDIS_URL: "redis://redis"
+        BATCH: "false"
         CLUSTER: "false"
+        REQ_TIMEOUT: "10000"
+        PINO_LOG_LEVEL: "info"
       ports:
         - "8080"
       depends_on:
         - postgres
+        - redis
       deploy:
         resources:
           limits:
-            cpus: '0.25'
-            memory: '0.5GB'
+            cpus: '0.1'
+            memory: '0.2GB'
+  app3:
+      image: lukas8219/rinha-be-2023-q3:latest
+      environment:
+        DB_URL: "postgres://postgres:12345678@postgres:5432/postgres"
+        REDIS_URL: "redis://redis"
+        BATCH: "false"
+        CLUSTER: "false"
+        REQ_TIMEOUT: "10000"
+        PINO_LOG_LEVEL: "info"
+      ports:
+        - "8080"
+      depends_on:
+        - postgres
+        - redis
+      deploy:
+        resources:
+          limits:
+            cpus: '0.1'
+            memory: '0.2GB'
+  app4:
+      image: lukas8219/rinha-be-2023-q3:latest
+      environment:
+        DB_URL: "postgres://postgres:12345678@postgres:5432/postgres"
+        REDIS_URL: "redis://redis"
+        BATCH: "false"
+        CLUSTER: "false"
+        REQ_TIMEOUT: "10000"
+        PINO_LOG_LEVEL: "info"
+      ports:
+        - "8080"
+      depends_on:
+        - postgres
+        - redis
+      deploy:
+        resources:
+          limits:
+            cpus: '0.1'
+            memory: '0.2GB'
+  redis: # Load Balancer
+    image: redis
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.5GB'
   nginx: # Load Balancer
     image: nginx:latest
     volumes:
@@ -50,10 +105,12 @@ services:
     depends_on:
       - app1
       - app2
+      - app3
+      - app4
     ports:
       - "9999:9999"
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.1'
           memory: '0.5GB'
