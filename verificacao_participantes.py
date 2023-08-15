@@ -4,16 +4,18 @@ import yaml.loader
 import re
 
 dir = "./participantes/*/docker-compose.yml"
+arquivos = 0
 
 for arquivo in glob.glob(dir):
+    arquivos += 1
     with open(arquivo, 'r') as f:
         declaracao = yaml.load(f, Loader=yaml.loader.SafeLoader)
         services = declaracao["services"]
         total_memory = 0.0
         total_cpus = 0.0
-        all_ports = [] 
-        print("=" * 100)
-        print(arquivo)
+        all_ports = []
+        msg = "=" * 100 + "\n"
+        msg += arquivo + "\n"
         for service_key in services:
             service = services[service_key]
             if "deploy" not in service.keys():
@@ -27,15 +29,19 @@ for arquivo in glob.glob(dir):
                 all_ports.append(p)
             total_cpus += float(cpus)
             total_memory += float(memory_num)
-            print(f"{service['image'].ljust(40)} memory: {memory} / cpus: {cpus} / ports: {ports}")
-        print("-" * 100)
+            msg += f"{service['image'].ljust(40)} memory: {memory} / cpus: {cpus} / ports: {ports}\n"
+        
+        msg += "-" * 100 + "\n"
         total_cpus = round(total_cpus, 2)
         total_memory = round(total_memory, 2)
         status = "INVÁLIDO" if total_cpus > 1.50 or total_memory > 3.00 else 'VÁLIDO'
         contains_port_9999 = any([p == '9999' for p in all_ports])
-        print(f"{'USO MEM/CPU'.ljust(40)} {status} - memory: {total_memory} / cpus: {total_cpus}")
-        print(f"{'PORTA 9999 EXPOSTA?'.ljust(40)} {contains_port_9999}\n")
-        
+        msg += f"{'USO MEM/CPU'.ljust(40)} {status} - memory: {total_memory} / cpus: {total_cpus}\n" 
+        msg += f"{'PORTA 9999 EXPOSTA?'.ljust(40)} {contains_port_9999}\n"
 
+        if (status == "INVÁLIDO"):
+            print(msg)
+    
+print(f"{arquivos} submissões")
         
 
