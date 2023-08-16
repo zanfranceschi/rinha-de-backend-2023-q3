@@ -41,7 +41,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: '0.4'
           memory: '0.5GB'
 
   db: # Banco de dados
@@ -51,6 +51,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: 1234 
       POSTGRES_DB: rinhadb
+    command: postgres -c shared_buffers=256MB
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
@@ -58,7 +59,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.9'
+          cpus: '0.7'
           memory: '1.4GB'
   redis:
     image: redis
