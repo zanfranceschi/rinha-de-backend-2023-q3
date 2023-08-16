@@ -11,7 +11,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.9'
+            cpus: '0.4'
             memory: '0.5GB'
   app1:
       image: lukas8219/rinha-be-2023-q3:latest
@@ -30,7 +30,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.1'
+            cpus: '0.3'
             memory: '0.2GB'
   app2:
       image: lukas8219/rinha-be-2023-q3:latest
@@ -49,7 +49,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.1'
+            cpus: '0.3'
             memory: '0.2GB'
   app3:
       image: lukas8219/rinha-be-2023-q3:latest
@@ -68,26 +68,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.1'
-            memory: '0.2GB'
-  app4:
-      image: lukas8219/rinha-be-2023-q3:latest
-      environment:
-        DB_URL: "postgres://postgres:12345678@postgres:5432/postgres"
-        REDIS_URL: "redis://redis"
-        BATCH: "false"
-        CLUSTER: "false"
-        REQ_TIMEOUT: "10000"
-        PINO_LOG_LEVEL: "info"
-      ports:
-        - "8080"
-      depends_on:
-        - postgres
-        - redis
-      deploy:
-        resources:
-          limits:
-            cpus: '0.1'
+            cpus: '0.3'
             memory: '0.2GB'
   redis: # Load Balancer
     image: redis
@@ -106,7 +87,6 @@ services:
       - app1
       - app2
       - app3
-      - app4
     ports:
       - "9999:9999"
     deploy:
