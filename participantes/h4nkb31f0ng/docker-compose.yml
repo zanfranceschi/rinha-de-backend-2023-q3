@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   db:
-    image: postgres:15-alpine
+    image: postgres
     hostname: db
     environment:
       POSTGRES_PASSWORD: postgres
@@ -14,8 +14,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.8"
-          memory: "1GB"
+          cpus: "0.15"
+          memory: "0.4GB"
     volumes:
       - postgres-db:/var/lib/postgresql/data
       - ./postgresql.conf:/etc/postgresql/postgresql.conf
@@ -23,7 +23,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
-      timeout: 5s
+      timeout: 25s
     command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
   api1:
@@ -38,8 +38,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.2"
-          memory: "0.5GB"
+          cpus: "0.5"
+          memory: "1GB"
 
   api2:
     image: leorcvargas/rinha-go:main
@@ -53,11 +53,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.2"
-          memory: "0.5GB"
+          cpus: "0.5"
+          memory: "1GB"
 
   nginx:
-    image: nginx:1.25.1-alpine
+    image: nginx
     hostname: api
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
@@ -69,8 +69,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.2"
-          memory: "0.5GB"
+          cpus: "0.25"
+          memory: "0.1GB"
 
   cache:
     hostname: cache
@@ -82,7 +82,7 @@ services:
         limits:
           cpus: "0.1"
           memory: "0.5GB"
-    command: ["redis-server", "--save", "\"\"", "--appendonly", "no"]
+    command: ["redis-server", "--save", '""', "--appendonly", "no"]
 
 volumes:
   postgres-db:
