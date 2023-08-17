@@ -1,6 +1,6 @@
 CREATE TABLE "pessoas"(
     "id" varchar(36) NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
-    "apelido" varchar(32) NOT NULL,
+    "apelido" varchar(32) NOT NULL UNIQUE,
     "nome" varchar(100) NOT NULL,
     "nascimento" date NOT NULL,
     "stack" text DEFAULT '[]'
