@@ -8,7 +8,7 @@ Github Repository: [@Eletroswing/rinha-de-backend-2023](https://github.com/eletr
  - Node.js
  - Javascript
  - Postgres
- - Redis
+ - socket as pub-sub
  - Custom http module
   > Uses an updated and edited version of the quarkhttp project
   > https://github.com/softchris/mini-web
