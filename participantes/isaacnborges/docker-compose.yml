@@ -11,8 +11,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: '1.7GB'
+          cpus: '0.3'
+          memory: '1.2GB'
     ports:
        - 5432:5432
     environment:
@@ -36,7 +36,7 @@ services:
       resources:
         limits:
           cpus: '0.3'
-          memory: '0.4GB'
+          memory: '0.5GB'
     networks:
      - rinhabackend
 
@@ -60,8 +60,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.4'
+          memory: '0.6GB'
+    restart: unless-stopped
     networks:
      - rinhabackend
 
@@ -75,6 +76,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
+    command: ["sh", "-c", "sleep 15"]
     expose:
       - "80"
     healthcheck:
@@ -85,8 +87,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.4'
+          memory: '0.6GB'
+    restart: unless-stopped
     networks:
      - rinhabackend
 
