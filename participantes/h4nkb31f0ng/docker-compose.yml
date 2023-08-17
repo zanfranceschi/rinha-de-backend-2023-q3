@@ -14,7 +14,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.15"
+          cpus: "0.25"
           memory: "0.4GB"
     volumes:
       - postgres-db:/var/lib/postgresql/data
@@ -22,7 +22,7 @@ services:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
+      interval: 15s
       timeout: 25s
     command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
@@ -30,6 +30,13 @@ services:
     image: leorcvargas/rinha-go:main
     restart: always
     hostname: api1
+    environment:
+      - ENABLE_SONIC_JSON=1
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=rinha
+      - DB_PORT=5432
     depends_on:
       db:
         condition: service_healthy
@@ -38,13 +45,20 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "1GB"
+          cpus: "0.35"
+          memory: "0.8GB"
 
   api2:
     image: leorcvargas/rinha-go:main
     restart: always
     hostname: api2
+    environment:
+      - ENABLE_SONIC_JSON=1
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=rinha
+      - DB_PORT=5432
     depends_on:
       db:
         condition: service_healthy
@@ -53,8 +67,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.5"
-          memory: "1GB"
+          cpus: "0.35"
+          memory: "0.8GB"
 
   nginx:
     image: nginx
@@ -69,8 +83,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.25"
-          memory: "0.1GB"
+          cpus: "0.3"
+          memory: "0.5GB"
 
   cache:
     hostname: cache
@@ -80,7 +94,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.1"
+          cpus: "0.25"
           memory: "0.5GB"
     command: ["redis-server", "--save", '""', "--appendonly", "no"]
 
