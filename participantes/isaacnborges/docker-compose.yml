@@ -11,8 +11,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.6'
-          memory: '2.1GB'
+          cpus: '0.3'
+          memory: '1.2GB'
     ports:
        - 5432:5432
     environment:
@@ -26,7 +26,20 @@ services:
       retries: 5
     networks:
      - rinhabackend
-     
+
+  redis:
+    image: redis
+    container_name: cache
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+    networks:
+     - rinhabackend
+
   api-01:
     container_name: api-01
     image: isaacnborges/rinha-api
@@ -48,7 +61,7 @@ services:
       resources:
         limits:
           cpus: '0.4'
-          memory: '0.4GB'
+          memory: '0.6GB'
     restart: unless-stopped
     networks:
      - rinhabackend
@@ -75,7 +88,7 @@ services:
       resources:
         limits:
           cpus: '0.4'
-          memory: '0.4GB'
+          memory: '0.6GB'
     restart: unless-stopped
     networks:
      - rinhabackend
