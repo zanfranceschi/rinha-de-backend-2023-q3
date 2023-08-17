@@ -1,0 +1,56 @@
+version: '3.5'
+services:
+  api1: # API - Instância 01
+    image: thelinuxlich/gleba:latest
+    hostname: api1
+    depends_on:
+      - db
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  api2: # API - Instância 01
+    image: thelinuxlich/gleba:latest
+    hostname: api2
+    depends_on:
+      - db
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  db: # Banco de dados
+   image: postgres
+   environment:
+     POSTGRES_PASSWORD: postgres
+     POSTGRES_USER: postgres
+     POSTGRES_DB: postgres
+   volumes:
+    - ./bootstrap.sql:/docker-entrypoint-initdb.d/bootstrap.sql
+   deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
