@@ -1,14 +1,16 @@
 version: '3.5'
 services:
   api1:
-    image: eufountai/rinha-de-backend
+    image: eufountai/rinha-de-backend:latest
     hostname: api1
     expose:
       - '80'
     depends_on:
       - database
+      - pubsub
     links:
       - database
+      - pubsub
     volumes:
       - .:/app_directory
     environment:
@@ -18,35 +20,54 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: '0.7GB'
-
-  api2:
-    image: eufountai/rinha-de-backend
-    hostname: api2
-    expose:
-      - '80'
-    depends_on:
-      - database
-    links:
-      - database
-    volumes:
-      - .:/app_directory
-    environment:
-      PORT: 80
-      DATABASE_URL: postgres://myuser:mypassword@database:5432/mydatabase
-      POSTGRES_DB: mydatabase
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_USER: myuser
-      POSTGRES_HOST: database
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      WS_NAME: api1
+      WS: ws://pubsub:8000
     deploy:
       resources:
         limits:
           cpus: '0.3'
           memory: '0.7GB'
+
+  api2:
+    image: eufountai/rinha-de-backend:latest
+    hostname: api2
+    expose:
+      - '80'
+    depends_on:
+      - database
+      - pubsub
+    links:
+      - database
+      - pubsub
+    volumes:
+      - .:/app_directory
+    environment:
+      PORT: 80
+      DATABASE_URL: postgres://myuser:mypassword@database:5432/mydatabase
+      POSTGRES_DB: mydatabase
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: myuser
+      POSTGRES_HOST: database
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      WS_NAME: api2
+      WS: ws://pubsub:8000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.7GB'
+
+  pubsub:
+    image: eufountai/socket-pubsub:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.4GB'
+    
 
   nginx: 
     image: nginx:latest
@@ -60,7 +81,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
+          cpus: '0.2'
           memory: '0.3GB'
 
   database:
@@ -74,5 +95,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: '1.3GB'
+          cpus: '0.5'
+          memory: '0.9GB'
