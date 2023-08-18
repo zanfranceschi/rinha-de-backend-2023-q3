@@ -5,6 +5,8 @@ services:
     hostname: api1
     depends_on:
       - db
+    ports:
+      - "1234:80"
     expose:
       - "80"
     deploy:
@@ -17,6 +19,8 @@ services:
     hostname: api2
     depends_on:
       - db
+    ports:
+      - "1235:80"
     expose:
       - "80"
     deploy:
@@ -26,6 +30,7 @@ services:
           memory: '0.5GB'
   db:
     image: postgres
+    hostname: db
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: user
