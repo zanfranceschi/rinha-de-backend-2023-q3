@@ -1,5 +1,8 @@
 # Rinha backend com Clojure
 
+Link do repo: [https://github.com/kalogs-c/rinha-backend](https://github.com/kalogs-c/rinha-backend)
+Link do github: [https://github.com/kalogs-c](https://github.com/kalogs-c)
+
 Essa é, em questão de performance, a PIOR API que eu já vi. Maaaas a ideia era aprender a sintaxe da linguagem clojure, então por ser a minha primeira aplicação completa com a linguagem ta legal.
 
 Tem alguns problemas que não consegui resolver, como por exemplo, até o servidor da boot demora muuuuito, sei que o boot do clojure é demorado por conta de subir a JVM e tals e demora ainda mais com o leiningen.
