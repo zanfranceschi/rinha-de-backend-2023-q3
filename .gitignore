@@ -1,1 +1,3 @@
 CMDs.md
+stress-test/user-files/resources/*.tsv
+stress-test/results/*
