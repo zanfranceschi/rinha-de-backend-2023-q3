@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15.3-alpine3.18
+    container_name: rwillians-rinha-postgres
+    command: '-c shared_buffers=256MB -c max_connections=84'
+    environment:
+      - 'POSTGRES_DB=rinha_dev'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'LANG=en_US.utf8'
+    volumes:
+      - './priv/repo/structure.sql:/docker-entrypoint-initdb.d/ddl.sql'
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.70'
+          memory: 512M
+
+  api1:
+    image: ghcr.io/rwillians/rinha-backend--elixir-cowboy-ecto:0.2.1
+    container_name: rwillians-rinha-api-1
+    depends_on:
+      - postgres
+    environment:
+      - 'DATABASE_URL=postgres://postgres:postgres@postgres/rinha_dev'
+      - 'RELEASE_DISTRIBUTION=sname'
+      - 'SERVER_ENABLED=true'
+      - 'POOL_SIZE=40'
+    entrypoint: [ "sh", "-c" ]
+    #                   ↓ Demora alguns segundos para o banco de dados ficar
+    #                   ↓ disponível então precisamos esperar um pouco.
+    command: [ 'busybox sleep 10s && echo "starting http server..." && _build/prod/rel/rinha/bin/rinha start' ]
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.3375'
+          memory: 128M
+
+  api2:
+    image: ghcr.io/rwillians/rinha-backend--elixir-cowboy-ecto:0.2.1
+    container_name: rwillians-rinha-api-2
+    depends_on:
+      - postgres
+    environment:
+      - 'DATABASE_URL=postgres://postgres:postgres@postgres/rinha_dev'
+      - 'RELEASE_DISTRIBUTION=sname'
+      - 'SERVER_ENABLED=true'
+      - 'POOL_SIZE=40'
+    entrypoint: [ "sh", "-c" ]
+    #                   ↓ Demora alguns segundos para o banco de dados ficar
+    #                   ↓ disponível então precisamos esperar um pouco.
+    command: [ 'busybox sleep 10s && echo "starting http server..." && _build/prod/rel/rinha/bin/rinha start' ]
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.3375'
+          memory: 128M
+
+  load-balancer:
+    image: haproxy:2.8.2-alpine
+    container_name: rwillians-rinha-lb
+    volumes:
+      - './haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro'
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - '${PORT:-9999}:8080'
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.125'
+          memory: 12M
+

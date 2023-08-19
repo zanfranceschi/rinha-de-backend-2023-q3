@@ -1,0 +1,11 @@
+#! /usr/bin/env sh
+
+rm -rf priv/ haproxy.cfg docker-compose.yml start
+mkdir -p priv/repo
+
+curl -fsSL https://raw.githubusercontent.com/rwillians/rinha-backend--elixir-cowboy-ecto/main/haproxy.cfg >haproxy.cfg
+curl -fsSL https://raw.githubusercontent.com/rwillians/rinha-backend--elixir-cowboy-ecto/main/docker-compose.yml >docker-compose.yml
+curl -fsSL https://github.com/rwillians/rinha-backend--elixir-cowboy-ecto/raw/main/priv/repo/structure.sql >priv/repo/structure.sql
+curl -fsSL https://raw.githubusercontent.com/rwillians/rinha-backend--elixir-cowboy-ecto/main/start >start
+
+chmod +x ./start
