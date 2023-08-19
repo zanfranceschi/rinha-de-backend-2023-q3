@@ -1,0 +1,83 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:14
+    hostname: postgres
+    container_name: db-pessoas
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: super-secret
+      POSTGRES_DB: people
+      PGDATA: /var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: "1.5GB"
+    volumes:
+      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d people -U user"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    command: postgres -c 'max_connections=250'
+  api1: # API - Instância 01
+    image: flavio1110/rinha-backend:stable
+    hostname: api1
+    environment:
+      - HTTP_PORT=8081
+      - DB_URL=postgres://user:super-secret@postgres:5432/people?sslmode=disable
+      - WAIT_HOSTS=postgres:5432
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+      - DB_MAX_CONNECTIONS=100
+    depends_on:
+      - postgres
+    expose:
+      - "8081"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+    command: curl -v "http://localhost:8081/contagem-pessoas"
+  api2: # API - Instância 01
+    image: flavio1110/rinha-backend:stable
+    hostname: api2
+    depends_on:
+      - postgres
+    environment:
+      - HTTP_PORT=8082
+      - DB_URL=postgres://user:super-secret@postgres:5432/people?sslmode=disable
+      - WAIT_HOSTS=postgres:5432
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+      - DB_MAX_CONNECTIONS=100
+    expose:
+      - "8082"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+    command: curl -v "http://localhost:8082/contagem-pessoas"
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
