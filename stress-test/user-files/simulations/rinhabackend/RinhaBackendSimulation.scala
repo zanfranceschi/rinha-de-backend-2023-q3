@@ -14,7 +14,7 @@ class RinhaBackendSimulation
     .userAgentHeader("Agente do Caos - 2023")
 
   val criacaoEConsultaPessoas = scenario("Criação E Talvez Consulta de Pessoas")
-    .feed(tsv("pessoas-payloads.tsv").random())
+    .feed(tsv("pessoas-payloads.tsv").circular())
     .exec(
       http("criação")
       .post("/pessoas").body(StringBody("#{payload}"))
@@ -34,7 +34,7 @@ class RinhaBackendSimulation
     }
 
   val buscaPessoas = scenario("Busca Válida de Pessoas")
-    .feed(tsv("termos-busca.tsv").random())
+    .feed(tsv("termos-busca.tsv").circular())
     .exec(
       http("busca válida")
       .get("/pessoas?t=#{t}")

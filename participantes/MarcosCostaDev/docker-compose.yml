@@ -1,10 +1,9 @@
 version: '3.4'
 
-
 services:
   api01:
     container_name: api01
-    image: 'marcoslcosta/rinhabackend'
+    image: 'marcoslcosta/rinhabackend:latest'
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -12,15 +11,15 @@ services:
       - redis
     ports:
       - "80"
-      - "443"
+    restart: always
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.4'
+          memory: '0.65GB'
   api02:
     container_name: api02
-    image: 'marcoslcosta/rinhabackend'
+    image: 'marcoslcosta/rinhabackend:latest'
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -28,12 +27,12 @@ services:
       - redis
     ports:
       - "80"
-      - "443"
+    restart: always
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.4'
+          memory: '0.65GB'
   db:
     container_name: database
     image: 'postgres:latest'
@@ -41,23 +40,26 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: '1.5GB'
+          memory: '1.3GB'
     ports:
        - 5432:5432
     environment:
        POSTGRES_USER: rinha
        POSTGRES_PASSWORD: 7653e869faa3 
        POSTGRES_DB: rinhadb
+    volumes:
+      - ./create-script.sql:/docker-entrypoint-initdb.d/create-script.sql
+    command: postgres -c 'max_connections=1000'
   redis:
-    image: redis
+    image: redis:latest
     container_name: cache
     ports:
       - "6379:6379"
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.4GB'
+          cpus: '0.1'
+          memory: '0.1GB'
   proxy:
     container_name: proxy
     image: nginx:latest
@@ -72,4 +74,4 @@ services:
       resources:
         limits:
           cpus: '0.1'
-          memory: '0.1GB'
+          memory: '0.3GB'
