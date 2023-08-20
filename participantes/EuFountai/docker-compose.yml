@@ -23,7 +23,7 @@ services:
       REDIS_PORT: 6379
       REDIS_HOST: redis
       WS_NAME: api1
-      WS: ws://pubsub:8000
+      WS: ws://pubsub:8080
     deploy:
       resources:
         limits:
@@ -53,7 +53,7 @@ services:
       REDIS_PORT: 6379
       REDIS_HOST: redis
       WS_NAME: api2
-      WS: ws://pubsub:8000
+      WS: ws://pubsub:8080
     deploy:
       resources:
         limits:
@@ -65,7 +65,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: '0.3'
           memory: '0.4GB'
     
 
@@ -95,5 +95,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.4'
           memory: '0.9GB'
