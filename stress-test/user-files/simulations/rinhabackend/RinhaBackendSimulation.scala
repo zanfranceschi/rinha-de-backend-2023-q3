@@ -23,16 +23,18 @@ class RinhaBackendSimulation
       // 422 pra requests inválidos :|
       // 400 pra requests bosta tipo data errada, tipos errados, etc. :(
       .check(status.in(201, 422, 400))
-      .check(header("Location").optional.saveAs("location"))
+      // Se a criacao foi na api1 e esse location request atingir api2, a api2 tem que encontrar o registro.
+      // Pode ser que o request atinga a mesma instancia, mas estatisticamente, pelo menos um request vai atingir a outra.
+      // Isso garante o teste de consistencia de dados
+      .checkIf(session => session("httpStatus").as[String] == "201") {
+        header("Location").saveAs("location")
+      }
     )
     .pause(1.milliseconds, 30.milliseconds)
     .doIf(session => session.contains("location")) {
       exec(
         http("consulta")
         .get("#{location}")
-        // Se a criacao foi na api1 e esse location request atingir api2, a api2 tem que encontrar o registro.
-        // Pode ser que um request atinga a api1, mas estatisticamente, pelo menos um request vai atingir a api2.
-        .check(status.is(200))
       )
     }
 
