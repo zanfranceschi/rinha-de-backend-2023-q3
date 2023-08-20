@@ -1,0 +1,58 @@
+version: "3.5"
+services:
+  api1:
+    image: rodrigobrito/rinha-api
+    hostname: api1
+    depends_on:
+      - storage
+    expose:
+      - "8000"
+    environment:
+      - STORAGE_ADDRESS=storage
+      - STORAGE_PORT=9000
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+
+  api2:
+    image: rodrigobrito/rinha-api
+    hostname: api2
+    depends_on:
+      - storage
+    expose:
+      - "8000"
+    environment:
+      - STORAGE_ADDRESS=storage
+      - STORAGE_PORT=9000
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+
+  storage:
+    image: rodrigobrito/rinha-storage
+    expose:
+      - "9000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: "1.5GB"
