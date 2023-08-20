@@ -82,3 +82,7 @@ services:
         limits:
           cpus: '0.25'
           memory: '0.2GB'
+networks:
+  default:
+    driver: bridge
+    name: rinha
