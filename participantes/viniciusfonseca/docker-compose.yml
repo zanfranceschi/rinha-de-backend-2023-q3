@@ -12,7 +12,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.15'
+          cpus: '0.2'
           memory: '0.4GB'
 
   api02: # API - Instância 02
@@ -26,7 +26,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.15'
+          cpus: '0.2'
           memory: '0.4GB'
 
   nginx: # Load Balancer
@@ -51,7 +51,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: 1234 
       POSTGRES_DB: rinhadb
-    command: postgres -c shared_buffers=256MB
+    command: postgres -c shared_buffers=256MB -c synchronous_commit=off
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
@@ -59,7 +59,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.85'
+          cpus: '0.75'
           memory: '1.4GB'
   redis:
     image: redis
