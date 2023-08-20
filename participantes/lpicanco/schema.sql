@@ -10,4 +10,3 @@ CREATE TABLE pessoas
     search_vector text
 );
 
-CREATE INDEX idx_search_vector_pessoas ON pessoas(search_vector)

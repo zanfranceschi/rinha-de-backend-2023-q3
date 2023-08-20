@@ -37,7 +37,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.20'
           memory: '0.5GB'
 
   db: # Banco de dados
@@ -52,5 +52,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.95'
+          cpus: '1'
           memory: '2GB'
