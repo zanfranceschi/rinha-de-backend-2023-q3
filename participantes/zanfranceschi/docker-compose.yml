@@ -14,18 +14,19 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.15'
+          cpus: '0.05'
           memory: '0.4GB'
 
   cache:
     hostname: cache
     image: redis:latest
+    command: redis-server --save "" --appendonly no
     ports:
       - '6379:6379'
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.06'
           memory: '0.5GB'
   
   api01:
@@ -35,14 +36,22 @@ services:
       - db
       - cache
     environment:
-      - DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;Connection Pruning Interval=1;Connection Idle Lifetime=2;Enlist=false;No Reset On Close=true
+      # https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector
+      - DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;Connection Pruning Interval=1;Connection Idle Lifetime=2;
+      - _DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;
       - CACHE_CONNECTION_STRING=cache
+      - DOTNET_GCConserveMemory=1
+      - DOTNET_gcServer=1
+      - DOTNET_gcConcurrent=0
+      - _DOTNET_GCHeapCount=0x1
+      - _DOTNET_GCNoAffinitize=1
+      - _DOTNET_GCHeapHardLimitPercent=0x10
     expose:
       - "80"
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.568'
           memory: '1.0GB'
   
   api02:
@@ -52,14 +61,22 @@ services:
       - db
       - cache
     environment:
-      - DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;Connection Pruning Interval=1;Connection Idle Lifetime=2;Enlist=false;No Reset On Close=true
+      # https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector
+      - DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;Connection Pruning Interval=1;Connection Idle Lifetime=2;
+      - _DB_CONNECTION_STRING=Host=db;Username=admin;Password=123;Database=rinha;
       - CACHE_CONNECTION_STRING=cache
+      - DOTNET_GCConserveMemory=1
+      - DOTNET_gcServer=1
+      - DOTNET_gcConcurrent=0
+      - _DOTNET_GCHeapCount=0x1
+      - _DOTNET_GCNoAffinitize=1
+      - _DOTNET_GCHeapHardLimitPercent=0x10
     expose:
       - "80"
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.568'
           memory: '1.0GB'
   
   nginx:
@@ -74,7 +91,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.2'
           memory: '0.1GB'
 
 networks:
