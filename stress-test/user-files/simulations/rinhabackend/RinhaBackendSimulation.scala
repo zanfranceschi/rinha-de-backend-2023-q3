@@ -30,6 +30,9 @@ class RinhaBackendSimulation
       exec(
         http("consulta")
         .get("#{location}")
+        // Se a criacao foi na api1 e esse location request atingir api2, a api2 tem que encontrar o registro.
+        // Pode ser que um request atinga a api1, mas estatisticamente, pelo menos um request vai atingir a api2.
+        .check(status.is(200))
       )
     }
 
