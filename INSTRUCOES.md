@@ -6,10 +6,11 @@
 
 - As APIs precisam expor endpoints iguais e necessariamente usar um dos seguintes bancos de dados (à sua escolha): Postgres, MySQL, ou MongoDB.
 - O "deploy" da API será feito via docker-compose com limites de CPU e memória.
-- O teste será executado no meu note mesmo (por isso a limitação de CPU e memória) com a ferramenta [Gatling](https://gatling.io/).
+- O teste será executado em EC2 devidamente configurado e a limitação de CPU e memória será interessante para exercitarmos ambientes com limitações, use a criatividade;
+- A ferramenta [Gatling](https://gatling.io/) será usada para rodar os testes de stress.
 - A essência desse torneio não é a competição em si (até mesmo pq não ganha nada quem vencer kkk), mas compartilhar conhecimento.
 - Os detalhes do teste de stress [estão aqui!](/stress-test/README.md)
-- Você tem até o dia **25/08** para submeter seu PR. No dia 25/08 haverá uma live em https://www.youtube.com/zanfranceschi para transmitir a Rinha de Backend do vivo.
+- Você tem até a meia-noite do dia **22/08** aka `2023-08-22T23:59:59-03:00` para submeter seu PR. No dia 25/08 haverá uma live em https://www.youtube.com/zanfranceschi para transmitir a Rinha de Backend do vivo.
 
 
 ## Endpoints

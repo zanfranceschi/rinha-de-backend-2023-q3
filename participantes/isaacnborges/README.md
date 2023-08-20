@@ -15,5 +15,3 @@
 - [Nginx](https://www.nginx.com/) (Load balancer)
 - [Postgres](https://www.postgresql.org/) (Database)
 - [Dapper](https://github.com/DapperLib/Dapper)
-- [Swagger](https://swagger.io/)
-- [FluentValidation](https://docs.fluentvalidation.net/en/latest/)

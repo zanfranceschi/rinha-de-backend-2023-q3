@@ -9,6 +9,7 @@ services:
       - '3000'
     environment:
       WEB_CONCURRENCY: 2
+      RAILS_LOG_LEVEL: warn
       DATABASE_URL: postgres://postgres:password@db:5432/rinha_de_backend
       RAILS_MASTER_KEY: d2066c69964ffb8b091dfddc61f42880
       RUBY_YJIT_ENABLE: 1
@@ -18,7 +19,7 @@ services:
           cpus: '0.5'
           memory: '0.5GB'
 
-  api2: # API - Instância 01
+  api2: # API - Instância 02
     image: lazaronixon/rinha-de-backend
     hostname: api2
     depends_on:
@@ -27,6 +28,7 @@ services:
       - '3000'
     environment:
       WEB_CONCURRENCY: 2
+      RAILS_LOG_LEVEL: warn
       DATABASE_URL: postgres://postgres:password@db:5432/rinha_de_backend
       RAILS_MASTER_KEY: d2066c69964ffb8b091dfddc61f42880
       RUBY_YJIT_ENABLE: 1
@@ -48,19 +50,20 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
-          memory: '0.25GB'
+          cpus: '0.15'
+          memory: '0.5GB'
 
   db: # Banco de dados
    image: postgres
+   command: postgres -c log_min_messages=FATAL
    environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
    deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '1.75GB'
+          cpus: '0.35'
+          memory: '1.5GB'
 
   db-migrator: # Database preparation
     image: lazaronixon/rinha-de-backend
