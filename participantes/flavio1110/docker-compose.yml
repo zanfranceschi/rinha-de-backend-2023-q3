@@ -48,10 +48,11 @@ services:
           cpus: "0.25"
           memory: "0.5GB"
     healthcheck:
-      test: sleep 30 #for some mistery reason, trying to do a proper health check hangs forever
-      interval: 5s
-      timeout: 60s
-      retries: 1
+      test: curl -o /dev/null -s --retry 0 --head http://localhost:8081/contagem-pessoas || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 5s
   api2: # API - Instância 01
     image: flavio1110/rinha-backend:stable
     hostname: api2
@@ -70,10 +71,11 @@ services:
           cpus: "0.25"
           memory: "0.5GB"
     healthcheck:
-      test: sleep 30 #for some mistery reason, trying to do a proper health check hangs forever
-      interval: 5s
-      timeout: 60s
-      retries: 1
+      test: curl -o /dev/null -s --retry 0 --head http://localhost:8082/contagem-pessoas || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 5s
   nginx: # Load Balancer
     image: nginx:latest
     environment:
