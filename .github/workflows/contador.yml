@@ -1,4 +1,4 @@
-name: Contador de participantes
+name: Contador
 
 permissions:
   contents: write
@@ -27,14 +27,14 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: './apps/contador-participantes/package-lock.json'
+          cache-dependency-path: './apps/contador-de-participantes/package-lock.json'
 
       - name: Atualiza o SVG do contador
-        run: node index.js ../../participantes/ ../../misc/contador-participantes.svg
-        working-directory: './apps/contador-participantes'
+        run: node index.js ../../participantes/ ../../misc/contador-de-participantes.svg
+        working-directory: './apps/contador-de-participantes'
 
       - name: Comita o SVG atualizado
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a # v4.16.0
         with:
           commit_message: 'Contador de participantes atualizado'
-          file_pattern: 'contador-participantes/dist/number.svg'
+          file_pattern: 'contador-de-participantes/dist/number.svg'
