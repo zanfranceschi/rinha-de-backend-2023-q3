@@ -41,10 +41,6 @@ Desabilita escritas do estado do banco após completar diversas atividades do ba
 
 Este modo de load balancer é similar ao round-robin, mas manda o requeste para a instância com menos conexões ativas. [Mais informações](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#least_conn).
 
-# Rinha App
-
-Projeto que implementa a Rinha de Backend.
-
 ## Como rodar?
 
 Use Docker Compose de acordo com o seu sistema operacional. 
