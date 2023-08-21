@@ -11,9 +11,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.12'
+          cpus: '0.10'
           memory: '0.25GB'
-  api2: # API - Instância 01
+  api2: # API - Instância 02
     image: ghcr.io/lpicanco/backend-dogfight-23:latest
     hostname: api2
     depends_on:
@@ -24,7 +24,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.12'
+          cpus: '0.10'
           memory: '0.25GB'
 
   nginx: # Load Balancer
@@ -39,7 +39,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.15'
+          cpus: '0.20'
           memory: '0.5GB'
 
   db: # Banco de dados
@@ -64,5 +64,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.11'
+          cpus: '0.10'
           memory: '0.5GB'
