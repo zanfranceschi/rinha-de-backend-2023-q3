@@ -2,12 +2,14 @@
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 # Set the GATLING_HOME environment variable
-$Env:GATLING_HOME = Join-Path $ScriptDir "gatling"
+$Env:GATLING_HOME = Join-Path $ScriptDir "deps/gatling"
 
 $GatlingBinDir = Join-Path $Env:GATLING_HOME "bin"
 $Workspace = $ScriptDir
 
-& "$GatlingBinDir\gatling.bat" -rm local -s RinhaBackendSimulation `
+& "$GatlingBinDir\gatling.bat" `
+    -rm local `
+    -s RinhaBackendSimulation `
     -rd "DESCRICAO" `
     -rf "$Workspace\user-files\results" `
     -sf "$Workspace\user-files\simulations" `
