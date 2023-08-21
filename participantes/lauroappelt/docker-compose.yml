@@ -12,7 +12,7 @@ services:
             - db
             - nginx
             - redis
-        command: bash -c "composer install && php bin/hyperf.php server:watch"
+        command: bash -c "php bin/hyperf.php server:watch"
         deploy:
             resources:
                 limits:
@@ -30,7 +30,7 @@ services:
             - nginx
             - redis
             - api-01
-        command: bash -c "sleep 10 && php bin/hyperf.php server:watch"
+        command: bash -c "php bin/hyperf.php server:watch"
         deploy:
             resources:
                 limits:
