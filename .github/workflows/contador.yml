@@ -1,0 +1,42 @@
+name: Contador de participantes
+
+permissions:
+  contents: write
+
+on:
+  push:
+    paths:
+      - './participantes/**/*'
+
+env:
+  NODE_VERSION: 20.5.1
+
+jobs:
+  atualiza-contador:
+    name: atualiza contador
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout da branch
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+
+      - name: Configura o node v${{ env.NODE_VERSION }}
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: './apps/contador-participantes/package-lock.json'
+
+      - name: Instala as dependências
+        run: npm install
+        working-directory: './apps/contador-participantes'
+
+      - name: Atualiza o contador
+        run: node index.js
+        working-directory: './apps/contador-participantes'
+
+      - name: Comita o SVG atualizado
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: atualizar contador de participantes
+          file_pattern: 'contador-participantes/dist/number.svg'
