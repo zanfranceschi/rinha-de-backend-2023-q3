@@ -26,6 +26,7 @@ class RinhaBackendSimulation
       // Se a criacao foi na api1 e esse location request atingir api2, a api2 tem que encontrar o registro.
       // Pode ser que o request atinga a mesma instancia, mas estatisticamente, pelo menos um request vai atingir a outra.
       // Isso garante o teste de consistencia de dados
+      .check(status.saveAs("httpStatus"))
       .checkIf(session => session("httpStatus").as[String] == "201") {
         header("Location").saveAs("location")
       }
