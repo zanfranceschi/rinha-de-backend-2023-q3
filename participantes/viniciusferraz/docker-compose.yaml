@@ -13,6 +13,13 @@ services:
         limits:
           cpus: '0.1'
           memory: '0.2GB'
+    healthcheck:
+      test: curl -o /dev/null -s --retry 0 --head http://localhost:11222 || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 5s
+
   api1:
     image: quay.io/vflorent/rinha-2023-q3
     environment:
