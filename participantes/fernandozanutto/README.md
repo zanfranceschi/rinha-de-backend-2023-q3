@@ -14,6 +14,6 @@
 
 ### Contato
 
-- Github: [@fernandozanutto](https://github.com/fernandozanutto)
+- Github: [@fernandozanutto](https://github.com/fernando-zanutto)
 - Twitter [@\_zanutto](https://twitter.com/_zanutto)
 - LinkedIn [Fernando Zanutto](https://www.linkedin.com/in/fernandozanutto/)
