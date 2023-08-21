@@ -42,9 +42,9 @@ services:
         container_name: rinha-backend-db
         image: postgres:15.4
         environment:
-            POSTGRES_DB: ${DB_DATABASE}
-            POSTGRES_PASSWORD: ${DB_PASSWORD}
-            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_DB: rinha-backend-db
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_USER: rinha
             PGDATA: /var/lib/postgresql/data/db-files/
         volumes:
             - pg_data:/var/lib/postgresql/data
