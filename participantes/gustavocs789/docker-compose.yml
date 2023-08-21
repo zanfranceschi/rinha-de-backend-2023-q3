@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  api1:
+    image: gustavocs789/rinha-de-backend-2023-q3-api:latest
+    hostname: api1
+    restart: always
+    environment:
+      - PORT=80
+      - POSTGRES_HOST=database_pg
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=rinha-de-backend
+      - POSTGRES_USER=teste
+      - POSTGRES_PASSWORD=postgres123
+    networks:
+      - rinha-de-backend-network
+    expose:
+      - "80"
+    depends_on:
+      - database_pg
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+
+  api2:
+    image: gustavocs789/rinha-de-backend-2023-q3-api:latest
+    hostname: api2
+    restart: always
+    environment:
+      - PORT=80
+      - POSTGRES_HOST=database_pg
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=rinha-de-backend
+      - POSTGRES_USER=teste
+      - POSTGRES_PASSWORD=postgres123
+    expose:
+      - "80"
+    networks:
+      - rinha-de-backend-network
+    depends_on:
+      - database_pg
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+
+  database_pg:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=teste
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=rinha-de-backend
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./start.sql:/docker-entrypoint-initdb.d/start.sql
+    networks:
+      - rinha-de-backend-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: "1.5GB"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "9999:9999"
+    networks:
+      - rinha-de-backend-network
+    depends_on:
+      - api1
+      - api2
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.5GB"
+
+networks:
+  rinha-de-backend-network:
+    driver: bridge
