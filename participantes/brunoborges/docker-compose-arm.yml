@@ -27,10 +27,10 @@ services:
       - app-network
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:8080/contagem-pessoas || exit 1
-      interval: 60s
+      interval: 10s
       retries: 5
       start_period: 20s
-      timeout: 10s
+      timeout: 5s
 
   api2:
     image: brunoborges/rinha-brborges-api:arm64
@@ -59,10 +59,10 @@ services:
         - app-network
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:8080/contagem-pessoas || exit 1
-      interval: 60s
+      interval: 10s
       retries: 5
       start_period: 20s
-      timeout: 10s
+      timeout: 5s
 
   nginx:
     image: nginx:latest
