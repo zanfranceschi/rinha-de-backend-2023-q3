@@ -7,7 +7,7 @@
 # curl -v "http://localhost:9999/contagem-pessoas"
 
 WORKSPACE=$(pwd)
-GATLING_BIN_DIR="${WORKSPACE}/.deps/gatling/bin"
+GATLING_BIN_DIR="${WORKSPACE}/deps/gatling/bin"
 
 sh ${GATLING_BIN_DIR}/gatling.sh \
   -rm local \
