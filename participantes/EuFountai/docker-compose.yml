@@ -20,9 +20,6 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
-      REDIS_PORT: 6379
-      REDIS_HOST: redis
-      WS_NAME: api1
       WS: ws://pubsub:8080
     deploy:
       resources:
@@ -50,9 +47,6 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
-      REDIS_PORT: 6379
-      REDIS_HOST: redis
-      WS_NAME: api2
       WS: ws://pubsub:8080
     deploy:
       resources:
