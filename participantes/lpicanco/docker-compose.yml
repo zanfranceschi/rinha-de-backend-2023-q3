@@ -5,24 +5,26 @@ services:
     hostname: api1
     depends_on:
       - db
+      - redis
     expose:
       - "9999"
     deploy:
       resources:
         limits:
-          cpus: '0.15'
+          cpus: '0.12'
           memory: '0.25GB'
   api2: # API - Instância 01
     image: ghcr.io/lpicanco/backend-dogfight-23:latest
     hostname: api2
     depends_on:
       - db
+      - redis
     expose:
       - "9999"
     deploy:
       resources:
         limits:
-          cpus: '0.15'
+          cpus: '0.12'
           memory: '0.25GB'
 
   nginx: # Load Balancer
@@ -37,7 +39,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.20'
+          cpus: '0.15'
           memory: '0.5GB'
 
   db: # Banco de dados
@@ -53,4 +55,14 @@ services:
       resources:
         limits:
           cpus: '1'
-          memory: '2GB'
+          memory: '1.5GB'
+
+  redis: # Cache
+    image: redis:7.2
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.11'
+          memory: '0.5GB'
