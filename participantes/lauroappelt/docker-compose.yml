@@ -56,7 +56,7 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.65'
+                    cpus: '0.55'
                     memory: '0.7GB'
 
   # nginx
@@ -72,7 +72,7 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.1'
+                    cpus: '0.15'
                     memory: '0.2GB'
 
     # redis
@@ -86,7 +86,7 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.05'
+                    cpus: '0.1'
                     memory: '0.2GB'
 
 volumes:
