@@ -44,7 +44,7 @@ services:
 
   db: # Banco de dados
     image: postgres:15.4
-    command: postgres -c 'max_connections=300'
+    command: postgres -c max_connections=300 -c work_mem=800MB -c shared_buffers=1GB
     environment:
       POSTGRES_DB: dogfight
       POSTGRES_USER: dogfight_user
