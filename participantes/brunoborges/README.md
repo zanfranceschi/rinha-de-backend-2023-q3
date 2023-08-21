@@ -62,13 +62,11 @@ docker compose -f docker-compose-arm.yml up
 Utilize os arquivos `docker-compose-local.yml` (x64) ou `docker-compose-local-arm.yml` (M1/Arm):
 
 x64:
-
 ```bash
 docker compose -f docker-compose-local.yml up
 ```
 
 M1/Arm:
-
 ```bash
 docker compose -f docker-compose-local-arm.yml up
 ```
@@ -77,12 +75,12 @@ docker compose -f docker-compose-local-arm.yml up
 
 Inicie o banco de dados:
 
+x64: 
 ```bash
 docker compose up -d db-postgresql
 ```
 
-Se for M1/Arm, use o arquivo docker-compose-arm.yml:
-
+M1/Arm
 ```bash
 docker compose -f docker-compose-arm.yml -d db-postgresql
 ```
@@ -93,7 +91,7 @@ Inicie a aplicação Quarkus:
 ./mvnw quarkus:dev
 ```
 
-Qualquer dúvida, entre em contato comigo pelo Twitter: [@brunoborges](https://twitter.com/brunoborges)
+Accesse por [http://localhost:8080/contagem-pessoas](http://localhost:8080/contagem-pessoas).
 
 ## Código fonte
 
@@ -104,3 +102,7 @@ O código está no GitHub, no repositório [brunoborges/rinha-app](https://githu
 Bruno Borges ([@brunoborges](https://twitter.com/brunoborges)).
 
 Qualquer dúvida, pergunta no Twitter.
+
+## Licença
+
+MIT
