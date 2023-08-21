@@ -5,6 +5,8 @@ permissions:
 
 on:
   push:
+    branches:
+      - 'main'
     paths:
       - './participantes/**/*'
 
@@ -13,7 +15,7 @@ env:
 
 jobs:
   atualiza-contador:
-    name: atualiza contador
+    name: Atualizar o contador de participantes
     runs-on: ubuntu-latest
 
     steps:
@@ -27,16 +29,12 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './apps/contador-participantes/package-lock.json'
 
-      - name: Instala as dependências
-        run: npm install
-        working-directory: './apps/contador-participantes'
-
-      - name: Atualiza o contador
-        run: node index.js
+      - name: Atualiza o SVG do contador
+        run: node index.js ../../participantes/ ../../misc/contador-participantes.svg
         working-directory: './apps/contador-participantes'
 
       - name: Comita o SVG atualizado
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: atualizar contador de participantes
+          commit_message: 'Contador de participantes atualizado'
           file_pattern: 'contador-participantes/dist/number.svg'
