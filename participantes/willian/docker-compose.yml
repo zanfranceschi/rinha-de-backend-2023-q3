@@ -1,0 +1,91 @@
+version: '3.5'
+
+services:
+  gorestful1: # API - Instância 01
+    image: golang
+    volumes:
+      - ./src/:/go/src/
+    hostname: gorestful1
+    depends_on:
+      - db
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.4GB'
+    environment:
+            - HTTP_PORT=80
+            - DB_HOST=db
+            - DB_PORT=5432
+            - DB_USER=postgres
+            - DB_PASSWORD=password
+            - DB_NAME=gorestful
+    command:
+            - /bin/sh
+            - -c
+            - | 
+                    cd ./src
+                    go mod tidy
+                    go run main.go
+
+  gorestful2: # API - Instância 02
+    image: golang
+    volumes:
+      - ./src/:/go/src/
+    hostname: gorestful2
+    depends_on:
+      - db
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.4GB'
+    environment:
+            - HTTP_PORT=80
+            - DB_HOST=db
+            - DB_PORT=5432
+            - DB_USER=postgres
+            - DB_PASSWORD=password
+            - DB_NAME=gorestful
+    command:
+            - /bin/sh
+            - -c
+            - |
+                    cd ./src
+                    go mod tidy
+                    go run main.go
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - gorestful1
+      - gorestful2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.2GB'
+
+  db: # Banco de dados
+   image: postgres
+   volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+   ports:
+      - 5432:5432
+   environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DB: gorestful
+   deploy:
+      resources:
+        limits:
+          cpus: '0.8'
+          memory: '2.0GB'
