@@ -11,4 +11,4 @@ Acesse as [instruções do torneio aqui](/INSTRUCOES.md).
 
 
 ## Prazo
-Você tem até o dia **25/08** para submeter seu PR. No dia 25/08 haverá uma live em https://www.youtube.com/zanfranceschi para transmitir a Rinha de Backend do vivo.
+Você tem até o dia **22/08** para submeter seu PR. No dia 25/08 haverá uma live em https://www.youtube.com/zanfranceschi para transmitir a Rinha de Backend do vivo.
