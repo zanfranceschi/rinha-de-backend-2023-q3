@@ -1,0 +1,54 @@
+version: '3.5'
+services:
+  server1:
+    image: oliveigah/rinha-backend:1.0
+    hostname: server1.com
+    environment:
+      HTTP_SERVER_PORT: 3000
+      RELEASE_COOKIE: "secret_cookie"
+      RELEASE_NODE: "server1@server1.com"
+      RELEASE_DISTRIBUTION: "name"
+      BOOTSTRAP_NODES: "server2@server2.com"
+    ports:
+      - 9999:3000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
+    volumes:
+      - server1:/storage
+    networks:
+     - default
+
+
+  server2:
+    image: oliveigah/rinha-backend:1.0
+    hostname: server2.com
+    environment:
+      HTTP_SERVER_PORT: 3000
+      RELEASE_COOKIE: "secret_cookie"
+      RELEASE_NODE: "server2@server2.com"
+      RELEASE_DISTRIBUTION: "name"
+      BOOTSTRAP_NODES: "server1@server1.com"
+    depends_on:
+      - server1
+    ports:
+      - 9998:3000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
+    volumes:
+      - server2:/storage
+    networks:
+     - default
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  server1:
+  server2:
