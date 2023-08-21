@@ -5,7 +5,7 @@ import yaml
 import yaml.loader
 import re
 
-dir = "./participantes/*/docker-compose.yml"
+dir = "../../participantes/*/docker-compose.yml"
 arquivos = 0
 
 for arquivo in glob.glob(dir):
@@ -33,20 +33,20 @@ for arquivo in glob.glob(dir):
                 total_cpus += float(cpus)
                 total_memory += float(memory_num)
                 msg += f"{service['image'].ljust(40)} memory: {memory} / cpus: {cpus} / ports: {ports}\n"
-            
+
             msg += "-" * 100 + "\n"
             total_cpus = round(total_cpus, 2)
             total_memory = round(total_memory, 2)
             status = "INVÁLIDO" if total_cpus > 1.50 or total_memory > 3.00 else 'VÁLIDO'
             contains_port_9999 = any([p == '9999' for p in all_ports])
-            msg += f"{'USO MEM/CPU'.ljust(40)} {status} - memory: {total_memory} / cpus: {total_cpus}\n" 
+            msg += f"{'USO MEM/CPU'.ljust(40)} {status} - memory: {total_memory} / cpus: {total_cpus}\n"
             msg += f"{'PORTA 9999 EXPOSTA?'.ljust(40)} {contains_port_9999}\n"
 
             if (status == "INVÁLIDO"):
                 print(msg)
     except:
         print(f"Erro em {arquivo}")
-    
+
 print(f"{arquivos} submissões")
-        
+
 

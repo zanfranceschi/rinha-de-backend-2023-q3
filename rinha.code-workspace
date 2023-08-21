@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "./",
+      "name": "rinha-de-backend"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "EditorConfig.EditorConfig",
+    ]
+  }
+}
+

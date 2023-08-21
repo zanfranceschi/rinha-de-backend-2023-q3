@@ -1,5 +1,7 @@
 # Rinha de Backend - Edição 2023 Q3
 
+![contador de participantes](/misc/contador-participantes.svg)
+
 ![logo da rinha de backend](/misc/logo.jpg)
 
 > Baseda nesse tuíte: https://twitter.com/zanfranceschi/status/1685083383397765120
