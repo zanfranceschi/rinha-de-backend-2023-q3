@@ -1,8 +1,9 @@
-#!/usr/bin/python3
+#! /usr/bin/env python3
 
 import random
 import json
 import string
+import sys
 
 def get_stacks_validas():
     stacks = [
@@ -74,21 +75,9 @@ def get_payload():
     payload = {"apelido" : get_apelido(), "nome" : get_nome(), "nascimento" : get_nascimento(), "stack" : get_stacks()}
     return json.dumps(payload)
 
-def get_termo_busca():
-    t = ''.join(random.choice(string.ascii_letters + ' ') for i in range(100))[:random.randint(1, 50)]
-    return t.strip() or 'x'
-
 def gera_payloads(numero_registros):
-    with open("user-files/resources/pessoas-payloads.tsv", "w") as f:
-        f.write("payload\n")
-        for _ in range(numero_registros):
-            f.write(f"{get_payload()}\n")
+    sys.stdout.write("payload\n")
+    for _ in range(numero_registros):
+        sys.stdout.write(f"{get_payload()}\n")
 
-def gera_termos_busca(numero_registros):
-    with open("user-files/resources/termos-busca.tsv", "w") as f:
-        f.write("t\n")
-        for _ in range(numero_registros):
-            f.write(get_termo_busca() + "\n")
-
-gera_payloads(100_000)
-gera_termos_busca(5_000)
+gera_payloads(300_000)
