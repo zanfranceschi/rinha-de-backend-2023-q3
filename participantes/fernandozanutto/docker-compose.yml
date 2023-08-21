@@ -1,0 +1,88 @@
+version: "3.8"
+name: rinha-backend
+
+services:
+  api1:
+    image: fzanutto/rinha-backend:latest
+    hostname: api1
+    environment:
+      - SERVER_PORT=8000
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/rinha?currentSchema=public
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=root
+    depends_on:
+      - postgres
+    expose:
+      - "8000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: "0.6GB"
+    networks:
+      - app-network
+
+  api2:
+    image: fzanutto/rinha-backend:latest
+    hostname: api2
+    environment:
+      - SERVER_PORT=8000
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/rinha?currentSchema=public
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=root
+    depends_on:
+      - postgres
+    expose:
+      - "8000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: "0.6GB"
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "0.3GB"
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:latest
+    command: postgres -c 'max_connections=600'
+    user: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    environment:
+      POSTGRES_DB: rinha
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 60s
+      resources:
+        limits:
+          cpus: "0.8"
+          memory: "1.5GB"
+    networks:
+      - app-network
+networks:
+  app-network:
