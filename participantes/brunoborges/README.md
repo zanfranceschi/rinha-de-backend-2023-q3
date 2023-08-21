@@ -45,40 +45,35 @@ Este modo de load balancer é similar ao round-robin, mas manda o requeste para 
 
 Use Docker Compose de acordo com o seu sistema operacional. 
 
-Para hardware **Intel**, basta executar o comando abaixo:
+Para hardware **x64**, basta executar o comando abaixo:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Se for um hardware **Apple M1 ou Linux Arm**, execute o comando abaixo:
 
 ```bash
-docker-compose -f docker-compose-arm.yml up
+docker compose -f docker-compose-arm.yml up
 ```
 
 ## Rodar com imagem local
-Por padrão, os arquivos do Docker Compose apontam para imagems já construídas e disponíveis no Docker Hub. Caso queira construir as imagens localmente, mude as configurações dos serviços `api1` e `api2` no(s) arquivo(s) `docker-compose.yml` (ou `docker-compose-arm.yml` para M1/Arm) para:
 
-* Intel
+Utilize os arquivos `docker-compose-local.yml` (x64) ou `docker-compose-local-arm.yml` (M1/Arm):
 
-```diff
--    image: brunoborges/rinha-brborges-api:latest
-+    build:
-+      context: .
-+      dockerfile: src/main/docker/Dockerfile.jvm
+x64:
+
+```bash
+docker compose -f docker-compose-local.yml up
 ```
 
-* M1/Arm
+M1/Arm:
 
-```diff
--    image: brunoborges/rinha-brborges-api:arm64
-+    build:
-+      context: .
-+      dockerfile: src/main/docker/Dockerfile.arm
+```bash
+docker compose -f docker-compose-local-arm.yml up
 ```
 
-# Testar aplicação para debug
+## Testar aplicação para debug
 
 Inicie o banco de dados:
 
@@ -104,7 +99,7 @@ Qualquer dúvida, entre em contato comigo pelo Twitter: [@brunoborges](https://t
 
 O código está no GitHub, no repositório [brunoborges/rinha-app](https://github.com/brunoborges/rinha-app).
 
-# Autor
+## Autor
 
 Bruno Borges ([@brunoborges](https://twitter.com/brunoborges)).
 
