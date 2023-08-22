@@ -1,9 +1,7 @@
 version: "3.8"
-name: rinha-backend
-
 services:
   api1:
-    image: fzanutto/rinha-backend:latest
+    image: fzanutto/rinha-backend
     hostname: api1
     environment:
       - SERVER_PORT=8000
@@ -23,7 +21,7 @@ services:
       - app-network
 
   api2:
-    image: fzanutto/rinha-backend:latest
+    image: fzanutto/rinha-backend
     hostname: api2
     environment:
       - SERVER_PORT=8000
@@ -72,6 +70,8 @@ services:
       POSTGRES_DB: rinha
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
     deploy:
       restart_policy:
         condition: on-failure
@@ -84,5 +84,6 @@ services:
           memory: "1.5GB"
     networks:
       - app-network
+
 networks:
   app-network:
