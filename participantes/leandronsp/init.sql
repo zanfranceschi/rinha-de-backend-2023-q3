@@ -1,20 +1,17 @@
 -- Create extensions
-CREATE EXTENSION pg_trgm;
-
--- Create function array to string immutable
-CREATE OR REPLACE FUNCTION array_ts(arr TEXT[])
-RETURNS TEXT IMMUTABLE LANGUAGE SQL AS $$
-SELECT array_to_string(arr, ' ') $$;
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
 -- Create table people
 CREATE TABLE IF NOT EXISTS people (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    id VARCHAR(36),
+    nickname VARCHAR(32) CONSTRAINT nickname_pk PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    nickname VARCHAR(32) UNIQUE NOT NULL,
     birth_date DATE NOT NULL,
-    stack VARCHAR(32)[] NOT NULL
+    stack VARCHAR(1024),
+    search VARCHAR(1160) GENERATED ALWAYS AS (
+        LOWER(name) || ' ' || LOWER(nickname) || ' ' || LOWER(stack)
+    ) STORED
 );
 
 -- Create search index
-CREATE INDEX people_search_idx ON people 
-USING GIN (array_ts(stack || ARRAY[name, nickname]) gin_trgm_ops);
+CREATE INDEX CONCURRENTLY people_search_idx ON people USING GIST (search gist_trgm_ops);
