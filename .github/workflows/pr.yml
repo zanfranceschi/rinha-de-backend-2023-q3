@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: checkout da branch
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 50
 
       - name: pondo jq nessa joça
         uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
