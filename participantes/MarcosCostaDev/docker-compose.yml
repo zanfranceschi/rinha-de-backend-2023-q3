@@ -1,0 +1,88 @@
+version: '3.4'
+
+services:
+  api01:
+    container_name: api01
+    image: 'marcoslcosta/rinhabackend:latest'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "80"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.65GB'
+  api02:
+    container_name: api02
+    image: 'marcoslcosta/rinhabackend:latest'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "80"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.65GB'
+  db:
+    container_name: database
+    image: 'postgres:latest'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.55'
+          memory: '1.3GB'
+    ports:
+       - 5432:5432
+    environment:
+       POSTGRES_USER: rinha
+       POSTGRES_PASSWORD: 7653e869faa3 
+       POSTGRES_DB: rinhadb
+    volumes:
+      - ./create-script.sql:/docker-entrypoint-initdb.d/create-script.sql
+    command: postgres -c 'max_connections=1000'
+  redis:
+    image: redis
+    container_name: cache
+    ports:
+      - "6379:6379"
+    command: redis-server --save "" --appendonly no
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.2GB'
+  proxy:
+    container_name: proxy
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api01
+      - api02
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.2GB'
+networks:
+  default:
+    driver: bridge
+    name: rinha

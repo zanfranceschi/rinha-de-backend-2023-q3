@@ -1,0 +1,110 @@
+version: '3.9'
+
+services:
+  slimapi1:
+    image: willrodrigues/rinha-slimapi:latest
+    hostname: slimapi1
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db-postgresql/postgres
+      - DATABASE_MAX_CONNECTIONS=200
+
+      - CACHE_HOST=cache-redis
+      
+      - GUNICORN_BIND=0.0.0.0:8000
+      - GUNICORN_WORKERS=2
+      - GUNICORN_KEEPALIVE=4
+      - GUNICORN_FORWARDED_ALLOW_IPS=*
+    depends_on:
+      db-postgresql:
+        condition: service_healthy
+      cache-redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.6GB'
+    networks:
+      - rinha-network
+
+  slimapi2:
+    image: willrodrigues/rinha-slimapi:latest
+    hostname: slimapi2
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db-postgresql/postgres
+      - DATABASE_MAX_CONNECTIONS=200
+
+      - CACHE_HOST=cache-redis
+      
+      - GUNICORN_BIND=0.0.0.0:8000
+      - GUNICORN_WORKERS=2
+      - GUNICORN_KEEPALIVE=4
+      - GUNICORN_FORWARDED_ALLOW_IPS=*
+    depends_on:
+      db-postgresql:
+        condition: service_healthy
+      cache-redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.6GB'
+    networks:
+      - rinha-network
+
+  db-postgresql:
+    image: postgres:15.2-alpine
+    command: postgres -c 'max_connections=400'
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '1.3GB'
+    networks:
+      - rinha-network
+  
+  cache-redis:
+    image: redis:latest
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.5GB'
+    networks:
+    - rinha-network
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - slimapi1
+      - slimapi2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.1GB'
+    networks:
+      - rinha-network
+
+
+networks:
+  rinha-network:

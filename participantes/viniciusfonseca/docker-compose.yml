@@ -1,0 +1,80 @@
+version: '3.5'
+
+services:
+  api01: # API - Instância 01
+    image: distanteagle16/rinhabackend:latest
+    hostname: api01
+    depends_on:
+      - db
+      - redis
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.4GB'
+
+  api02: # API - Instância 02
+    image: distanteagle16/rinhabackend:latest
+    hostname: api02
+    depends_on:
+      - db
+      - redis
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.4GB'
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api01
+      - api02
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.5GB'
+
+  db: # Banco de dados
+    image: postgres
+    hostname: db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 1234 
+      POSTGRES_DB: rinhadb
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
+    ports:
+      - 5432:5432
+    deploy:
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: '1.4GB'
+  redis:
+    image: redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save "" --appendonly no --maxclients 20000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.3GB'
+
+networks:
+  default:
+    driver: bridge
+    name: rinha

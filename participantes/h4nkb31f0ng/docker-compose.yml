@@ -1,0 +1,120 @@
+version: "3.5"
+services:
+  db:
+    image: postgres:15
+    hostname: db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: rinha
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.9"
+          memory: "1GB"
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+      - ./scripts/postgres/:/docker-entrypoint-initdb.d/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 15s
+      timeout: 25s
+    command:
+      [
+        "postgres",
+        "-c",
+        "config_file=/docker-entrypoint-initdb.d/postgresql.conf",
+      ]
+
+  api1:
+    image: leorcvargas/rinha-go:main
+    restart: always
+    hostname: api1
+    environment:
+      - ENABLE_SONIC_JSON=1
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=rinha
+      - DB_PORT=5432
+      - CPU_PROFILE=/app/prof/cpu-1.prof
+      - MEM_PROFILE=/app/prof/mem-1.prof
+    volumes:
+      - ./prof:/app/prof
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "8080"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15"
+          memory: "0.5GB"
+
+  api2:
+    image: leorcvargas/rinha-go:main
+    restart: always
+    hostname: api2
+    environment:
+      - ENABLE_SONIC_JSON=1
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=rinha
+      - DB_PORT=5432
+      - CPU_PROFILE=/app/prof/cpu-2.prof
+      - MEM_PROFILE=/app/prof/mem-2.prof
+    volumes:
+      - ./prof:/app/prof
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "8080"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15"
+          memory: "0.5GB"
+
+  nginx:
+    image: nginx
+    hostname: api
+    volumes:
+      - ./scripts/nginx/:/etc/nginx/
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15"
+          memory: "0.5GB"
+
+  cache:
+    image: eqalpha/keydb:latest
+    hostname: cache
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15"
+          memory: "0.5GB"
+    volumes:
+      - ./scripts/keydb/:/etc/keydb/
+    command: ["keydb-server", "/etc/keydb/keydb.conf"]
+
+volumes:
+  postgres-db:
+
+networks:
+  default:
+    driver: bridge
