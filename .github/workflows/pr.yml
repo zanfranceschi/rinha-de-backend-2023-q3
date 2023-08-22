@@ -32,7 +32,7 @@ jobs:
       - name: validando participantes
         id: participantes
         run: |
-          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname % | xargs basename % | jq --raw-input . | jq --slurp .)
           quantidade=$(echo ${participantes} | jq length)
 
