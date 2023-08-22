@@ -11,17 +11,12 @@
 ## Stack
 
 * Ruby 3.2 [+YJIT](https://shopify.engineering/ruby-yjit-is-production-ready)
+* Puma
+* Roda
 * PostgreSQL
 * NGINX
 
-O setup é bastante simples, basicamente contempla:
-
-1. Duas API's Ruby atrás de um NGINX
-2. Cada API sendo servida pelo Puma, um servidor HTTP multi-thread
-3. Puma no modo cluster com 2 CPU workers (forking) e utilizando uma pool de até 5 threads
-4. [Chespirito](https://github.com/leandronsp/chespirito), um framework web bastante simples criado pelo [@leandronsp](https://twitter.com/leandronsp)
-5. Um database pool de 50 conexões
-6. Busca textual no PostgreSQL ultra-rápida com ts_vector e GIN index
+_Infelizmente a app não tá tendo bons resultados com restrição de recursos, por isso os recursos no `docker-compose.yml` estão generosos._
 
 ---
 
@@ -31,8 +26,6 @@ LinkedIn: [leandronsp](https://linkedin.com/leandronsp)
 Twitter: [@leandronsp](https://twitter.com/leandronsp)
 Mastodon: [@leandronsp](https://mastodon.social/@leandronsp)
 DEV.to: [leandronsp](https://dev.to/leandronsp)
-
-...e claro, não deixem de visitar [meu site](https://leandronsp.com/)
 
 ----
 
