@@ -1,0 +1,99 @@
+version: '3.5'
+services:
+  api1:
+    image: iancambrea/rinha-python-sanic
+    hostname: api1
+    depends_on:
+      redis:
+        condition: service_started
+      db: 
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '0.5GB'
+    command: "sanic main:app -u='/tmp/api1.sock' --no-access-logs --single-process"
+    volumes:
+      - ./apis.sock:/tmp/
+    networks:
+      - appnet
+
+  api2:
+    image: iancambrea/rinha-python-sanic
+    hostname: api1
+    depends_on:
+      redis:
+        condition: service_started
+      db: 
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '0.5GB'
+    command: "sanic main:app -u='/tmp/api2.sock' --no-access-logs --single-process"
+    volumes:
+      - ./apis.sock:/tmp/
+    networks:
+      - appnet
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./apis.sock:/tmp/
+    depends_on:
+      api1:
+        condition: service_started
+      api2: 
+        condition: service_started
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.5GB'
+    networks:
+      - appnet
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: rinha
+    container_name: db
+    volumes:
+      - ./sql.sql:/docker-entrypoint-initdb.d/sql.sql
+    command: postgres -c shared_buffers=384MB -c max_connections=120 -c log_min_messages=FATAL
+    deploy:
+      resources:
+        limits:
+          cpus: '0.45'
+          memory: '1GB'
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready --dbname=rinha --username=user"]
+        interval: 2s
+        timeout: 2s
+        retries: 30
+    networks:
+      - appnet
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - appnet
+    command: redis-server --save "" --appendonly no --maxclients 10000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.5GB'
+  
+networks:
+  appnet:
+    driver: bridge

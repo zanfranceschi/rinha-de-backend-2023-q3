@@ -6,32 +6,38 @@ services:
     depends_on:
       - db
     environment:
+      POSTGRES_POOL: 15
       POSTGRES_PASSWORD: test
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PORT: 5432
       POSTGRES_HOST: db
+      REDIS_POST: 6379
+      REDIS_HOST: redis
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: 0.5GB
+          cpus: '0.3'
+          memory: 0.4GB
   api2:
     image: thelinuxlich/gleba:latest
     hostname: api2
     depends_on:
       - db
     environment:
+      POSTGRES_POOL: 15
       POSTGRES_PASSWORD: test
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PORT: 5432
       POSTGRES_HOST: db
+      REDIS_POST: 6379
+      REDIS_HOST: redis
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: 0.5GB
+          cpus: '0.3'
+          memory: 0.4GB
   nginx:
     image: nginx:latest
     volumes:
@@ -44,11 +50,22 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.2'
+          memory: 0.2GB
+  redis:
+    image: redis:latest
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
           memory: 0.5GB
   db:
     image: postgres:15
+    command: postgres -c log_min_messages=FATAL
     restart: always
+    ports:
+      - '5432:5432'
     environment:
       POSTGRES_PASSWORD: test
       POSTGRES_USER: postgres
@@ -58,5 +75,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.75'
+          cpus: '0.6'
           memory: 1.5GB

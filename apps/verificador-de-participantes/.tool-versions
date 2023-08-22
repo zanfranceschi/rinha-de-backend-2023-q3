@@ -1,0 +1,3 @@
+# https://asdf-vm.com/guide/getting-started.html
+# asdf plugin add https://github.com/danhper/asdf-python.git
+python 3.11.4

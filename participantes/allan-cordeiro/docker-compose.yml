@@ -1,0 +1,107 @@
+version: '3'
+services:
+  go-api1:
+      container_name: go-api1 
+      image: allancordeiros/rinha-go:latest                                          
+      hostname: go-api1          
+      restart: always    
+      depends_on:
+        - db      
+      environment: 
+        DBURL: postgres://rinha:rinha123@db/rinhadb?sslmode=disable
+        SERVER_PORT: 8181   
+        REDIS_PORT: 6379
+      deploy:
+        resources:
+          limits:
+            cpus: '0.15'
+            memory: '0.25GB'
+      networks:
+        - rinha-go-nw
+  go-api2:
+      container_name: go-api2 
+      image: allancordeiros/rinha-go:latest                                          
+      hostname: go-api2              
+      restart: always    
+      depends_on:
+        - db 
+      environment: 
+        DBURL: postgres://rinha:rinha123@db/rinhadb?sslmode=disable
+        SERVER_PORT: 8182     
+        REDIS_PORT: 6379     
+      deploy:
+        resources:
+          limits:
+            cpus: '0.15'
+            memory: '0.25GB'
+      networks:
+        - rinha-go-nw
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - go-api1
+      - go-api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.2GB'
+    networks:
+      - rinha-go-nw
+  redis:
+    image: redis:7-alpine
+    command: redis-server --save "" --appendonly no
+    ports: 
+      - "6379:6379"
+    restart: always
+    deploy:      
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.5GB'      
+    expose:
+      - 6379
+    networks:
+      - rinha-go-nw      
+
+  db:
+    image: postgres:15.2-alpine
+    volumes:
+      - .data:/var/lib/postgresql/data
+      - ./sql:/migrations
+      - ./sql/postgresql.conf:/etc/postgresql/postgresql.conf
+    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
+    tty: true
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    restart: always
+    environment:
+      POSTGRES_USER: rinha
+      POSTGRES_PASSWORD: rinha123
+      POSTGRES_DB: rinhadb    
+    deploy: 
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: '1.8GB'  
+    networks:
+      - rinha-go-nw
+  db-schema-check:
+    image: postgres:15.2-alpine
+    restart: no
+    volumes:
+      - ./sql:/migrations    
+    entrypoint: [ "sh", "-c", "chmod +x /migrations/validate_migrations.sh && /migrations/validate_migrations.sh" ]
+    depends_on:
+      - db
+    networks:
+      - rinha-go-nw
+networks:
+  rinha-go-nw:
+

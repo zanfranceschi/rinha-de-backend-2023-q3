@@ -1,0 +1,96 @@
+version: '3.5'
+services:
+  api1:
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: rinha
+      CACHE_DURATION_SECONDS: 45
+      INSERT_BATCH_SIZE: 1000
+      INSERT_BATCH_INTERVAL: 3
+    image: reonardoleis/rinha-backend-2023-q3
+    hostname: api1
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: '0.35GB'
+
+  api2:
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: rinha
+      CACHE_DURATION_SECONDS: 45
+      INSERT_BATCH_SIZE: 1000
+      INSERT_BATCH_INTERVAL: 3
+    image: reonardoleis/rinha-backend-2023-q3
+    hostname: api2
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: '0.35GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  redis:
+    image: redis
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  db:
+   healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+   image: postgres
+   environment:
+     POSTGRES_PASSWORD: postgres
+     POSTGRES_USER: postgres
+   deploy:
+      resources:
+        limits:
+          cpus: '0.60'
+          memory: '1.3GB'
+   volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
