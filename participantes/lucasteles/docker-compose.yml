@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  api1:
+    image: lucasteles/rinha-de-backend
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      CACHE_HOST: redis:6379
+    networks:
+      - api-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.6GB'
+
+  api2:
+    image: lucasteles/rinha-de-backend
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      CACHE_HOST: redis:6379
+    networks:
+      - api-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.6GB'
+
+  db:
+    image: postgres:latest
+    command: postgres -c 'max_connections=200' -c 'shared_buffers=512MB'
+    networks:
+      - api-network
+    environment:
+      POSTGRES_DB: pessoas_db
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 10s
+      timeout: 20s
+      retries: 5
+    volumes:
+      - ./ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.65'
+          memory: '1.2GB'
+
+  redis:
+    image: redis
+    networks:
+      - api-network
+    healthcheck:
+      test: redis-cli ping
+      interval: 10s
+      timeout: 20s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.5GB'
+
+  nginx:
+    image: nginx:latest
+    networks:
+      - api-network
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.1GB'
+
+networks:
+  api-network:
+    driver: bridge
