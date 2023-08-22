@@ -1,29 +1,31 @@
 version: '3.5'
 services:
   api1: # API - Instância 01
-    image: andre237/api-rinha-backend-quarkus:2.0.0
+    image: andre237/api-rinha-backend-quarkus:3.0.0
     hostname: api1
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     expose:
       - "8080"
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.22'
           memory: '500MB'
 
   api2: # API - Instância 01
-    image: andre237/api-rinha-backend-quarkus:2.0.0
+    image: andre237/api-rinha-backend-quarkus:3.0.0
     hostname: api2
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     expose:
       - "8080"
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.2'
           memory: '500MB'
 
   nginx: # Load Balancer
@@ -38,7 +40,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.1'
           memory: '500mB'
 
   db: # Banco de dados
@@ -47,9 +49,15 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.75'
+          cpus: '1'
           memory: '1500MB'
     environment:
+      PGUSER: postgres
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
-      PGDATA: /var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
