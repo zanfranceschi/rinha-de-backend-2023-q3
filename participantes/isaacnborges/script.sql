@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS Pessoas
     stack VARCHAR(32)[] NULL,
     search TEXT GENERATED ALWAYS AS (
         nome || ' ' || apelido || ' ' || COALESCE(ARRAY_TO_STRING_IMMUTABLE(stack, ' '), '')
-    ) STORED,
-    CONSTRAINT pessoas_unique_apelido UNIQUE (apelido)
+    ) STORED
 );
 
-CREATE INDEX IF NOT EXISTS pessoas_id_index ON pessoas (id);
-CREATE INDEX IF NOT EXISTS pessoas_search_index ON pessoas USING GIST (search gist_trgm_ops);
+CREATE INDEX pessoas_id_index ON pessoas (id);
+CREATE INDEX pessoas_apelido_index ON PESSOAS (apelido);
+CREATE INDEX pessoas_search_index ON pessoas USING GIST (search gist_trgm_ops);
