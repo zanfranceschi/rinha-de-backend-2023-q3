@@ -20,10 +20,7 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
-      REDIS_PORT: 6379
-      REDIS_HOST: redis
-      WS_NAME: api1
-      WS: ws://pubsub:8000
+      WS: ws://pubsub:8080
     deploy:
       resources:
         limits:
@@ -50,10 +47,7 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
-      REDIS_PORT: 6379
-      REDIS_HOST: redis
-      WS_NAME: api2
-      WS: ws://pubsub:8000
+      WS: ws://pubsub:8080
     deploy:
       resources:
         limits:
@@ -62,10 +56,12 @@ services:
 
   pubsub:
     image: eufountai/socket-pubsub:latest
+    expose:
+      - '8080'
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: '0.3'
           memory: '0.4GB'
     
 
@@ -95,5 +91,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.4'
           memory: '0.9GB'

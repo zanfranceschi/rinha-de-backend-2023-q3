@@ -1,0 +1,71 @@
+version: '3.5'
+services:
+  db:
+    image: postgres:latest
+    hostname: db
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=rinha
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '1GB'
+
+  api01:
+    image: wesleynepo/gopherinha 
+    hostname: rinha-api01
+    depends_on:
+      - db
+    environment:
+      - DB_DSN=postgres://admin:123@db/rinha?sslmode=disable
+    expose:
+      - "4000"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '0.95GB'
+  
+  api02:
+    image: wesleynepo/gopherinha 
+    hostname: rinha-api02
+    depends_on:
+      - db
+    environment:
+      - DB_DSN=postgres://admin:123@db/rinha?sslmode=disable
+    expose:
+      - "4000"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '0.95GB'
+  
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api01
+      - api02
+    ports:
+      - "9999:9999"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.1GB'
+
+networks:
+  default:
+    driver: bridge
+    name: rinha

@@ -1,0 +1,73 @@
+########################################################################
+##
+##      General docs: https://docs.docker.com/compose/compose-file
+##
+##       Most images here are based on Alpine Linux, which is a
+##        minimal Linux install, perfect for Docker images, but
+##      if you ever want to jump on it, use `sh` instead of `bash`
+##
+########################################################################
+
+version: '3.6'
+services:
+
+######## https://hub.docker.com/_/php/ ########
+  api1: &api-image
+    image: api
+    hostname: api1
+    build:
+      context: .
+    volumes:
+      - ./src:/var/www
+      - ./conf/php/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+      - ./conf/php/php-extras.ini:/usr/local/etc/php/conf.d/php-extras.ini
+    depends_on:
+      - db
+      - redis
+    expose:
+      - 9000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+    
+  api2:
+    <<: *api-image
+    hostname: api2
+
+######## https://hub.docker.com/_/nginx/ ########
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./src:/var/www
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - 9999:9999
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+    
+  ######## https://hub.docker.com/_/postgres/ ########
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: rinha
+      POSTGRES_USER: rinha
+      POSTGRES_PASSWORD: rinha123
+      POSTGRES_ROOT_PASSWORD: rinha1234
+      PGDATA: /var/lib/pgsql/pgdata
+    user: ${USERID-1000}:${GROUPID-1000}
+    volumes:
+      - ./data:/var/lib/pgsql
+    expose:
+      - 5432
+    
+  ######## https://hub.docker.com/_/redis/ ########
+  redis:
+    image: redis:7-alpine

@@ -1,0 +1,85 @@
+services:
+  db:
+    image: postgres:latest
+    hostname: db
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=rinha
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '1.0GB'
+  
+  api01:
+    image: caravanacloud/rinhadebackend
+    hostname: rinha-api01
+    depends_on:
+      - db
+    environment:
+      - QUARKUS_DATASOURCE_REACTIVE_URL=vertx-reactive:postgresql://db/rinha
+      - QUARKUS_DATASOURCE_DB_KIND=postgresql
+      - QUARKUS_DATASOURCE_USERNAME=admin
+      - QUARKUS_DATASOURCE_PASSWORD=123
+    expose:
+      - "9090"
+    ports:
+      - "9091:9090"
+    links:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.8'
+          memory: '1.5GB'
+  
+  api02:
+    image: caravanacloud/rinhadebackend
+    hostname: rinha-api02
+    depends_on:
+      - db
+      - api01
+    environment:
+      - QUARKUS_DATASOURCE_REACTIVE_URL=vertx-reactive:postgresql://db/rinha
+      - QUARKUS_DATASOURCE_DB_KIND=postgresql
+      - QUARKUS_DATASOURCE_USERNAME=admin
+      - QUARKUS_DATASOURCE_PASSWORD=123
+    expose:
+      - "9090"
+    ports:
+      - "9092:9090"
+    links:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.1GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./default.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api01
+      - api02
+    links:
+      - api01
+      - api02
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.4GB'
+
+networks:
+  default:
+    driver: bridge
+    name: rinha

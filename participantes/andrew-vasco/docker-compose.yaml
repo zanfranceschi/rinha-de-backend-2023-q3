@@ -3,7 +3,7 @@ name: people-service
 
 services:
   api1:
-    image: people-service:latest
+    image: andrewxvasco/rinhabackend_12:latest
     hostname: api1
     environment:
       - SERVER_PORT=8000
@@ -27,7 +27,7 @@ services:
       - app-network
 
   api2:
-    image: people-service:latest
+    image: andrewxvasco/rinhabackend_12:latest
     hostname: api2
     environment:
       - SERVER_PORT=8000

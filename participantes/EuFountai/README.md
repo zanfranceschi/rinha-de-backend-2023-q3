@@ -9,9 +9,7 @@ Github Repository: [@Eletroswing/rinha-de-backend-2023](https://github.com/eletr
  - Javascript
  - Postgres
  - socket as pub-sub
- - Custom http module
-  > Uses an updated and edited version of the quarkhttp project
-  > https://github.com/softchris/mini-web
+ - Antiga versão usava http, mas endoidei e fiz minha própria versão de conexão tcp descrita em [Nodejs: Construindo Comunicação TCP Pura Sem HTTP ou Net, Apenas por Diversão! ☕](https://www.tabnews.com.br/Ytu/nodejs-construindo-comunicacao-tcp-pura-sem-http-ou-net-apenas-por-diversao)
 
 
 # Feito a base de ☕

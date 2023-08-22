@@ -11,10 +11,12 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
+          cpus: '0.5'
           memory: '1.2GB'
     ports:
        - 5432:5432
+    volumes:
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
     environment:
        POSTGRES_USER: rinha
        POSTGRES_PASSWORD: k8M9ODJ7d19FCs
@@ -35,8 +37,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.5GB'
+          cpus: '0.25'
+          memory: '0.4GB'
     networks:
      - rinhabackend
 
@@ -60,7 +62,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
+          cpus: '0.3'
           memory: '0.6GB'
     restart: unless-stopped
     networks:
@@ -87,7 +89,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
+          cpus: '0.3'
           memory: '0.6GB'
     restart: unless-stopped
     networks:
@@ -106,7 +108,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
-          memory: '0.1GB'
+          cpus: '0.15'
+          memory: '0.2GB'
     networks:
       - rinhabackend

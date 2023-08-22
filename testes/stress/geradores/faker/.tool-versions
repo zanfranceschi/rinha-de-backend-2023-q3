@@ -1,0 +1,3 @@
+# https://asdf-vm.com/guide/getting-started.html
+# asdf plugin add https://github.com/asdf-vm/asdf-nodejs.git
+nodejs 20.5.1

@@ -1,0 +1,92 @@
+version: "3"
+
+services:
+  api1:
+    image: andrelsmelo/rinha-backend-api:main
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    restart: on-failure
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.5GB'
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/healthcheck || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  api2:
+    image: andrelsmelo/rinha-backend-api:main
+    ports:
+      - "8081:8080"
+    expose:
+      - "8080"
+    restart: on-failure
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.5GB'
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/healthcheck || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: rinha_senha
+      MYSQL_DATABASE: rinha_banco
+    ports:
+      - "3306:3306"  # Map host port to container port
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '1GB'
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p$$MYSQL_ROOT_PASSWORD' ]
+      timeout: 20s
+      retries: 10
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"  # Map host port to container port
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.5GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.5GB'
