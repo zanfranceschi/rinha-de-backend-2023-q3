@@ -12,9 +12,9 @@ Stack:
 A implementação foi feita em uma série de 3 lives no Youtube:
 
 [![Parte 01](https://github.com/reu/rinha-backend-rust/raw/master/.github/live01.png)](https://www.youtube.com/watch?v=aXQenZGvLrQ)
-https://www.youtube.com/watch?v=aXQenZGvLrQ
-https://www.youtube.com/watch?v=zkP6zA69Vd4
-https://www.youtube.com/watch?v=5k52-nKoYfE
+- https://www.youtube.com/watch?v=aXQenZGvLrQ
+- https://www.youtube.com/watch?v=zkP6zA69Vd4
+- https://www.youtube.com/watch?v=5k52-nKoYfE
 
 # Autor
 
