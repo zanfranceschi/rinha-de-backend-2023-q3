@@ -15,10 +15,10 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: '1GB'
+          memory: '0.5GB'
 
   api1:
-    image: oliveigah/rinha-backend:with_postgres_nginx_v2
+    image: oliveigah/rinha-backend:final
     depends_on:
       - database
     hostname: api1.com
@@ -34,11 +34,11 @@ services:
       resources:
         limits:
           cpus: '0.4'
-          memory: '0.75GB'
+          memory: '1GB'
 
 
   api2:
-    image: oliveigah/rinha-backend:with_postgres_nginx_v2
+    image: oliveigah/rinha-backend:final
     depends_on:
       - api1
     hostname: api2.com
@@ -54,7 +54,7 @@ services:
       resources:
         limits:
           cpus: '0.4'
-          memory: '0.75GB'
+          memory: '1GB'
 
   nginx:
     image: nginx:latest
