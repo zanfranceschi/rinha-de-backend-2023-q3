@@ -9,4 +9,4 @@
 - Nginx
 
 Repositório: https://github.com/isadoramsouza/rinha-de-backend-go </br>
-Twitter: twitter.com/isadoraamsouza
+Twitter: [@isadoraamsouza](https://twitter.com/isadoraamsouza)
