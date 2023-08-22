@@ -5,10 +5,8 @@ permissions:
 
 on:
   push:
-    branches:
-      - 'main'
-    paths:
-      - './participantes/**/*'
+    branches: [ 'main' ]
+    paths: [ './participantes/*/docker-compose.yml' ]
 
 env:
   NODE_VERSION: 20.5.1

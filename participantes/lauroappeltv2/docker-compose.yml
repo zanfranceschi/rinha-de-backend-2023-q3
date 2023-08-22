@@ -5,24 +5,24 @@ services:
     #api1
     api-01:
         container_name: rinha-backend-api-01
-        image: lauroappelt/rinhabackend2023q3:2.1
+        image: lauroappelt/rinhabackend2023q3:3.0
         networks:
             - rinha
         depends_on:
             - db
             - nginx
             - redis
-        command: bash -c "php bin/hyperf.php server:watch"
+        command: bash -c "php bin/hyperf.php start"
         deploy:
             resources:
                 limits:
-                    cpus: '0.35'
+                    cpus: '0.45'
                     memory: '0.5GB'
 
     #api1
     api-02:
         container_name: rinha-backend-api-02
-        image: lauroappelt/rinhabackend2023q3:2.1
+        image: lauroappelt/rinhabackend2023q3:3.0
         networks:
             - rinha
         depends_on:
@@ -30,11 +30,11 @@ services:
             - nginx
             - redis
             - api-01
-        command: bash -c "php bin/hyperf.php server:watch"
+        command: bash -c "php bin/hyperf.php start"
         deploy:
             resources:
                 limits:
-                    cpus: '0.35'
+                    cpus: '0.45'
                     memory: '0.5GB'
 
     # postgres
@@ -56,7 +56,7 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.55'
+                    cpus: '0.1'
                     memory: '0.7GB'
 
   # nginx
@@ -72,7 +72,7 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.15'
+                    cpus: '0.25'
                     memory: '0.2GB'
 
     # redis
@@ -86,7 +86,7 @@ services:
         deploy:
             resources:
                 limits:
-                    cpus: '0.1'
+                    cpus: '0.25'
                     memory: '0.2GB'
 
 volumes:

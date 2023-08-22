@@ -1,0 +1,80 @@
+version: '3.5'
+services:
+  api1:
+    image: fabriciojuliatto/rinhadebackend:v0.1.0
+    hostname: api1
+    depends_on:
+      - db
+    expose:
+      - "9999"
+    environment:
+      DATABASE_USER: rinha
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_DATABASE: rinha
+      DATABASE_MAXCONNECTIONS: 45
+      SERVER_IP: "0.0.0.0"
+      SERVER_PORT: 9999
+      RUST_LOG: debug
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.375GB'
+
+  api2:
+    image: fabriciojuliatto/rinhadebackend:v0.1.0
+    build: .
+    hostname: api2
+    depends_on:
+      - db
+    expose:
+      - "9999"
+    environment:
+      DATABASE_USER: rinha
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_DATABASE: rinha
+      DATABASE_MAXCONNECTIONS: 45
+      SERVER_IP: "0.0.0.0"
+      SERVER_PORT: 9999
+      RUST_LOG: debug
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.375GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '0.25GB'
+
+  db:
+    image: postgres:15.3-alpine
+    environment:
+      POSTGRES_USER: rinha
+      POSTGRES_PASSWORD: password
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '2GB'
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+volumes:
+  postgres-data:
