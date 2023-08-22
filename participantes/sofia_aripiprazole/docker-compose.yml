@@ -4,15 +4,18 @@ services:
     image: gabrielleeg1/rinha:latest
     hostname: api1
     depends_on:
+      db:
+        condition: service_healthy
+    links:
       - db
     environment:
-      - PORT=80
-      - HOST=api1
-      - POSTGRES_HOST=db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=rinha
-      - POSTGRES_PORT=5432
+      PORT: 80
+      HOST: 'api1'
+      POSTGRES_HOST: 'db'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DATABASE: 'rinha'
+      POSTGRES_PORT: 5432
     expose:
       - "80"
     deploy:
@@ -21,19 +24,22 @@ services:
           cpus: '0.25'
           memory: '0.5GB'
 
-  api2: # API - Instância 01
+  api2:
     image: gabrielleeg1/rinha:latest
     hostname: api2
     depends_on:
+        db:
+          condition: service_healthy
+    links:
       - db
     environment:
-      - PORT=80
-      - HOST=api2
-      - POSTGRES_HOST=db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=rinha
-      - POSTGRES_PORT=5432
+      PORT: 80
+      HOST: 'api2'
+      POSTGRES_HOST: 'db'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DATABASE: 'rinha'
+      POSTGRES_PORT: 5432
     expose:
       - "80"
     deploy:
@@ -57,11 +63,13 @@ services:
           cpus: '0.25'
           memory: '0.5GB'
 
-  db: # Banco de dados
+  db:
    image: postgres
    environment:
       POSTGRES_PASSWORD: 'password'
       POSTGRES_DB: 'rinha'
+   ports:
+      - "5432:5432"
    volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
    deploy:
@@ -69,3 +77,8 @@ services:
         limits:
           cpus: '0.75'
           memory: '1.5GB'
+   healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
