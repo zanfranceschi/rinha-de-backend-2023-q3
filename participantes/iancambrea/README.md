@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/assets/sanic.gif"/>
+  <img src="assets/sanic.gif"/>
 </p>
 
 <h1 align="center"> 🐍 Rinha de Backend na linguagem da cobrinha 🐍 </h1>
