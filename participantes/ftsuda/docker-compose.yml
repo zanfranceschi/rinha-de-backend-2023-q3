@@ -1,0 +1,131 @@
+version: '3'
+
+services:
+  api1: # API - Instância 01
+    image: ftsuda/rinha-backend:1.1.2
+    hostname: api1
+    depends_on:
+      db:
+        condition: 'service_healthy'
+    networks:
+      - rinhanet
+    # healthcheck:
+    #   test: curl -m 5 --silent --fail --request GET http://localhost:8081/contagem-pessoas | jq --exit-status -n 'inputs | if has("status") then .status=="UP" else false end' > /dev/null || exit 1
+    #   interval: 15s
+    #   retries: 60
+    #   start_period: 30s
+    #   timeout: 5s
+    # expose:
+    #   - "8080"
+    ports:
+      - "8081:8080"
+    ulimits:
+      nproc: 1000000
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    environment:
+      INSTANCIA_ROLE: "principal"
+      JDK_JAVA_OPTIONS: "-server -ea -XX:+UseContainerSupport -XX:MaxRAMPercentage=80"
+      DB_POOL_SIZE_INITIAL: "100"
+      DB_POOL_SIZE_MAX: "100"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '1.1GB'
+
+  api2: # API - Instância 02
+    image: ftsuda/rinha-backend:1.1.2
+    hostname: api2
+    depends_on:
+      db:
+        condition: 'service_healthy'
+    networks:
+      - rinhanet
+    # healthcheck:
+    #   test: curl -m 5 --silent --fail --request GET http://localhost:8082/contagem-pessoas | jq --exit-status -n 'inputs | if has("status") then .status=="UP" else false end' > /dev/null || exit 1
+    #   interval: 15s
+    #   retries: 60
+    #   start_period: 30s
+    #   timeout: 5s
+    # expose:
+    #   - "8080"
+    ports:
+      - "8082:8080"
+    ulimits:
+      nproc: 1000000
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    environment:
+      INSTANCIA_ROLE: "secundaria"
+      JDK_JAVA_OPTIONS: "-server -ea -XX:+UseContainerSupport -XX:MaxRAMPercentage=80"
+      DB_POOL_SIZE_INITIAL: "100"
+      DB_POOL_SIZE_MAX: "100"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '1.1GB'
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+      # api1:
+      #   condition: 'service_healthy'
+      # api2:
+      #   condition: 'service_healthy'
+    networks:
+      - rinhanet
+    ports:
+      - "9999:9999"
+    ulimits:
+      nproc: 1000000
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.3GB'
+
+  db: # Banco de dados
+    image: postgres
+    command: postgres -c config_file=/postgresql.conf
+    volumes:
+      - ./postgresql.conf:/postgresql.conf
+    environment:
+      POSTGRES_DB: "rinha"
+      POSTGRES_USER: "rinha_user"
+      POSTGRES_PASSWORD: "rinha_pwd"
+    # expose:
+    #   - "5432"
+    ports:
+      - "5434:5432"
+    networks:
+      - rinhanet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    ulimits:
+      nproc: 1000000
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.7'
+          memory: '0.5GB'
+networks:
+  rinhanet:
+    driver: bridge
