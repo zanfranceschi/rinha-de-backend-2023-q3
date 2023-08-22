@@ -2,7 +2,7 @@
 
 ### Repositório Github
 
-[@fernandozanutto/rinha-de-backend](https://github.com/fernandozanutto/rinha-de-backend)
+[@fernandozanutto/rinha-backend](https://github.com/fernandozanutto/rinha-backend)
 
 ### Tecnologias
 
