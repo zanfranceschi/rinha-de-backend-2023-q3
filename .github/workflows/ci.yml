@@ -1,0 +1,49 @@
+name: main
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Build
+        run: docker build . -t rinha-de-backend-2023-q3
+  test:
+    runs-on: ubuntu-20.04
+    needs: build
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - run: docker-compose up -d
+    - name: Load test
+      run: |
+        git clone --single-branch --quiet https://github.com/zanfranceschi/rinha-de-backend-2023-q3
+        cd rinha-de-backend-2023-q3
+        wget https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.9.5/gatling-charts-highcharts-bundle-3.9.5-bundle.zip
+        unzip gatling-charts-highcharts-bundle-3.9.5-bundle.zip
+        cd gatling-charts-highcharts-bundle-3.9.5
+        ./bin/gatling.sh -rm local -s RinhaBackendSimulation -rd "DESCRICAO" -rf $WORKSPACE/user-files/results -sf $WORKSPACE/user-files/simulations -rsf $WORKSPACE/user-files/resources
+        echo GATLING_OUTPUT_FOLDER=$(ls $WORKSPACE/user-files/results | sort | head -n 1) >> $GITHUB_ENV
+      env:
+        WORKSPACE: ${{ github.workspace }}/rinha-de-backend-2023-q3/stress-test
+    - run: echo ${{ env.GATLING_OUTPUT_FOLDER }}
+    - run: |
+        # replace string DESCRICAO with the commit sha in file index.html inside GATLING OUTPUT FOLDER
+        sed -i "s/DESCRICAO/${{ github.sha }}/g" ${{ github.workspace }}/rinha-de-backend-2023-q3/stress-test/user-files/results/${{ env.GATLING_OUTPUT_FOLDER }}/index.html
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ github.workspace }}/rinha-de-backend-2023-q3/stress-test/user-files/results/${{ env.GATLING_OUTPUT_FOLDER }}  
+        destination_dir: ${{ env.GATLING_OUTPUT_FOLDER }}
+    - run: echo "GH_REPO=$(echo ${{ github.repository }} | cut -d "/" -f 2)" >> $GITHUB_ENV
+    - run: echo "[Deploying to https://${{ github.repository_owner }}.github.io/${{ env.GH_REPO }}/${{ env.GATLING_OUTPUT_FOLDER }}](https://${{ github.repository_owner }}.github.io/${{ env.GH_REPO }}/${{ env.GATLING_OUTPUT_FOLDER }})" >> "${GITHUB_STEP_SUMMARY}"
+
+        
+    
