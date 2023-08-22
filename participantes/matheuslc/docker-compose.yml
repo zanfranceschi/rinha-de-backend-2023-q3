@@ -1,0 +1,86 @@
+version: "3.8"
+
+services:
+  api1:
+    image: matheuslc/rinha:latest
+    hostname: api1
+    restart: always
+    expose:
+      - "80"
+    depends_on: 
+      db:
+        condition: service_healthy
+    environment:
+      - ENV=dev
+      - POSTGRES_HOST=rinha
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pgpass
+      - POSTGRES_DB=rinha
+      - DATABASE_URL=postgres://postgres:pgpass@db:5432/rinha?sslmode=disable
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  api2:
+    image: matheuslc/rinha:latest
+    hostname: api2
+    restart: always
+    expose:
+      - "80"
+    depends_on: 
+      db:
+        condition: service_healthy
+    environment:
+      - ENV=dev
+      - POSTGRES_HOST=rinha
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pgpass
+      - POSTGRES_DB=rinha
+      - DATABASE_URL=postgres://postgres:pgpass@db:5432/rinha?sslmode=disable
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  db:
+    image: postgres:latest
+    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: pgpass
+      POSTGRES_DB: rinha
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-U", "postgres", "-h", "rinha"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
+  
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
