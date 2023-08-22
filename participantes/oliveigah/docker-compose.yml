@@ -1,0 +1,75 @@
+version: '3.5'
+services:
+  database:
+    image: postgres:latest
+    command: postgres -c 'max_connections=250'
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=rinha_backend
+    ports:
+      - 5432:5432
+    volumes:
+      - database:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '1GB'
+
+  api1:
+    image: oliveigah/rinha-backend:with_postgres_nginx_v2
+    depends_on:
+      - database
+    hostname: api1.com
+    environment:
+      HTTP_SERVER_PORT: 3000
+      RELEASE_COOKIE: "secret_cookie"
+      RELEASE_NODE: "api@api1.com"
+      RELEASE_DISTRIBUTION: "name"
+      BOOTSTRAP_NODES: "api@api2.com"
+    healthcheck:
+      test: curl -f http://api1:3000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '0.75GB'
+
+
+  api2:
+    image: oliveigah/rinha-backend:with_postgres_nginx_v2
+    depends_on:
+      - api1
+    hostname: api2.com
+    environment:
+      HTTP_SERVER_PORT: 3000
+      RELEASE_COOKIE: "secret_cookie"
+      RELEASE_NODE: "api@api2.com"
+      RELEASE_DISTRIBUTION: "name"
+      BOOTSTRAP_NODES: "api@api1.com"
+    healthcheck:
+      test: curl -f http://api2:3000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '0.75GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "3000:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.5GB'
+
+volumes:
+  database:
