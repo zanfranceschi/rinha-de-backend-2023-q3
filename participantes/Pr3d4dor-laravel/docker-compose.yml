@@ -1,0 +1,111 @@
+version: "3.8"
+
+services:
+  api1: # API - Instância 01
+    image: pr3d4dor/rinha-de-backend-2023-q3-laravel:latest
+    hostname: api1
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: rinha
+      DB_USER: rinha
+      DB_PASSWORD: rinha
+      CACHE_DRIVER: redis
+      REDIS_CLIENT: phpredis
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      QUEUE_CONNECTION: redis
+      QUEUE_FAILED_DRIVER: 'null'
+    depends_on:
+      - db
+      - cache
+    expose:
+      - "8000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.375'
+          memory: '0.9GB'
+    networks:
+      - rinha-laravel
+
+  api2: # API - Instância 02
+    image: pr3d4dor/rinha-de-backend-2023-q3-laravel:latest
+    hostname: api2
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: rinha
+      DB_USER: rinha
+      DB_PASSWORD: rinha
+      CACHE_DRIVER: redis
+      REDIS_CLIENT: phpredis
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      QUEUE_CONNECTION: redis
+      QUEUE_FAILED_DRIVER: 'null'
+    depends_on:
+      - db
+      - cache
+    expose:
+      - "8000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.375'
+          memory: '0.9GB'
+    networks:
+      - rinha-laravel
+
+  nginx: # Load Balancer
+    image: nginx:1.25-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.05'
+          memory: '0.1GB'
+    networks:
+      - rinha-laravel
+
+  db: # Banco de dados
+    image: postgres:15.4-alpine
+    hostname: db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rinha
+      POSTGRES_DB: rinha
+    command: postgres -c shared_buffers=256MB
+    volumes:
+      - ./migrations.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+    deploy:
+      resources:
+        limits:
+          cpus: '0.65'
+          memory: '1.0GB'
+    networks:
+      - rinha-laravel
+
+  cache: # Cache
+    image: redis:7.2-alpine
+    deploy:
+      resources:
+        limits:
+          cpus: "0.05"
+          memory: "0.1GB"
+    networks:
+      - rinha-laravel
+
+networks:
+  rinha-laravel:
+    name: rinha-laravel
