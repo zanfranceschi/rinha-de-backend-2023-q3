@@ -32,11 +32,12 @@ jobs:
       - name: validando participantes
         id: participantes
         run: |
-          participantes=$(git diff --name-only origin/main | grep "docker-compose.yml" | xargs dirname | xargs basename | jq --raw-input . | jq --slurp .)
+          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname % | xargs basename % | jq --raw-input . | jq --slurp .)
           quantidade=$(echo ${participantes} | jq length)
 
           if [ $quantidade -ne 1 ]; then
-            echo "Era esperado que o PR alterasse exatamente 1 participante" >&2
+            echo "::error::Era esperado que o PR alterasse exatamente 1 participante"
             exit 1
           fi
 
@@ -70,7 +71,7 @@ jobs:
           docker compose -f "${caminho}" config
 
           if [ $? -ne 0 ]; then
-            echo "Então, o docker compose tá falando que esse docker-compose.yml tá inválido" >&2
+            echo "::error::Então, o docker compose tá falando que esse docker-compose.yml tá inválido"
             exit 1
           fi
 
@@ -100,12 +101,12 @@ jobs:
           quantidade=$(echo $quantidades | jq '. | add | . / 1024 / 1024')
 
           if [ $? -ne 0 ]; then
-            echo "Ou, vc não colocou limite de memória não? Confere isso ai" >&2
+            echo "::error::Ou, vc não colocou limite de memória não? Confere isso ai"
             exit 1
           fi
 
           if [ ${quantidade} -gt 3072 ]; then
-            echo "Pô, o limite de memório é 3072MiB! Você usou ${quantidade}MiB" >&2
+            echo "::error::Pô, o limite de memório é 3072MiB! Você usou ${quantidade}MiB"
             exit 1
           fi
 
@@ -135,12 +136,12 @@ jobs:
           quantidade=$(echo $quantidades | jq '. | add')
 
           if [ $? -ne 0 ]; then
-            echo "Ou, vc não colocou limite de CPU não? Confere isso ai" >&2
+            echo "::error::Ou, vc não colocou limite de CPU não? Confere isso ai"
             exit 1
           fi
 
           if [ ${quantidade} -gt 1.5 ]; then
-            echo "Pô, o limite de memório é 3072MiB! Você usou ${quantidade}MiB" >&2
+            echo "::error::Pô, o limite de memório é 3072MiB! Você usou ${quantidade}MiB"
             exit 1
           fi
 
