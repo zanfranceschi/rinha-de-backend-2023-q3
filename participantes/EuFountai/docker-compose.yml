@@ -5,6 +5,9 @@ services:
     hostname: api1
     expose:
       - '80'
+    ports: 
+      - "3450:3001"
+      - "3451:3002"
     depends_on:
       - database
       - pubsub
@@ -20,6 +23,7 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
+      RANGE: 3450
       WS: ws://pubsub:8080
     deploy:
       resources:
@@ -32,6 +36,9 @@ services:
     hostname: api2
     expose:
       - '80'
+    ports: 
+      - "3452:3001"
+      - "3453:3002"
     depends_on:
       - database
       - pubsub
@@ -47,6 +54,7 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_USER: myuser
       POSTGRES_HOST: database
+      RANGE: 3452
       WS: ws://pubsub:8080
     deploy:
       resources:
