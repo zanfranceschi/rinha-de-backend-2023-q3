@@ -7,15 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@master
-      - name: Build
-        run: docker build . -t rinha-de-backend-2023-q3
   test:
     runs-on: ubuntu-20.04
-    needs: build
     permissions:
       contents: write
     steps:
