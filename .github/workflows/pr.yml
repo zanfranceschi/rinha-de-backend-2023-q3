@@ -38,7 +38,7 @@ jobs:
           arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "::debug::arquivos=${arquivos}"
 
-          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp .)
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
           echo "::debug::participantes=${participantes}"
 
           quantidade=$(echo ${participantes} | jq length)
@@ -48,6 +48,9 @@ jobs:
             echo "::error::Era esperado que o PR alterasse exatamente 1 participante"
             exit 1
           fi
+
+          participante=$(echo ${participantes} | jq 'first' | jq -r)
+          echo "::debug::participante=${participante}"
 
   docker-compose:
     name: Arquivo docker-compose.yml é valido
@@ -73,7 +76,7 @@ jobs:
           arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "::debug::arquivos=${arquivos}"
 
-          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp .)
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
           echo "::debug::participantes=${participantes}"
 
           participante=$(echo ${participantes} | jq 'first' | jq -r)
@@ -119,7 +122,7 @@ jobs:
           arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "::debug::arquivos=${arquivos}"
 
-          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp .)
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
           echo "::debug::participantes=${participantes}"
 
           participante=$(echo ${participantes} | jq 'first' | jq -r)
@@ -175,7 +178,7 @@ jobs:
           arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "::debug::arquivos=${arquivos}"
 
-          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp .)
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
           echo "::debug::participantes=${participantes}"
 
           participante=$(echo ${participantes} | jq 'first' | jq -r)
