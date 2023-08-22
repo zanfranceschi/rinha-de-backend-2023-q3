@@ -3,6 +3,7 @@ services:
   api1:
     image: natanaelsimoes/rinha2023q3
     hostname: api1
+    restart: unless-stopped
     depends_on:
       - db
       - redis
@@ -20,6 +21,7 @@ services:
   api2:
     image: natanaelsimoes/rinha2023q3
     hostname: api2
+    restart: unless-stopped
     depends_on:
       - db
       - redis
