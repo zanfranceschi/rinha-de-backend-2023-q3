@@ -14,7 +14,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.9"
+          cpus: "0.7"
           memory: "1GB"
     volumes:
       - postgres-db:/var/lib/postgresql/data
@@ -43,6 +43,11 @@ services:
       - DB_PORT=5432
       - CPU_PROFILE=/app/prof/cpu-1.prof
       - MEM_PROFILE=/app/prof/mem-1.prof
+      - CACHE_HOST=cache
+      - CACHE_PORT=6379
+      - SERVER_PORT=8080
+      - ENABLE_PROFILING=0
+      - ENABLE_PREFORK=0
     volumes:
       - ./prof:/app/prof
     depends_on:
@@ -53,7 +58,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.15"
+          cpus: "0.2"
           memory: "0.5GB"
 
   api2:
@@ -69,6 +74,11 @@ services:
       - DB_PORT=5432
       - CPU_PROFILE=/app/prof/cpu-2.prof
       - MEM_PROFILE=/app/prof/mem-2.prof
+      - CACHE_HOST=cache
+      - CACHE_PORT=6379
+      - SERVER_PORT=8080
+      - ENABLE_PROFILING=0
+      - ENABLE_PREFORK=0
     volumes:
       - ./prof:/app/prof
     depends_on:
@@ -79,7 +89,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.15"
+          cpus: "0.2"
           memory: "0.5GB"
 
   nginx:
@@ -95,7 +105,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.15"
+          cpus: "0.25"
           memory: "0.5GB"
 
   cache:
