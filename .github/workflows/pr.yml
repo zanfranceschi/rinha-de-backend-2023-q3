@@ -6,6 +6,9 @@ on:
     branches: [ 'main' ]
     paths: [ 'participantes/*/docker-compose.yml' ]
 
+env:
+  JQ_VERSION: '1.7rc1'
+
 jobs:
   participante:
     name: PR altera um único participante
@@ -18,10 +21,15 @@ jobs:
       nome: ${{ steps.participantes.outputs.nome }}
 
     steps:
-      - name: Checkout da branch
+      - name: checkout da branch
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
-      - name: Validando participantes
+      - name: pondo jq nessa joça
+        run: |
+          curl -fsSL https://github.com/jqlang/jq/releases/download/jq-${{ env.JQ_VERSION }}/jq-linux-amd64 >> /usr/bin/jq
+          chmod +x /usr/bin/jq
+
+      - name: validando participantes
         id: participantes
         run: |
           participantes=$(git diff --name-only origin/main | grep "docker-compose.yml" | xargs dirname | xargs basename | jq --raw-input . | jq --slurp .)
@@ -51,10 +59,10 @@ jobs:
         cancel-in-progress: true
 
     steps:
-      - name: Checkout da branch
+      - name: checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
-      - name: Validando docker-compose.yml
+      - name: validando docker-compose.yml
         id: docker-compose
         run: |
           caminho="participantes/${{ needs.participante.outputs.nome }}/docker-compose.yml"
@@ -77,10 +85,15 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: Checkout da branch
+      - name: checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
-      - name: Valida limite de memória
+      - name: pondo jq nessa joça
+        run: |
+          curl -fsSL https://github.com/jqlang/jq/releases/download/jq-${{ env.JQ_VERSION }}/jq-linux-amd64 >> /usr/bin/jq
+          chmod +x /usr/bin/jq
+
+      - name: validando limite de memória
         working-directory: participantes/${{ needs.participante.outputs.nome }}
         run: |
           quantidades=$(docker compose -f docker-compose.yml config | grep "memory:" | cut -d ":" -f2 | xargs | sed -e "s/[[:space:]]/\n/g" | jq --slurp .)
@@ -107,10 +120,15 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: Checkout da branch
+      - name: checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
-      - name: Validando limite de vCPU
+      - name: pondo jq nessa joça
+        run: |
+          curl -fsSL https://github.com/jqlang/jq/releases/download/jq-${{ env.JQ_VERSION }}/jq-linux-amd64 >> /usr/bin/jq
+          chmod +x /usr/bin/jq
+
+      - name: validando limite de vCPU
         working-directory: participantes/${{ needs.participante.outputs.nome }}
         run: |
           quantidades=$(docker compose -f docker-compose.yml config | grep "cpus:" | cut -d ":" -f2 | xargs | sed -e "s/[[:space:]]/\\n/g" | jq --slurp .)
