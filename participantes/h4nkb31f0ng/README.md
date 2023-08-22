@@ -3,8 +3,11 @@
 
 ## Tech
 - Go 1.21
-- [Gin](https://github.com/gin-gonic/gin) (HTTP framework)
-- [Fx](https://github.com/uber-go/fx) (DI framework)
+- Fiber (HTTP framework w/ fasthttp)
+- pgx (SQL Driver)
+- Fx (DI framework)
+- Rueidis (Redis client)
+- KeyDB (Redis fork)
 - Postgres
 - Nginx
 
