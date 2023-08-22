@@ -16,8 +16,6 @@
 * PostgreSQL
 * NGINX
 
-_Infelizmente a app não tá tendo bons resultados com restrição de recursos, por isso os recursos no `docker-compose.yml` estão generosos._
-
 ---
 
 Repositório: [leandronsp/rinha-backend-ruby](https://github.com/leandronsp/rinha-backend-ruby)
