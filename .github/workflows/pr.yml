@@ -25,9 +25,9 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: pondo jq nessa joça
-        run: |
-          curl -fsSL https://github.com/jqlang/jq/releases/download/jq-${{ env.JQ_VERSION }}/jq-linux-amd64 >> /usr/bin/jq
-          chmod +x /usr/bin/jq
+        uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
+        with:
+          version: '1.6'
 
       - name: validando participantes
         id: participantes
@@ -89,9 +89,9 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: pondo jq nessa joça
-        run: |
-          curl -fsSL https://github.com/jqlang/jq/releases/download/jq-${{ env.JQ_VERSION }}/jq-linux-amd64 >> /usr/bin/jq
-          chmod +x /usr/bin/jq
+        uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
+        with:
+          version: '1.6'
 
       - name: validando limite de memória
         working-directory: participantes/${{ needs.participante.outputs.nome }}
@@ -124,9 +124,9 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: pondo jq nessa joça
-        run: |
-          curl -fsSL https://github.com/jqlang/jq/releases/download/jq-${{ env.JQ_VERSION }}/jq-linux-amd64 >> /usr/bin/jq
-          chmod +x /usr/bin/jq
+        uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
+        with:
+          version: '1.6'
 
       - name: validando limite de vCPU
         working-directory: participantes/${{ needs.participante.outputs.nome }}
