@@ -1,0 +1,47 @@
+#! /usr/bin/env sh
+
+COLOR_OFF=''
+RED=''
+GREEN=''
+ELIXIR_COLOR=''
+PLUG_COLOR=''
+BANDIT_COLOR=''
+ECTO_COLOR=''
+DIM=''
+BOLD_WHITE=''
+
+if [[ -t 1 ]]; then
+    COLOR_OFF='\033[0m' # Text Reset
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    ELIXIR_COLOR='\033[38;5;57m'
+    PLUG_COLOR='\033[38;5;183m'
+    BANDIT_COLOR='\033[38;5;138m'
+    ECTO_COLOR='\033[38;5;154m'
+    DIM='\033[0;2m'
+    BOLD_WHITE='\033[1m'
+fi
+
+echo "${DIM}"
+echo "┌──────────────────────────────────────────────────────────────────────────────┐"
+echo "│    ${COLOR_OFF}RINHA DE BACKEND ${DIM}::${COLOR_OFF} @rwillians_ ${DIM}::${COLOR_OFF} ${ELIXIR_COLOR}ELIXIR${COLOR_OFF} ${DIM}+${COLOR_OFF} ${PLUG_COLOR}PLUG${COLOR_OFF} ${DIM}+${COLOR_OFF} ${BANDIT_COLOR}BANDIT${COLOR_OFF} ${DIM}+${COLOR_OFF} ${ECTO_COLOR}ECTO${COLOR_OFF}${DIM}          │"
+echo "└──────────────────────────────────────────────────────────────────────────────┘"
+echo "${COLOR_OFF}${BOLD_WHITE}"
+echo "   # IMPORTANTE"
+echo "${COLOR_OFF}${DIM}"
+echo "     Quando a API for inicializada, ainda será necessário aguardar alguns"
+echo "     segundos antes de iniciar o teste para que dê tempo de inicializar"
+echo "     todas as conexões necessárias com o banco de dados."
+echo ""
+echo "     Portanto, ${COLOR_OFF}${GREEN}quando você ver a mensagem \"starting http server...\","
+echo "     espere mais uns ~15s${COLOR_OFF}${DIM} para começar a mandar carga para a API. Espere"
+echo "     o consumo de CPU zerar (ou se aproximar de zero -- você pode monitorar"
+echo "     isso utilizando \`ctop\` ou \`docker stats\`) e então dê início ao teste."
+echo "${COLOR_OFF}${BOLD_WHITE}"
+echo "────────────────────────────────────────────────────────────────────────────────"
+echo "${COLOR_OFF}"
+echo "     ${GREEN}[Enter]${COLOR_OFF}${DIM} para continuar │ ${RED}[CTRL+C]${COLOR_OFF}${DIM} para sair               "
+read -p "" input
+
+docker compose down --volumes && \
+  docker compose up

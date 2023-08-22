@@ -1,0 +1,207 @@
+name: Validador de submissão
+
+on:
+  pull_request:
+    types: [ 'opened', 'reopened', 'synchronize']
+    branches: [ 'main' ]
+    paths: [ 'participantes/*/docker-compose.yml' ]
+
+env:
+  JQ_VERSION: '1.7rc1'
+
+jobs:
+  participante:
+    name: PR altera um único participante
+    runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: true
+
+    concurrency:
+      group: pr-${{ github.event.pull_request.head.sha }}
+      cancel-in-progress: true
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 25
+
+      - name: pondo jq nessa joça
+        uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
+        with:
+          version: '1.6'
+
+      - name: validando participantes
+        id: participantes
+        run: |
+          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          echo "::debug::arquivos=${arquivos}"
+
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
+          echo "::debug::participantes=${participantes}"
+
+          quantidade=$(echo ${participantes} | jq length)
+          echo "::debug::quantidade=${quantidade}"
+
+          if [ $quantidade -ne 1 ]; then
+            echo "::error::Era esperado que o PR alterasse exatamente 1 participante"
+            exit 1
+          fi
+
+          participante=$(echo ${participantes} | jq 'first' | jq -r)
+          echo "::debug::participante=${participante}"
+
+  docker-compose:
+    name: Arquivo docker-compose.yml é valido
+    needs: participante
+    runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: true
+
+    concurrency:
+      group: pr-${{ github.event.pull_request.head.sha }}
+      cancel-in-progress: true
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 25
+
+      - name: validando docker-compose.yml
+        id: docker-compose
+        run: |
+          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          echo "::debug::arquivos=${arquivos}"
+
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
+          echo "::debug::participantes=${participantes}"
+
+          participante=$(echo ${participantes} | jq 'first' | jq -r)
+          echo "::debug::participante=${participante}"
+
+          caminho="participantes/${participante}/docker-compose.yml"
+          echo "::debug::caminho=${caminho}"
+
+          docker compose -f "${caminho}" config
+
+          if [ $? -ne 0 ]; then
+            echo "::error::Então, o docker compose tá falando que esse docker-compose.yml tá inválido"
+            exit 1
+          fi
+
+          echo "caminho=${arquivo}" >> "${GITHUB_OUTPUT}"
+
+  memoria-alocada:
+    name: Memória dentro do limite
+    needs: [ 'participante', 'docker-compose' ]
+    runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: false
+
+    concurrency:
+      group: pr-${{ github.event.pull_request.head.sha }}
+      cancel-in-progress: true
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 25
+
+      - name: pondo jq nessa joça
+        uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
+        with:
+          version: '1.6'
+
+      - name: validando limite de memória
+        run: |
+          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          echo "::debug::arquivos=${arquivos}"
+
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
+          echo "::debug::participantes=${participantes}"
+
+          participante=$(echo ${participantes} | jq 'first' | jq -r)
+          echo "::debug::participante=${participante}"
+
+          arquivo="participantes/${participante}/docker-compose.yml"
+          echo "::debug::arquivo=${arquivo}"
+
+          quantidades=$(docker compose -f "${arquivo}" config | grep "memory:" | cut -d ":" -f2 | xargs | sed -e "s/[[:space:]]/\n/g" | jq --slurp .)
+          echo "::debug::quantidades=${quantidades}"
+
+          quantidade=$(echo $quantidades | jq '. | add | . / 1024 / 1024')
+
+          if [ $? -ne 0 ]; then
+            echo "::error::Ou, vc não colocou limite de memória não? Confere isso ai"
+            exit 1
+          fi
+
+          echo "::debug::quantidade=${quantidade}"
+
+          if [ ${quantidade} -gt 3072 ]; then
+            echo "::error::Pô, o limite de memório é 3072MiB! Você usou ${quantidade}MiB"
+            exit 1
+          fi
+
+          echo "::debug::Tá certo! Tá usando ${quantidade}"
+
+  vcpu-alocada:
+    name: vCPU dentro do limite
+    needs: [ 'participante', 'docker-compose' ]
+    runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: false
+
+    concurrency:
+      group: pr-${{ github.event.pull_request.head.sha }}
+      cancel-in-progress: true
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 25
+
+      - name: pondo jq nessa joça
+        uses: dcarbone/install-jq-action@91d8da7268538e8a0ae0c8b72af44f1763228455 # v1.0.1
+        with:
+          version: '1.6'
+
+      - name: validando limite de vCPU
+        run: |
+          arquivos=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          echo "::debug::arquivos=${arquivos}"
+
+          participantes=$(echo ${arquivos} | grep "^participantes/" | grep "docker-compose.yml" | xargs dirname | sed -e "s/participantes\///g" | jq --raw-input . | jq --slurp . | jq unique | jq -r tostring)
+          echo "::debug::participantes=${participantes}"
+
+          participante=$(echo ${participantes} | jq 'first' | jq -r)
+          echo "::debug::participante=${participante}"
+
+          arquivo="participantes/${participante}/docker-compose.yml"
+          echo "::debug::arquivo=${arquivo}"
+
+          quantidades=$(docker compose -f "${arquivo}" config | grep "cpus:" | cut -d ":" -f2 | xargs | sed -e "s/[[:space:]]/\\n/g" | jq --slurp .)
+          echo "::debug::quantidades=${quantidades}"
+
+          quantidade=$(echo $quantidades | jq '. | add')
+
+          if [ $? -ne 0 ]; then
+            echo "::error::Ou, vc não colocou limite de CPU não? Confere isso ai"
+            exit 1
+          fi
+
+          echo "::debug::quantidade=${quantidade}"
+
+          if [ ${quantidade} -gt 1.5 ]; then
+            echo "::error::Pô, o limite de memório é 3072MiB! Você usou ${quantidade}MiB"
+            exit 1
+          fi
+
+          echo "::debug::Tá certo! Tá usando ${quantidade}"
