@@ -1,0 +1,79 @@
+version: '3.5'
+services:
+  db:
+    image: postgres:15
+    hostname: db
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=rinha
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./create.sql:/docker-entrypoint-initdb.d/create.sql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '1.8GB'
+
+  api01:
+    image: luanpontes100/mura
+    hostname: rinha01
+    depends_on:
+      - db
+    environment:
+      - APP_DB_USERNAME=admin
+      - APP_DB_PASSWORD=admin
+      - APP_DB_NAME=rinha
+      - APP_DB_HOST=db
+      - APP_PORT=80
+    expose:
+      - "80"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '0.5GB'
+
+  api02:
+    image: luanpontes100/mura
+    hostname: rinha02
+    depends_on:
+      - db
+    environment:
+      - APP_DB_USERNAME=admin
+      - APP_DB_PASSWORD=admin
+      - APP_DB_NAME=rinha
+      - APP_DB_HOST=db
+      - APP_PORT=80
+    expose:
+      - "80"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '0.5GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api01
+      - api02
+    ports:
+      - "9999:9999"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.2GB'
+
+networks:
+  default:
+    driver: bridge
+    name: rinha
