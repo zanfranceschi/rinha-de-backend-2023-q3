@@ -2,15 +2,19 @@ version: '3.9'
 
 services:
   api1: &api
-    build:
-      context: .
+    image: leandronsp/rinha-backend-ruby
     container_name: api1
-    command: "bundle exec puma -s --preload -w 2 -p 3000"
+    environment:
+      - RUBY_YJIT_ENABLE=1
+      - USE_POOL=1
+      - WEB_CONCURRENCY=3
+    depends_on:
+      - postgres
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '0.5GB'
+          cpus: '0.4'
+          memory: '1GB'
 
   api2: 
     <<: *api
@@ -20,27 +24,31 @@ services:
     image: postgres
     container_name: postgres
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
     volumes:
-      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     deploy:
       resources:
         limits:
-          cpus: '0.7'
-          memory: '1.5GB'
+          cpus: '0.6'
+          memory: '0.8GB'
 
   nginx:
     image: nginx 
     container_name: nginx
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 9999:9999
     depends_on:
       - api1
       - api2
-    ports:
-      - 9999:9999
     deploy:
       resources:
         limits:
-          cpus: '0.2'
-          memory: '0.5GB'
+          cpus: '0.1'
+          memory: '0.2GB'
