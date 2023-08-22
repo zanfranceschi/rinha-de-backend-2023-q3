@@ -11,8 +11,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
-          memory: '256MB'
+          cpus: '0.2'
+          memory: '768MB'
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:11222 || exit 1
       interval: 10s
@@ -21,7 +21,7 @@ services:
       timeout: 5s
 
   api1:
-    image: quay.io/vflorent/rinha-2023-q3
+    image: quay.io/vflorent/rinha-2023-q3-nativo
     environment:
       DB_HOST: db
       QUARKUS_LOG_CONSOLE_ENABLE: false
@@ -36,8 +36,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: '500MB'
+          cpus: '0.2'
+          memory: '256MB'
     ulimits:
       nproc: 65535
       nofile:
@@ -51,7 +51,7 @@ services:
       timeout: 5s
 
   api2:
-    image: quay.io/vflorent/rinha-2023-q3
+    image: quay.io/vflorent/rinha-2023-q3-nativo
     environment:
       DB_HOST: db
       QUARKUS_LOG_CONSOLE_ENABLE: false
@@ -66,8 +66,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: '500MB'
+          cpus: '0.2'
+          memory: '256MB'
     ulimits:
       nproc: 65535
       nofile:
@@ -92,7 +92,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: '0.3'
           memory: '256MB'
 
   db:
@@ -109,7 +109,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.8'
           memory: '2.0GB'
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
