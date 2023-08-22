@@ -24,7 +24,10 @@ for arquivo in glob.glob(dir):
                 if "deploy" not in service.keys():
                     continue
                 memory = service["deploy"]["resources"]["limits"]["memory"]
-                memory_num = re.sub(r'[a-zA-Z]', '', service["deploy"]["resources"]["limits"]["memory"])
+                if "MB" in memory:
+                    memory_num = float(re.sub(r'[a-zA-Z]', '', service["deploy"]["resources"]["limits"]["memory"])) / 1024.0
+                else:
+                    memory_num = float(re.sub(r'[a-zA-Z]', '', service["deploy"]["resources"]["limits"]["memory"]))
                 cpus = service["deploy"]["resources"]["limits"]["cpus"]
                 ports = service["ports"] if "ports" in service.keys() else []
                 for port in ports:
