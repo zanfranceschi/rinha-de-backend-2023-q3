@@ -1,0 +1,179 @@
+name: Teste individual
+
+on:
+  workflow_dispatch:
+    inputs:
+      participante:
+        description: 'Selecione para qual participante o teste deve ser executado'
+        required: true
+        type: choice
+        options:
+          - "alberto_souza"
+          - "allan-cordeiro"
+          - "andrelsmelo"
+          - "andrew-vasco"
+          - "Bandolin"
+          - "bpaulino0"
+          - "brahma"
+          - "brunoborges"
+          - "CaravanaCloud"
+          - "carlosdaniiel07"
+          - "davidlins"
+          - "dscamargo"
+          - "dupla-de-2"
+          - "EuFountai"
+          - "fabricio_juliatto"
+          - "fernandozanutto"
+          - "flavio1110"
+          - "gustavocs789"
+          - "gustmrg"
+          - "h4nkb31f0ng"
+          - "hampshire"
+          - "iancambrea"
+          - "igorsantos07"
+          - "isaacnborges"
+          - "kalogs-c"
+          - "krymancer"
+          - "lauroappelt"
+          - "lauroappeltv2"
+          - "lazaronixon"
+          - "leandronsp"
+          - "lpicanco"
+          - "lucasteles"
+          - "LuisKpBeta"
+          - "luucaspole"
+          - "MarcosCostaDev"
+          - "met4tron"
+          - "MrPowerGamerBR"
+          - "natanaelsimoes"
+          - "navarro"
+          - "oliveigah"
+          - "OpenCodeCo"
+          - "Pr3d4dor-laravel"
+          - "Pr3d4dor-php-puro"
+          - "reonardoleis"
+          - "rode"
+          - "rodrigograudo"
+          - "rodrigoknol"
+          - "rwillians"
+          - "Tagliatti"
+          - "thelinuxlich"
+          - "vimsos"
+          - "viniciusferraz"
+          - "viniciusfonseca"
+          - "wesleynepo"
+          - "willian"
+          - "willy-r"
+
+env:
+  GATLING_VERSION: '3.9.5'
+  GERADOR_CARGA: faker
+  JQ_VERSION: '1.7rc1'
+
+jobs:
+  teste:
+    name: ${{ inputs.participante }}
+    runs-on: 'ubuntu-22.04'
+
+    steps:
+      - name: Checkout da branch
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 1
+
+      - uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        id: gatling-cache
+        with:
+          path: teste/gatling/deps/gatling-charts-highcharts-bundle-${{ env.GATLING_VERSION }}-bundle.zip
+          key: gatling-charts-highcharts-bundle-${{ env.GATLING_VERSION }}-bundle.zip
+
+      - name: Baixar Gatling
+        working-directory: teste/gatling/deps
+        if: steps.gatling-cache.outputs.cache-hit != 'true'
+        run: |
+          ARQUIVO="gatling-charts-highcharts-bundle-${{ env.GATLING_VERSION }}-bundle.zip"
+          URL="https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/${{ env.GATLING_VERSION }}/${ARQUIVO}"
+
+          echo "::debug::Downloading Gatling ${{ env.GATLING_VERSION }} from ${URL}"
+          echo "::debug::Destination ${PWD}/${ARQUIVO}"
+          wget ${URL}
+
+      - name: Setup Gatling
+        id: gatling
+        working-directory: teste/gatling/deps
+        run: |
+          ARQUIVO="gatling-charts-highcharts-bundle-${{ env.GATLING_VERSION }}-bundle.zip"
+
+          echo "::debug::Extracting ${ARQUIVO}"
+          unzip -q ${ARQUIVO}
+
+          echo "gatling_bin_dir=${PWD}/gatling-charts-highcharts-bundle-${{ env.GATLING_VERSION }}/bin" >> "${GITHUB_ENV}"
+
+      - uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        id: carga-cache
+        with:
+          path: |
+            teste/gatling/user-files/resources/pessoas-payloads.tsv
+            teste/gatling/user-files/resources/termos-busca.tsv
+          key: carga-de-teste-${{ env.GERADOR_CARGA }}
+
+      - name: Gerar carga de teste
+        working-directory: teste/gatling
+        if: steps.carga-cache.outputs.cache-hit != 'true'
+        run: |
+          cd ./geradores/${{ env.GERADOR_CARGA }}
+
+          if [ -f "package.json" ]; then
+            npm ci
+          fi
+
+          cd ../..
+
+          ./geradores/${{ env.GERADOR_CARGA }}/gerar-pessoas > ./user-files/resources/pessoas-payloads.tsv
+          ./geradores/${{ env.GERADOR_CARGA }}/gerar-termos-busca > ./user-files/resources/termos-busca.tsv
+
+      - name: Setup carga
+        id: carga
+        working-directory: teste/gatling
+        run: |
+          echo "resources_dir=${PWD}/user-files/resources" >> "${GITHUB_ENV}"
+
+      - name: Subindo a aplicação
+        working-directory: participantes/${{ inputs.participante }}
+        id: docker-compose
+        run: docker compose down --remove-orphans --volumes && docker compose up -d
+
+      - name: Esperando a aplicação subir
+        run: sleep 30
+
+      - name: Executando Gatling
+        working-directory: teste/gatling
+        id: teste
+        run: |
+          echo "::debug:: Running gatling: ${{ env.gatling_bin_dir }} -rm local -rd \"${{ inputs.participante }} ${{ github.sha }}\" -s \"RinhaBackendSimulation\" -rf \"${PWD}/user-files/results\" -sf \"${PWD}/user-files/simulations\" -rsf \"${{ env.resources_dir }}\""
+
+          JAVA_HOME=${JAVA_HOME_17_X64} ${{ env.gatling_bin_dir }}/gatling.sh -rm local -rd "${{ inputs.participante }} ${{ github.sha }}" -s "RinhaBackendSimulation" -rf "${PWD}/user-files/results" -sf "${PWD}/user-files/simulations" -rsf "${{ env.resources_dir }}"
+
+          DIRETORIO_ARTEFATO=$(ls ${PWD}/user-files/results | sort | head -n 1)
+          DIRETORIO_ARTEFATO="${PWD}/user-files/results/${DIRETORIO_ARTEFATO}"
+          TIMESTAMP=$(basename ${DIRETORIO_ARTEFATO} | cut -d "-" -f2)
+          NOME_ARTEFATO="${{ inputs.participante }}-${TIMESTAMP}-${{ github.sha }}.tar.gz"
+          CAMINHO_ARTEFATO="${DIRETORIO_ARTEFATO}/${NOME_ARTEFATO}"
+
+          cd ${DIRETORIO_ARTEFATO}
+          tar -zcvf "${NOME_ARTEFATO}" * **/*
+
+          echo "caminho_artefato=${CAMINHO_ARTEFATO}" >> "${GITHUB_ENV}"
+          echo "nome_artefato=${NOME_ARTEFATO}" >> "${GITHUB_ENV}"
+
+      - name: Terminando a aplicação
+        working-directory: 'participantes/${{ inputs.participante }}'
+        run: docker compose down --remove-orphans --volumes
+
+      - name: Upload resultado
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+        if: ${{ env.caminho_artefato }}
+        with:
+          name: ${{ env.nome_artefato }}
+          path: ${{ env.caminho_artefato }}
+          retention-days: 90
