@@ -12,6 +12,7 @@ services:
       - POSTGRES_DB=rinha-de-backend
       - POSTGRES_USER=teste
       - POSTGRES_PASSWORD=postgres123
+      - DATABASE_URL=postgresql://teste:postgres123@database_pg:5432/rinha-de-backend?schema=public
     networks:
       - rinha-de-backend-network
     expose:
@@ -35,6 +36,7 @@ services:
       - POSTGRES_DB=rinha-de-backend
       - POSTGRES_USER=teste
       - POSTGRES_PASSWORD=postgres123
+      - DATABASE_URL=postgresql://teste:postgres123@database_pg:5432/rinha-de-backend?schema=public
     expose:
       - "80"
     networks:
@@ -56,8 +58,6 @@ services:
       - POSTGRES_DB=rinha-de-backend
     ports:
       - "5432:5432"
-    volumes:
-      - ./start.sql:/docker-entrypoint-initdb.d/start.sql
     networks:
       - rinha-de-backend-network
     deploy:
