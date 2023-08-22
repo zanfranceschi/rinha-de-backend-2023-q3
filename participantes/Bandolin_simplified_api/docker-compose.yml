@@ -1,0 +1,89 @@
+version: "3.3"
+services:
+  node:
+    image: bandolin/noderinhabackend
+    container_name: node
+    depends_on:
+      - mysql
+    networks:
+      - app-tier
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.2GB'
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: rinha
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-init-scripts:/docker-entrypoint-initdb.d
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - app-tier
+    deploy:
+      resources:
+        limits:
+          cpus: '0.7'
+          memory: '0.8GB'
+  nginx:
+    image: bandolin/nginxrinhaapi_simplified:latest
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - '9999:9999'
+    networks:
+      - app-tier
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.2GB'
+  api1:
+    image: bandolin/rinhabackend_simplified:latest
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - app-tier
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.6GB'
+  api2:
+    image: bandolin/rinhabackend_simplified:latest
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - app-tier
+    expose:
+      - "80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.6GB'
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    command: redis-server --save "" --appendonly no
+    networks:
+      - app-tier
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '0.6GB'
+networks:
+  app-tier:
+    driver: bridge
