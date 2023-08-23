@@ -24,12 +24,12 @@ services:
     image: quay.io/vflorent/rinha-2023-q3-nativo
     environment:
       DB_HOST: db
-      QUARKUS_LOG_CONSOLE_ENABLE: false
-      QUARKUS_LOG_FILE_ENABLE: false
+      QUARKUS_LOG_CONSOLE_ENABLE: "false"
+      QUARKUS_LOG_FILE_ENABLE: "false"
       QUARKUS_DATASOURCE_REACTIVE_MAX_SIZE: 30
       QUARKUS_VERTX_EVENT_LOOPS_POOL_SIZE: 30
       QUARKUS_VERTX_WORKER_POOL_SIZE: 5
-      QUARKUS_DATASOURCE_REACTIVE_CACHE_PREPARED_STATEMENTS: true
+      QUARKUS_DATASOURCE_REACTIVE_CACHE_PREPARED_STATEMENTS: "true"
     depends_on:
       - db
       - cache
@@ -54,12 +54,12 @@ services:
     image: quay.io/vflorent/rinha-2023-q3-nativo
     environment:
       DB_HOST: db
-      QUARKUS_LOG_CONSOLE_ENABLE: false
-      QUARKUS_LOG_FILE_ENABLE: false
+      QUARKUS_LOG_CONSOLE_ENABLE: "false"
+      QUARKUS_LOG_FILE_ENABLE: "false"
       QUARKUS_DATASOURCE_REACTIVE_MAX_SIZE: 30
       QUARKUS_VERTX_EVENT_LOOPS_POOL_SIZE: 30
       QUARKUS_VERTX_WORKER_POOL_SIZE: 5
-      QUARKUS_DATASOURCE_REACTIVE_CACHE_PREPARED_STATEMENTS: true
+      QUARKUS_DATASOURCE_REACTIVE_CACHE_PREPARED_STATEMENTS: "true"
     depends_on:
       - db
       - cache
