@@ -17,10 +17,6 @@ jobs:
     strategy:
       fail-fast: true
 
-    concurrency:
-      group: pr-${{ github.event.pull_request.head.sha }}
-      cancel-in-progress: true
-
     steps:
       - name: checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
