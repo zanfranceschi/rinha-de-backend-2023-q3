@@ -16,7 +16,7 @@ services:
           memory: 1GB
 
   server-1:
-    image: localhost/rinha-de-backend-2023-q3:v1.0
+    image: saiintbrisson/rinha-de-backend-2023-q3:v1.0
     hostname: server-1
     depends_on: [postgres]
     environment:
@@ -30,7 +30,7 @@ services:
           memory: 0.3GB
 
   server-2:
-    image: localhost/rinha-de-backend-2023-q3:v1.0
+    image: saiintbrisson/rinha-de-backend-2023-q3:v1.0
     hostname: server-2
     depends_on: [postgres]
     environment:
