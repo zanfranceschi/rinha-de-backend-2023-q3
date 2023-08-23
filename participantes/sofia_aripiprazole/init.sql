@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS users (
  username   VARCHAR(32) UNIQUE NOT NULL,
  name       VARCHAR(100) NOT NULL,
  birth_date VARCHAR(255) NOT NULL,
- stack      VARCHAR(255)
+ stack      VARCHAR(255),
+ search     VARCHAR(400)
 );
