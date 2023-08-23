@@ -11,6 +11,11 @@ services:
     hostname: api1
     networks:
       - network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '480MB'      
 
   api2:
     image: cleciusjm/rinha-backend-2023-kotlin-vertx:latest
@@ -21,6 +26,11 @@ services:
     hostname: api2
     networks:
       - network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '480MB'
 
   nginx:
     image: nginx:latest
@@ -37,6 +47,7 @@ services:
       resources:
         limits:
           cpus: '0.1'
+          memory: '64MB'   
 
   db:
     image: mongo:latest
@@ -45,7 +56,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: '512MB'
+          cpus: '0.4'
+          memory: '2GB'
     hostname: db
     networks:
       - network
