@@ -20,7 +20,7 @@ services:
     hostname: server-1
     depends_on: [postgres]
     environment:
-      - PG_ADDRESS=postgres://rinha:secret@postgres:5432?options=-c%20synchronous_commit%3Dof
+      - PG_ADDRESS=postgres://rinha:secret@postgres:5432?options=-c%20synchronous_commit%3Doff
       - SERVER_NAME=server-1
     expose: [80]
     deploy:
@@ -34,7 +34,7 @@ services:
     hostname: server-2
     depends_on: [postgres]
     environment:
-      - PG_ADDRESS=postgres://rinha:secret@postgres:5432?options=-c%20synchronous_commit%3Dof
+      - PG_ADDRESS=postgres://rinha:secret@postgres:5432?options=-c%20synchronous_commit%3Doff
       - SERVER_NAME=server-2
     expose: [80]
     deploy:
