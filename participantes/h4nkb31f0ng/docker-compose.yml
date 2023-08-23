@@ -72,8 +72,8 @@ services:
       - DB_PASSWORD=postgres
       - DB_NAME=rinha
       - DB_PORT=5432
-      - CPU_PROFILE=/app/prof/cpu-2.prof
-      - MEM_PROFILE=/app/prof/mem-2.prof
+      - CPU_PROFILE=/app/prof/cpu-1.prof
+      - MEM_PROFILE=/app/prof/mem-1.prof
       - CACHE_HOST=cache
       - CACHE_PORT=6379
       - SERVER_PORT=8080
@@ -109,18 +109,18 @@ services:
           memory: "0.5GB"
 
   cache:
-    image: eqalpha/keydb:latest
+    image: redis:latest
     hostname: cache
     ports:
       - "6379:6379"
+    volumes:
+      - ./scripts/redis/:/etc/redis/
+    command: ["redis-server", "/etc/redis/redis.conf"]
     deploy:
       resources:
         limits:
           cpus: "0.15"
           memory: "0.5GB"
-    volumes:
-      - ./scripts/keydb/:/etc/keydb/
-    command: ["keydb-server", "/etc/keydb/keydb.conf"]
 
 volumes:
   postgres-db:
