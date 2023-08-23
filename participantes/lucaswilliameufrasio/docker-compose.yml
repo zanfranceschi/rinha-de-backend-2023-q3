@@ -1,0 +1,101 @@
+version: "3.7"
+
+services:
+  api1: # API - Instância 01
+    image: lucaswilliameufrasio/backend-cockfighting-api
+    hostname: api1
+    restart: unless-stopped
+    environment:
+      - PORT=80
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=fight
+      - DB_USER=postgres
+      - DB_PASSWORD=fight
+      - DB_MAX_CONNECTIONS=45
+    depends_on:
+      - db
+    expose:
+      - "80"
+    networks:
+      - fight-pit
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  api2: # API - Instância 02
+    image: lucaswilliameufrasio/backend-cockfighting-api
+    hostname: api2
+    restart: unless-stopped
+    environment:
+      - PORT=80
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=fight
+      - DB_USER=postgres
+      - DB_PASSWORD=fight
+      - DB_MAX_CONNECTIONS=45
+    depends_on:
+      - db
+    expose:
+      - "80"
+    networks:
+      - fight-pit
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    networks:
+      - fight-pit
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  db:
+    image: postgres:15
+    hostname: db
+    container_name: backend-cockfighting-database
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=fight
+      - POSTGRES_DB=fight
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5459:5432
+    networks:
+      - fight-pit
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  fight-pit:
+    driver: bridge
+
+volumes:
+  postgres_data:
