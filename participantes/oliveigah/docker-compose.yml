@@ -2,7 +2,7 @@ version: '3.5'
 services:
   database:
     image: postgres:latest
-    command: postgres -c 'max_connections=250'
+    command: postgres -c 'max_connections=410'
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=pass
@@ -14,11 +14,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: '1GB'
+          cpus: '0.8'
+          memory: '2.1GB'
 
   api1:
-    image: oliveigah/rinha-backend:with_postgres_nginx_v2
+    image: oliveigah/rinha-backend:finalv2
     depends_on:
       - database
     hostname: api1.com
@@ -28,17 +28,17 @@ services:
       RELEASE_NODE: "api@api1.com"
       RELEASE_DISTRIBUTION: "name"
       BOOTSTRAP_NODES: "api@api2.com"
+      DB_CONNS: 200
     healthcheck:
       test: curl -f http://api1:3000
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: '0.75GB'
-
+          cpus: '0.275'
+          memory: '0.4GB'
 
   api2:
-    image: oliveigah/rinha-backend:with_postgres_nginx_v2
+    image: oliveigah/rinha-backend:finalv2
     depends_on:
       - api1
     hostname: api2.com
@@ -48,13 +48,14 @@ services:
       RELEASE_NODE: "api@api2.com"
       RELEASE_DISTRIBUTION: "name"
       BOOTSTRAP_NODES: "api@api1.com"
+      DB_CONNS: 200
     healthcheck:
       test: curl -f http://api2:3000
     deploy:
       resources:
         limits:
-          cpus: '0.4'
-          memory: '0.75GB'
+          cpus: '0.275'
+          memory: '0.4GB'
 
   nginx:
     image: nginx:latest
@@ -68,8 +69,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
-          memory: '0.5GB'
+          cpus: '0.15'
+          memory: '0.1GB'
 
 volumes:
   database:
