@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.5"
 # Você terá 1.5 CPUs e 3.0GB 
 services:
  db:
@@ -18,7 +18,7 @@ services:
           cpus: '0.7'
           memory: '0.9GB'
  
- api1: &api
+ api1:
     image: davidlins/rinha-backend-servlet
     container_name: api1
     hostname:  api1
@@ -34,11 +34,21 @@ services:
           cpus: '0.35'
           memory: '0.9GB'
 
- api2: 
-    <<: *api
+ api2:
+    image: davidlins/rinha-backend-servlet
     container_name: api2
     hostname:  api2
-
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    depends_on:
+        - dp
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.9GB'
 
  nginx:
     image: nginx 
