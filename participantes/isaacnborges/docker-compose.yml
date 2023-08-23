@@ -47,6 +47,8 @@ services:
     image: isaacnborges/rinha-api
     hostname: api-01
     environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DatabaseConnection=Host=database;Port=5432;Database=rinha-db;Username=rinha;Password=k8M9ODJ7d19FCs;
       - ConnectionStrings__RedisConnection=redis:6379,abortConnect=False
     depends_on:
@@ -73,6 +75,8 @@ services:
     image: isaacnborges/rinha-api
     hostname: api-02
     environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DatabaseConnection=Host=database;Port=5432;Database=rinha-db;Username=rinha;Password=k8M9ODJ7d19FCs;
       - ConnectionStrings__RedisConnection=redis:6379,abortConnect=False
     depends_on:
