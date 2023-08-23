@@ -1,0 +1,113 @@
+version: '3'
+
+services:
+  api1:
+    image: h4ad/rinha-de-backend:1.0.0
+    hostname: api1
+    depends_on:
+      - db
+      - meilisearch
+    healthcheck:
+      test: ['CMD-SHELL', 'curl http://localhost:3000/contagem-pessoas']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      DATABASE_URL: postgres://rinha:password@db:5432/dev?sslmode=disable
+      MEILISEARCH_HOST: http://meilisearch:7700
+    networks:
+      - standard
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '125MB'
+
+  api2:
+    image: h4ad/rinha-de-backend:1.0.0
+    hostname: api2
+    depends_on:
+      - db
+      - meilisearch
+    healthcheck:
+      test: ['CMD-SHELL', 'curl http://localhost:3000/contagem-pessoas']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      DATABASE_URL: postgres://rinha:password@db:5432/dev?sslmode=disable
+      MEILISEARCH_HOST: http://meilisearch:7700
+    networks:
+      - standard
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '125MB'
+
+  db:
+    image: postgres:15.4
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: rinha
+      POSTGRES_DB: dev
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U dev']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - standard
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '1.5GB'
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.3
+    restart: unless-stopped
+    ports:
+      - '7700:7700'
+    environment:
+      MEILI_ENV: 'development'
+    volumes:
+      - meili_data:/meili_data
+    networks:
+      - standard
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '1GB'
+
+  nginx:
+    image: nginx:1.24-alpine
+    volumes:
+      - ./default.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - '9999:9999'
+    networks:
+      - standard
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '250MB'
+
+volumes:
+  meili_data:
+  postgres_data:
+
+networks:
+  standard:
+    driver: bridge
