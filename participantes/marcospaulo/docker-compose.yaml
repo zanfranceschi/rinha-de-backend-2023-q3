@@ -1,0 +1,100 @@
+version: '3.5'
+services:
+  api1: # API - Instância 01
+    image: marcosisocram/fenrir:latest
+    hostname: api1
+    networks:
+      - rinha
+    depends_on:
+      - mongodb-rinha
+      - redis-rinha
+    expose:
+      - "80"
+    environment:
+      - PORT=80
+      - REDIS_HOST=redis-rinha
+      - REDIS_PORT=6379
+      - CACHE_TTL=600000
+      - MONGODB_URI=mongodb://root:r1nhaback3nd@mongodb-rinha:27017/?minPoolSize=0&maxPoolSize=300
+      - MONGODB_DATABASE=admin
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.5GB'
+
+  api2: # API - Instância 02
+    image: marcosisocram/fenrir:latest
+    hostname: api2
+    networks:
+      - rinha
+    depends_on:
+      - mongodb-rinha
+      - redis-rinha
+    expose:
+      - "80"
+    environment:
+      - PORT=80
+      - REDIS_HOST=redis-rinha
+      - REDIS_PORT=6379
+      - CACHE_TTL=600000
+      - MONGODB_URI=mongodb://root:r1nhaback3nd@mongodb-rinha:27017/?minPoolSize=0&maxPoolSize=300
+      - MONGODB_DATABASE=admin
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.5GB'
+
+  nginx-rinha: # Load Balancer
+    image: nginx:latest
+    networks:
+      - rinha
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.2GB'
+
+  mongodb-rinha: # Banco de dados
+    image: mongo
+    restart: always
+    hostname: mongodb-rinha
+    networks:
+      - rinha
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=r1nhaback3nd
+    ports:
+      - "27017:27017"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.55'
+          memory: '1.7GB'
+
+  redis-rinha:
+    image: 'bitnami/redis:latest'
+    restart: always
+    hostname: redis-rinha
+    command: redis-server --save "" --appendonly no --protected-mode no
+    networks:
+      - rinha
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    deploy:
+      resources:
+        limits:
+          cpus: '0.05'
+          memory: '0.1GB'
+networks:
+  rinha:
