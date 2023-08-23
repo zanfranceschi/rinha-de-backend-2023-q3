@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-GATLING_BIN_DIR=$HOME/gatling/3.9.5/bin
+GATLING_BIN_DIR=$HOME/gatling/bin
 GATLING_WORKSPACE=$HOME/rinha-de-backend-2023-q3/stress-test
 RESULTS_WORKSPACE=$HOME/rinha-de-backend-2023-q3/resultados
 
