@@ -1,5 +1,4 @@
 version: '3.9'
-name: rinha-backend
 
 services:
   one: # API - Instância 01

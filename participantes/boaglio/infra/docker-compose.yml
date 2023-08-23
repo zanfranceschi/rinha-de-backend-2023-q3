@@ -1,5 +1,4 @@
 version: '3.9'
-name: 'rinha-de-backend'
 
 #  1.5 CPUs = 0.70 MongoDB + 2 x 0.35 Spring Boot + 0.05 Redis + 0.05 NGinx
 #    3.0 GB = 0.65 MongoDB + 2 x 1.10 Spring Boot + 0.05 Redis + 0.10 NGinx
