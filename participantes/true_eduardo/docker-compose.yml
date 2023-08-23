@@ -1,0 +1,88 @@
+version: '3.5'
+services:
+  db:
+    image: postgres
+    restart: always
+    hostname: db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+    environment:
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: user
+      POSTGRES_DB: rinha
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 15s
+        timeout: 25s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
+  api1:
+    image: eduwr/go-rinha:latest
+    restart: always
+    hostname: api1
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=rinha
+      - DB_USER=user
+      - DB_PASS=pass
+      - GO_ENVIRONMENT=production
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "3333"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+  api2:
+    image: eduwr/go-rinha:latest
+    restart: always
+    hostname: api2
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=rinha
+      - DB_USER=user
+      - DB_PASS=pass
+      - GO_ENVIRONMENT=production
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "3333"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+  nginx:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+volumes:
+  postgres_data:
+networks:
+  default:
+    driver: bridge
