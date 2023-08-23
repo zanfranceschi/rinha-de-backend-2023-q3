@@ -15,7 +15,11 @@ services:
           cpus: "0.5"
           memory: "0.5GB"
     volumes:
-      - ./inital.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/seed.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 25s
 
   cache:
     hostname: cache
@@ -33,7 +37,10 @@ services:
     image: luiscarlosb3/rinhabackend:latest
     hostname: api1
     depends_on:
-      - db
+      cache:
+        condition: service_started
+      db:
+        condition: service_healthy
     expose:
       - "80"
     deploy:
@@ -46,7 +53,10 @@ services:
     image: luiscarlosb3/rinhabackend:latest
     hostname: api2
     depends_on:
-      - db
+      cache:
+        condition: service_started
+      db:
+        condition: service_healthy
     expose:
       - "80"
     deploy:
