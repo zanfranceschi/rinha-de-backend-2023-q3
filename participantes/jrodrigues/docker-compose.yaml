@@ -1,0 +1,83 @@
+version: '3.5'
+services:
+  api1: &api
+    image: ghcr.io/jeancrodrigues/rinha-backend-23-golang:main
+#    hostname: api1
+    depends_on:
+      - db
+      - cache
+    expose:
+      - "9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.125'
+          memory: '0.35GB'
+    environment:
+      DATABASE_URL: postgres://pessoa:pessoa@db:5432/pessoa
+      MAX_CONNECTIONS: 75
+      REDIS_URL: cache:6379
+    command: app -max_queue_size=10000 -batch_size=1000 -batch_sleep=2000
+
+  api2: *api
+#    # API - Instância 01
+#    image: 594e6b96bbbe
+#    hostname: api2
+#    depends_on:
+#      - db
+#    expose:
+#      - "9999"
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.25'
+#          memory: '0.5GB'
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - db
+      - cache
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.5GB'
+  cache:
+    image: redis:7.2-alpine
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "0.3GB"
+    command: redis-server --save "" --loglevel warning
+
+  db: # Banco de dados
+    image: ghcr.io/jeancrodrigues/rinha-backend-23-golang-db:main
+#    volumes:
+#      - ./postgres.conf:/etc/postgresql/postgresql.conf
+#      - ./db-init-entrypoint.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: '1.5GB'
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: pessoa
+      POSTGRES_PASSWORD: pessoa
+      POSTGRES_DB: pessoa
+    command:
+      - "postgres"
+      - "-c"
+      - "max_connections=200"
+      - "-c"
+      - "shared_buffers=512MB"
