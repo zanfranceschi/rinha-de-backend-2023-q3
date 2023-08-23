@@ -1,0 +1,66 @@
+version: '3.9'
+name: 'rinha-cleciusjm-vertx'
+
+services:
+  api1:
+    image: cleciusjm/rinha-backend-2023-kotlin-vertx:latest
+    environment:
+      - CONNECTION_STRING=mongodb://db:27017/rinha-cj
+    depends_on:
+      - db
+    hostname: api1
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '480MB'      
+
+  api2:
+    image: cleciusjm/rinha-backend-2023-kotlin-vertx:latest
+    environment:
+      - CONNECTION_STRING=mongodb://db:27017/rinha-cj
+    depends_on:
+      - db
+    hostname: api2
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '480MB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '64MB'   
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '2GB'
+    hostname: db
+    networks:
+      - network
+
+networks:
+  network:
