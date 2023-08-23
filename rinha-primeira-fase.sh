@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 GATLING_BIN_DIR=$HOME/gatling/3.9.5/bin
-GATLING_WORKSPACE=$HOME/projects/rinha-de-backend-2023-q3/stress-test
-RESULTS_WORKSPACE=$HOME/projects/rinha-de-backend-2023-q3/resultados
+GATLING_WORKSPACE=$HOME/rinha-de-backend-2023-q3/stress-test
+RESULTS_WORKSPACE=$HOME/rinha-de-backend-2023-q3/resultados
 
 for diretorio in participantes/*/; do
 (
