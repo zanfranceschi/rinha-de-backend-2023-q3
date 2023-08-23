@@ -1,4 +1,0 @@
-#! /usr/bin/env sh
-
-./geradores/faker/gerar-pessoas > ./user-files/resources/pessoas_payload.tsv
-./geradores/faker/gerar-termos-de-busca > ./user-files/resources/termos-busca.tsv
