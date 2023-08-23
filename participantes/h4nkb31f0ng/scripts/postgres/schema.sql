@@ -11,4 +11,6 @@ CREATE TABLE
     );
 
 CREATE INDEX
-    CONCURRENTLY IF NOT EXISTS idx_people_trigram ON public.people USING gist (search gist_trgm_ops);
+    CONCURRENTLY IF NOT EXISTS idx_people_trigram ON public.people USING gist (
+        search gist_trgm_ops(siglen = 64)
+    );
