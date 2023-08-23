@@ -1,0 +1,12 @@
+# Rinha de Backend 2023 - Go
+
+## Stack
+
+- Go 1.20
+- Gin
+- Postgres
+- Redis (cache)
+- Nginx
+
+Repositório: https://github.com/isadoramsouza/rinha-de-backend-go </br>
+Twitter: [@isadoraamsouza](https://twitter.com/isadoraamsouza)
