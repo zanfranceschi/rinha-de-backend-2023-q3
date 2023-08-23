@@ -11,7 +11,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.22'
+          cpus: '0.2'
           memory: '500MB'
 
   api2: # API - Instância 01
