@@ -1,0 +1,11 @@
+?   	main/cmd	[no test files]
+goos: linux
+goarch: amd64
+pkg: main/database/mongo
+cpu: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+Benchmark_CreateUserBatch 	  128342	     10719 ns/op	    1500 B/op	      23 allocs/op
+Benchmark_CreateUserBatch 	  262312	     11137 ns/op	    1505 B/op	      23 allocs/op
+Benchmark_CreateUserBatch 	  352244	     12201 ns/op	    1517 B/op	      23 allocs/op
+Benchmark_CreateUserBatch 	  226148	      6352 ns/op	    1497 B/op	      23 allocs/op
+Benchmark_CreateUserBatch 	signal: interrupt
+FAIL	main/database/mongo	42.499s

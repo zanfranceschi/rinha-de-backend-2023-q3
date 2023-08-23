@@ -1,0 +1,7 @@
+?   	main/cmd	[no test files]
+goos: linux
+goarch: amd64
+pkg: main/database/mongo
+cpu: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+  105580	     13391 ns/op	    1513 B/op	      23 allocs/op
+  231554	      9718 ns/op	    1539 B/op	      23 allocs/op

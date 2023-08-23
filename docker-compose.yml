@@ -1,0 +1,73 @@
+version: '3.5'
+services:
+  api1:
+    # API - Instância 01
+    image: alphabeth/goseventh
+    build: .
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASS}@db
+      - SERVER_PORT=:80
+    env_file:
+      - .env
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  api2:
+    # API - Instância 02
+    image: alphabeth/goseventh
+    build: .
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASS}@db
+      - SERVER_PORT=:80
+    env_file:
+      - .env
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  nginx:
+    image: nginx
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api1
+      - api2
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.6GB'
+  db:
+    # Banco de dados
+    image: mongo:7.0.0-rc5
+    container_name: mongo-db
+    # volumes:
+    #   - ./mongo_data:/data/db
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'

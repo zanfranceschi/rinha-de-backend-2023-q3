@@ -1,0 +1,20 @@
+?   	main/cmd	[no test files]
+goos: linux
+goarch: amd64
+pkg: main/database/mongo
+cpu: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+Benchmark_CreateUserOnly  	    3038	    433669 ns/op	    6651 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    3109	    423261 ns/op	    6628 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    1836	    557170 ns/op	    6586 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    2354	    519248 ns/op	    6652 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    2416	    496408 ns/op	    6681 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    2304	    521163 ns/op	    6812 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    2191	    971093 ns/op	    6597 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    1514	    787001 ns/op	    7034 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    1608	    777704 ns/op	    6603 B/op	      83 allocs/op
+Benchmark_CreateUserOnly  	    1863	    648437 ns/op	    6848 B/op	      83 allocs/op
+PASS
+ok  	main/database/mongo	25.042s
+?   	main/internal/handlers/user	[no test files]
+?   	main/internal/validate	[no test files]
+?   	main/models/user	[no test files]
