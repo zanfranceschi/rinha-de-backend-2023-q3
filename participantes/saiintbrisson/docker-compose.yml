@@ -1,0 +1,63 @@
+version: "3.5"
+services:
+  postgres:
+    image: postgres:15
+    hostname: postgres
+    environment:
+      - POSTGRES_USER=rinha
+      - POSTGRES_PASSWORD=secret
+    ports: [5432:5432]
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/ddl.sql
+    deploy:
+      resources:
+        limits:
+          cpus: "0.8"
+          memory: 1GB
+
+  server-1:
+    image: saiintbrisson/rinha-de-backend-2023-q3:v1.0
+    hostname: server-1
+    depends_on: [postgres]
+    environment:
+      - PG_ADDRESS=postgres://rinha:secret@postgres:5432?options=-c%20synchronous_commit%3Doff
+      - SERVER_NAME=server-1
+    expose: [80]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 0.3GB
+
+  server-2:
+    image: saiintbrisson/rinha-de-backend-2023-q3:v1.0
+    hostname: server-2
+    depends_on: [postgres]
+    environment:
+      - PG_ADDRESS=postgres://rinha:secret@postgres:5432?options=-c%20synchronous_commit%3Doff
+      - SERVER_NAME=server-2
+    expose: [80]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 0.3GB
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - server-1
+      - server-2
+    ports: [9999:9999]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 0.5GB
+
+networks:
+  default:
+    driver: bridge
+    name: rinha

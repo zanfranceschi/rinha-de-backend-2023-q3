@@ -1,0 +1,100 @@
+version: '3.5'
+
+services:
+  api1:
+    image: sinhorinho/rinha-de-backend-2023-q3-elixir:latest
+    hostname: api1
+    depends_on:
+      - db
+    expose:
+      - "4000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db/rinha_backend_dev
+      - SECRET_KEY_BASE=4kZGFFt1SKlRnExAsUKG7aSpJCo2bsyA5smXYNJfe0EbqufOEgTHrzeyzHLITZu0
+      - PHX_SERVER=true
+      - 'POOL_SIZE=230'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.5GB'
+    networks:
+      - rinha-backend
+
+  api2:
+    image: sinhorinho/rinha-de-backend-2023-q3-elixir:latest
+    hostname: api2
+    depends_on:
+      - db
+    expose:
+      - "4000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db/rinha_backend_dev
+      - SECRET_KEY_BASE=4kZGFFt1SKlRnExAsUKG7aSpJCo2bsyA5smXYNJfe0EbqufOEgTHrzeyzHLITZu0
+      - PHX_SERVER=true
+      - 'POOL_SIZE=230'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.35'
+          memory: '0.5GB'
+    networks:
+      - rinha-backend
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.3GB'
+    networks:
+      - rinha-backend
+
+  db:
+    image: postgres:latest
+    hostname: db
+    command: '-c synchronous_commit=false -c shared_buffers=256MB -c max_connections=500'
+    environment:
+      - 'POSTGRES_DB=rinha_backend_dev'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'LANG=en_US.utf8'
+    ports:
+      - "5432:5432"
+    volumes:
+      - './priv/repo/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql'
+    deploy:
+       resources:
+         limits:
+           cpus: '0.7'
+           memory: '1.3GB'
+    networks:
+      - rinha-backend
+    
+  redis: 
+    image: redis/redis-stack:latest
+    command: 'redis-server --appendonly no --save "" --protected-mode no'
+    ports: 
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.05'
+          memory: '0.25GB'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    networks:
+      - rinha-backend
+      
+networks:
+  rinha-backend:
+    driver: bridge

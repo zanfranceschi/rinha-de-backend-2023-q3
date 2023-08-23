@@ -1,0 +1,101 @@
+version: '3.9'
+name: rinha-backend
+
+services:
+  one: # API - Instância 01
+    hostname: one
+    image:  hadara/rinha-backend-go
+    pid: host
+    environment:
+      DSN: "postgres://light:fasterthanusual@db:5432/rinha?sslmode=disable"
+      PORT: 8080
+      REDIS_ADDRESS: "cache:6379"
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.1GiB'
+    networks:
+      - default
+
+  two: # API - Instância 02
+    hostname: two
+    image:  hadara/rinha-backend-go
+    pid: host
+    environment:
+      DSN: "postgres://light:fasterthanusual@db:5432/rinha?sslmode=disable"
+      PORT: 8080
+      REDIS_ADDRESS: "cache:6379"
+    depends_on:
+      db:
+        condition: service_healthy
+      one:
+        condition: service_started
+      cache:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.1GB'
+    networks:
+      - default
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - one
+      - two
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.25GB'
+    networks:
+      - default
+
+  db: # Banco de dados
+    image: postgres
+    command: postgres -c 'max_connections=600'
+    environment:
+      - POSTGRES_PASSWORD=fasterthanusual
+      - POSTGRES_USER=light
+      - POSTGRES_DB=rinha
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U light -d rinha"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+        - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '0.5GB'
+    networks:
+      - default
+
+  cache:
+    image: redis
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.25GB'
+    networks:
+      - default
+
+networks:
+  default:
