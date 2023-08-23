@@ -1,8 +1,8 @@
 version: '3.9'
 name: 'rinha-de-backend'
 
-#  1.5 CPUs = 0.9 MongoDB + 2 x 0.25 Spring  Boot + 0.05 Redis + 0.05 NGinx
-#    3.0 GB = 0.7 MongoDB + 2 x 1.10 Spring Boot +  0.05 Redis + 0.05 NGinx
+#  1.5 CPUs = 0.70 MongoDB + 2 x 0.35 Spring Boot + 0.05 Redis + 0.05 NGinx
+#    3.0 GB = 0.65 MongoDB + 2 x 1.10 Spring Boot + 0.05 Redis + 0.10 NGinx
 
 services:
   spring-api1:
@@ -22,7 +22,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.35'
           memory: '1.1GB'
     networks:
       - app-network
@@ -44,7 +44,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.35'
           memory: '1.1GB'
     networks:
         - app-network
@@ -76,7 +76,7 @@ services:
       resources:
         limits:
           cpus: '0.05'
-          memory: '0.1GB'
+          memory: '0.05GB'
     networks:
       - app-network
 
@@ -87,8 +87,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.9'
-          memory: '0.7GB'
+          cpus: '0.7'
+          memory: '0.65GB'
     networks:
       - app-network
 

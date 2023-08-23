@@ -11,7 +11,7 @@ A adaptação feita foi:
 
 - trocar o PostgreSQL por MongoDB Reactive
 - trocar o Spring MVC pelo  Spring WebFlux
-- utilizar o Full Text Search do MongoDB na classe domain (@TextIndexed  cria o índice automaticamente)
+- utilizar o Full Text Search do MongoDB na classe domain (@TextIndexed cria o índice automaticamente)
 
 ## Imagem publicada
 
@@ -22,8 +22,8 @@ docker pull boaglio/rinhabackend2023:latest
 Dentro do diretório infra:
 
 ```bash
-docker-compose rm -f
-docker-compose down
-docker-compose up --build --force-recreate
+docker compose rm -f
+docker compose down
+docker compose up --build --force-recreate
 ```
 
