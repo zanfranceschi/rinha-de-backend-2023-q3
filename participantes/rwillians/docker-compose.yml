@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15.3-alpine3.18
+    container_name: rwillians-rinha-postgres
+    command: '-c shared_buffers=256MB -c max_connections=84'
+    environment:
+      - 'POSTGRES_DB=rinha_dev'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'LANG=en_US.utf8'
+    volumes:
+      - './priv/repo/structure.sql:/docker-entrypoint-initdb.d/ddl.sql'
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.80'
+          memory: 896M
+
+  api1:
+    image: ghcr.io/rwillians/rinha-de-backend--elixir-plug-bandit-ecto:0.2.3
+    container_name: rwillians-rinha-api-1
+    depends_on:
+      - postgres
+    environment:
+      - 'DATABASE_URL=postgres://postgres:postgres@postgres/rinha_dev'
+      - 'RELEASE_DISTRIBUTION=sname'
+      - 'SERVER_ENABLED=true'
+      - 'POOL_SIZE=40'
+    entrypoint: [ "sh", "-c" ]
+    #                   ↓ Demora alguns segundos para o banco de dados ficar
+    #                   ↓ disponível então precisamos esperar um pouco.
+    command: [ 'busybox sleep 10s && echo "starting http server..." && _build/prod/rel/rinha/bin/rinha start' ]
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.2625'
+          memory: 128M
+
+  api2:
+    image: ghcr.io/rwillians/rinha-de-backend--elixir-plug-bandit-ecto:0.2.3
+    container_name: rwillians-rinha-api-2
+    depends_on:
+      - postgres
+    environment:
+      - 'DATABASE_URL=postgres://postgres:postgres@postgres/rinha_dev'
+      - 'RELEASE_DISTRIBUTION=sname'
+      - 'SERVER_ENABLED=true'
+      - 'POOL_SIZE=40'
+    entrypoint: [ "sh", "-c" ]
+    #                   ↓ Demora alguns segundos para o banco de dados ficar
+    #                   ↓ disponível então precisamos esperar um pouco.
+    command: [ 'busybox sleep 10s && echo "starting http server..." && _build/prod/rel/rinha/bin/rinha start' ]
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.2625'
+          memory: 128M
+
+  load-balancer:
+    image: nginx:1.25.1-alpine3.17-slim
+    container_name: rwillians-ngnix
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf:ro'
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - '${PORT:-9999}:8080'
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.175'
+          memory: 12M
