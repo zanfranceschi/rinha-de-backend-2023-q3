@@ -4,7 +4,7 @@ docker system prune -f
 
 GATLING_BIN_DIR=$HOME/gatling/bin
 GATLING_WORKSPACE=$HOME/rinha-de-backend-2023-q3/stress-test
-RESULTS_WORKSPACE=$HOME/rinha-de-backend-2023-q3/resultados
+RESULTS_WORKSPACE=$HOME/rinha-de-backend-2023-q3/resultados/primeira-fase
 
 for diretorio in participantes/*/; do
 (
