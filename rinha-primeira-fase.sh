@@ -21,7 +21,7 @@ for diretorio in participantes/*/; do
         docker-compose up -d --build
         docker-compose logs > "$RESULTS_WORKSPACE/$participante/docker-compose.logs"
         echo "pausa de 10 segundos para startup pra API"
-        sleep 10
+        sleep 45
         echo "iniciando teste"
         sh $GATLING_BIN_DIR/gatling.sh -rm local -s RinhaBackendSimulation \
             -rd $participante \
@@ -36,5 +36,5 @@ for diretorio in participantes/*/; do
         docker-compose down
         touch "$RESULTS_WORKSPACE/$participante/testado"
     fi
-)    
+)
 done
