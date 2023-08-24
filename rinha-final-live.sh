@@ -6,16 +6,7 @@ GATLING_BIN_DIR=$HOME/gatling/bin
 GATLING_WORKSPACE=$HOME/rinha-de-backend-2023-q3/stress-test
 RESULTS_WORKSPACE=$HOME/rinha-de-backend-2023-q3/resultados/final
 
-finalistas=("viniciusfonseca"
-            "dscamargo"
-            "h4nkb31f0ng"
-            "grupo-2a"
-            "felipemarkson"
-            "isadora-souza"
-            "sofia_aripiprazole"
-            "vimsos"
-            "jrodrigues"
-            "lpicanco")
+finalistas=("ss" "ss")
 
 for finalista in ${finalistas[@]}; do
 (
