@@ -47,5 +47,5 @@ for finalista in ${finalistas[@]}; do
         docker-compose down
         touch "$RESULTS_WORKSPACE/$finalista/testado"
     fi
-)    
+)
 done
