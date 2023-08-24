@@ -15,8 +15,7 @@ finalistas=("viniciusfonseca"
             "sofia_aripiprazole"
             "vimsos"
             "jrodrigues"
-            "lpicanco"
-            "navarro")
+            "lpicanco")
 
 for finalista in ${finalistas[@]}; do
 (
