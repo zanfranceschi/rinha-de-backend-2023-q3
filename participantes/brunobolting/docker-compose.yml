@@ -1,0 +1,99 @@
+version: '3.5'
+
+services:
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.5GB'
+
+  api1: &api1
+    container_name: api1
+    hostname: api1
+    image: golang:1.17
+    restart: always
+    volumes:
+      - ./:/go/src/app:rw
+    environment:
+      REDIS: redis:6379
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: rinha_backend
+      DB_DATABASE: postgres
+      PORT: 80
+    command: /go/src/app/run
+    depends_on:
+      - db
+      - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+
+  # api2:
+  #   <<: *api1
+  #   container_name: api2
+  #   hostname: api2
+
+  api2:
+    container_name: api2
+    hostname: api2
+    image: golang:1.17
+    restart: always
+    volumes:
+      - ./:/go/src/app:rw
+    environment:
+      REDIS: redis:6379
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: rinha_backend
+      DB_DATABASE: postgres
+      PORT: 80
+    command: /go/src/app/run
+    depends_on:
+      - db
+      - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+
+  db:
+    container_name: db
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rinha_backend
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '1.2GB'
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - 6379:6379
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '0.3GB'
