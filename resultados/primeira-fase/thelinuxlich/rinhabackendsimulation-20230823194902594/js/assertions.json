@@ -1,0 +1,10 @@
+{
+  "simulation": "RinhaBackendSimulation",
+  "simulationId": "rinhabackendsimulation-20230823194902594",
+  "start": 1692820143612,
+  "description": "thelinuxlich",
+  "scenarios": ["Criação E Talvez Consulta de Pessoas", "Busca Válida de Pessoas", "Busca Inválida de Pessoas"],
+  "assertions": [
+
+  ]
+}

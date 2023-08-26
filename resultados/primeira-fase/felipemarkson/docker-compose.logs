@@ -1,0 +1,16 @@
+Attaching to felipemarkson_nginx_1, felipemarkson_api2_1, felipemarkson_api1_1
+[36mapi1_1   |[0m TABLE NAMES
+[36mapi1_1   |[0m -----------
+[36mapi1_1   |[0m pessoa
+[32mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[32mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[32mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[32mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[32mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[33mapi2_1   |[0m TABLE NAMES
+[33mapi2_1   |[0m -----------
+[33mapi2_1   |[0m pessoa

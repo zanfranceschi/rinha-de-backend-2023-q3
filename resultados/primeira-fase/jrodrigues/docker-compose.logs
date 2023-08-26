@@ -1,0 +1,22 @@
+Attaching to jrodrigues_nginx_1, jrodrigues_api2_1, jrodrigues_api1_1, jrodrigues_db_1, jrodrigues_cache_1
+[36mapi1_1   |[0m 2023/08/23 17:00:34 Starting server on 9999
+[33mapi2_1   |[0m 2023/08/23 17:00:34 Starting server on 9999
+[32mcache_1  |[0m 1:C 23 Aug 2023 17:00:33.371 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[34mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[34mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[34mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[34mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[34mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[35mdb_1     |[0m 
+[35mdb_1     |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[35mdb_1     |[0m 
+[35mdb_1     |[0m 2023-08-23 17:00:33.534 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[35mdb_1     |[0m 2023-08-23 17:00:33.534 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[35mdb_1     |[0m 2023-08-23 17:00:33.534 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[35mdb_1     |[0m 2023-08-23 17:00:33.539 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[35mdb_1     |[0m 2023-08-23 17:00:33.550 UTC [29] LOG:  database system was shut down at 2023-08-23 01:22:45 UTC
+[35mdb_1     |[0m 2023-08-23 17:00:33.566 UTC [1] LOG:  database system is ready to accept connections

@@ -1,0 +1,392 @@
+Attaching to mrpowergamerbr_rinha2_1, mrpowergamerbr_rinha1_1, mrpowergamerbr_nginx_1, mrpowergamerbr_db_1
+[33mnginx_1   |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[33mnginx_1   |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[33mnginx_1   |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[33mnginx_1   |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[33mnginx_1   |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[33mnginx_1   |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[33mnginx_1   |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[33mnginx_1   |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[33mnginx_1   |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[33mnginx_1   |[0m 2023/08/23 13:52:28 [emerg] 1#1: host not found in upstream "rinha1:9999" in /etc/nginx/nginx.conf:6
+[33mnginx_1   |[0m nginx: [emerg] host not found in upstream "rinha1:9999" in /etc/nginx/nginx.conf:6
+[33mnginx_1   |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[33mnginx_1   |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[33mnginx_1   |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[33mnginx_1   |[0m 10-listen-on-ipv6-by-default.sh: info: IPv6 listen already enabled
+[33mnginx_1   |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[33mnginx_1   |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[33mnginx_1   |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[33mnginx_1   |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[33mnginx_1   |[0m 2023/08/23 13:56:30 [emerg] 1#1: host not found in upstream "rinha1:9999" in /etc/nginx/nginx.conf:6
+[33mnginx_1   |[0m nginx: [emerg] host not found in upstream "rinha1:9999" in /etc/nginx/nginx.conf:6
+[36mdb_1      |[0m The files belonging to this database system will be owned by user "postgres".
+[36mdb_1      |[0m This user must also own the server process.
+[36mdb_1      |[0m 
+[36mdb_1      |[0m The database cluster will be initialized with locale "en_US.utf8".
+[36mdb_1      |[0m The default database encoding has accordingly been set to "UTF8".
+[36mdb_1      |[0m The default text search configuration will be set to "english".
+[36mdb_1      |[0m 
+[36mdb_1      |[0m Data page checksums are disabled.
+[36mdb_1      |[0m 
+[36mdb_1      |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[36mdb_1      |[0m creating subdirectories ... ok
+[36mdb_1      |[0m selecting dynamic shared memory implementation ... posix
+[36mdb_1      |[0m selecting default max_connections ... 100
+[36mdb_1      |[0m selecting default shared_buffers ... 128MB
+[36mdb_1      |[0m selecting default time zone ... Etc/UTC
+[36mdb_1      |[0m creating configuration files ... ok
+[36mdb_1      |[0m running bootstrap script ... ok
+[36mdb_1      |[0m performing post-bootstrap initialization ... ok
+[36mdb_1      |[0m syncing data to disk ... ok
+[36mdb_1      |[0m 
+[36mdb_1      |[0m 
+[36mdb_1      |[0m Success. You can now start the database server using:
+[36mdb_1      |[0m 
+[36mdb_1      |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[36mdb_1      |[0m 
+[36mdb_1      |[0m initdb: warning: enabling "trust" authentication for local connections
+[36mdb_1      |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[36mdb_1      |[0m waiting for server to start....2023-08-23 13:52:29.557 UTC [48] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[36mdb_1      |[0m 2023-08-23 13:52:29.560 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb_1      |[0m 2023-08-23 13:52:29.568 UTC [51] LOG:  database system was shut down at 2023-08-23 13:52:29 UTC
+[36mdb_1      |[0m 2023-08-23 13:52:29.576 UTC [48] LOG:  database system is ready to accept connections
+[36mdb_1      |[0m  done
+[36mdb_1      |[0m server started
+[36mdb_1      |[0m CREATE DATABASE
+[36mdb_1      |[0m 
+[36mdb_1      |[0m 
+[36mdb_1      |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[36mdb_1      |[0m 
+[36mdb_1      |[0m 2023-08-23 13:52:29.814 UTC [48] LOG:  received fast shutdown request
+[36mdb_1      |[0m waiting for server to shut down....2023-08-23 13:52:29.817 UTC [48] LOG:  aborting any active transactions
+[36mdb_1      |[0m 2023-08-23 13:52:29.820 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+[36mdb_1      |[0m 2023-08-23 13:52:29.820 UTC [49] LOG:  shutting down
+[36mdb_1      |[0m 2023-08-23 13:52:29.822 UTC [49] LOG:  checkpoint starting: shutdown immediate
+[36mdb_1      |[0m 2023-08-23 13:52:29.865 UTC [49] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.033 s, sync=0.006 s, total=0.045 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4223 kB, estimate=4223 kB
+[36mdb_1      |[0m 2023-08-23 13:52:29.873 UTC [48] LOG:  database system is shut down
+[36mdb_1      |[0m  done
+[36mdb_1      |[0m server stopped
+[36mdb_1      |[0m 
+[36mdb_1      |[0m PostgreSQL init process complete; ready for start up.
+[36mdb_1      |[0m 
+[36mdb_1      |[0m 2023-08-23 13:52:29.943 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[36mdb_1      |[0m 2023-08-23 13:52:29.943 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mdb_1      |[0m 2023-08-23 13:52:29.943 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mdb_1      |[0m 2023-08-23 13:52:29.947 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb_1      |[0m 2023-08-23 13:52:29.953 UTC [64] LOG:  database system was shut down at 2023-08-23 13:52:29 UTC
+[36mdb_1      |[0m 2023-08-23 13:52:29.960 UTC [1] LOG:  database system is ready to accept connections
+[36mdb_1      |[0m 2023-08-23 13:52:51.324 UTC [84] ERROR:  duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+[36mdb_1      |[0m 2023-08-23 13:52:51.324 UTC [84] DETAIL:  Key (typname, typnamespace)=(pessoas, 2200) already exists.
+[36mdb_1      |[0m 2023-08-23 13:52:51.324 UTC [84] STATEMENT:  CREATE TABLE IF NOT EXISTS pessoas (id uuid PRIMARY KEY, apelido TEXT NOT NULL, nome TEXT NOT NULL, nascimento DATE NOT NULL)
+[36mdb_1      |[0m 2023-08-23 13:54:10.395 UTC [1] LOG:  received fast shutdown request
+[36mdb_1      |[0m 2023-08-23 13:54:10.398 UTC [1] LOG:  aborting any active transactions
+[36mdb_1      |[0m 2023-08-23 13:54:10.398 UTC [105] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.398 UTC [104] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.398 UTC [101] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.400 UTC [100] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.401 UTC [85] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.405 UTC [106] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.407 UTC [107] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.417 UTC [84] FATAL:  terminating connection due to administrator command
+[36mdb_1      |[0m 2023-08-23 13:54:10.441 UTC [1] LOG:  background worker "logical replication launcher" (PID 67) exited with exit code 1
+[36mdb_1      |[0m 2023-08-23 13:54:10.442 UTC [62] LOG:  shutting down
+[36mdb_1      |[0m 2023-08-23 13:54:10.458 UTC [62] LOG:  checkpoint starting: shutdown immediate
+[36mdb_1      |[0m 2023-08-23 13:54:10.490 UTC [62] LOG:  checkpoint complete: wrote 104 buffers (0.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.022 s, sync=0.004 s, total=0.048 s; sync files=66, longest=0.002 s, average=0.001 s; distance=448 kB, estimate=448 kB
+[36mdb_1      |[0m 2023-08-23 13:54:10.495 UTC [1] LOG:  database system is shut down
+[36mdb_1      |[0m 
+[36mdb_1      |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[36mdb_1      |[0m 
+[36mdb_1      |[0m 2023-08-23 13:56:30.863 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[36mdb_1      |[0m 2023-08-23 13:56:30.874 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mdb_1      |[0m 2023-08-23 13:56:30.875 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mdb_1      |[0m 2023-08-23 13:56:30.882 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb_1      |[0m 2023-08-23 13:56:30.892 UTC [30] LOG:  database system was shut down at 2023-08-23 13:54:10 UTC
+[36mdb_1      |[0m 2023-08-23 13:56:30.917 UTC [1] LOG:  database system is ready to accept connections
+[35mrinha2_1  |[0m Picked up JAVA_TOOL_OPTIONS: -verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
+[35mrinha2_1  |[0m [0.008s][info][gc] Using G1
+[35mrinha2_1  |[0m [0.696s][info][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 2M->2M(14M) 1.914ms
+[35mrinha2_1  |[0m [1.091s][info][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 3M->2M(14M) 1.511ms
+[35mrinha2_1  |[0m [2.389s][info][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 4M->3M(14M) 3.538ms
+[35mrinha2_1  |[0m 13:52:34.918 [main] INFO com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher -- OLÁ E SEJAM BEM-VINDOS A RINHA DE BACKEND 2023 Q3™
+[35mrinha2_1  |[0m 13:52:35.115 [main] INFO com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher -- *música épica de fundo*
+[35mrinha2_1  |[0m 13:52:35.116 [main] INFO com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher -- Implementação feita por MrPowerGamerBR
+[35mrinha2_1  |[0m 13:52:35.127 [main] DEBUG com.zaxxer.hikari.HikariConfig -- Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3fa77460
+[35mrinha2_1  |[0m 13:52:35.429 [main] DEBUG com.zaxxer.hikari.HikariConfig -- PuddingPool - configuration:
+[35mrinha2_1  |[0m 13:52:35.626 [main] DEBUG com.zaxxer.hikari.HikariConfig -- allowPoolSuspension.............false
+[35mrinha2_1  |[0m 13:52:35.626 [main] DEBUG com.zaxxer.hikari.HikariConfig -- autoCommit......................false
+[35mrinha2_1  |[0m 13:52:35.716 [main] DEBUG com.zaxxer.hikari.HikariConfig -- catalog.........................none
+[35mrinha2_1  |[0m 13:52:35.716 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionInitSql...............none
+[35mrinha2_1  |[0m 13:52:35.717 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionTestQuery.............none
+[35mrinha2_1  |[0m 13:52:35.719 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionTimeout...............30000
+[35mrinha2_1  |[0m 13:52:35.720 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSource......................none
+[35mrinha2_1  |[0m 13:52:35.720 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceClassName.............none
+[35mrinha2_1  |[0m 13:52:35.720 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceJNDI..................none
+[35mrinha2_1  |[0m 13:52:35.722 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceProperties............{password=<masked>, reWriteBatchedInserts=true}
+[35mrinha2_1  |[0m 13:52:35.723 [main] DEBUG com.zaxxer.hikari.HikariConfig -- driverClassName................."org.postgresql.Driver"
+[35mrinha2_1  |[0m 13:52:35.723 [main] DEBUG com.zaxxer.hikari.HikariConfig -- exceptionOverrideClassName......none
+[35mrinha2_1  |[0m 13:52:35.723 [main] DEBUG com.zaxxer.hikari.HikariConfig -- healthCheckProperties...........{}
+[35mrinha2_1  |[0m 13:52:35.724 [main] DEBUG com.zaxxer.hikari.HikariConfig -- healthCheckRegistry.............none
+[35mrinha2_1  |[0m 13:52:35.724 [main] DEBUG com.zaxxer.hikari.HikariConfig -- idleTimeout.....................600000
+[35mrinha2_1  |[0m 13:52:35.724 [main] DEBUG com.zaxxer.hikari.HikariConfig -- initializationFailTimeout.......1
+[35mrinha2_1  |[0m 13:52:35.725 [main] DEBUG com.zaxxer.hikari.HikariConfig -- isolateInternalQueries..........false
+[35mrinha2_1  |[0m 13:52:35.726 [main] DEBUG com.zaxxer.hikari.HikariConfig -- jdbcUrl.........................jdbc:postgresql://db/rinhadebackend?ApplicationName=PowerChannelPoints
+[35mrinha2_1  |[0m 13:52:35.726 [main] DEBUG com.zaxxer.hikari.HikariConfig -- keepaliveTime...................0
+[35mrinha2_1  |[0m 13:52:35.815 [main] DEBUG com.zaxxer.hikari.HikariConfig -- leakDetectionThreshold..........30000
+[35mrinha2_1  |[0m 13:52:35.815 [main] DEBUG com.zaxxer.hikari.HikariConfig -- maxLifetime.....................1800000
+[35mrinha2_1  |[0m 13:52:35.816 [main] DEBUG com.zaxxer.hikari.HikariConfig -- maximumPoolSize.................4
+[35mrinha2_1  |[0m 13:52:35.816 [main] DEBUG com.zaxxer.hikari.HikariConfig -- metricRegistry..................none
+[35mrinha2_1  |[0m 13:52:35.816 [main] DEBUG com.zaxxer.hikari.HikariConfig -- metricsTrackerFactory...........none
+[35mrinha2_1  |[0m 13:52:35.818 [main] DEBUG com.zaxxer.hikari.HikariConfig -- minimumIdle.....................4
+[35mrinha2_1  |[0m 13:52:35.818 [main] DEBUG com.zaxxer.hikari.HikariConfig -- password........................<masked>
+[35mrinha2_1  |[0m 13:52:35.818 [main] DEBUG com.zaxxer.hikari.HikariConfig -- poolName........................"PuddingPool"
+[35mrinha2_1  |[0m 13:52:35.819 [main] DEBUG com.zaxxer.hikari.HikariConfig -- readOnly........................false
+[35mrinha2_1  |[0m 13:52:35.820 [main] DEBUG com.zaxxer.hikari.HikariConfig -- registerMbeans..................false
+[35mrinha2_1  |[0m 13:52:35.820 [main] DEBUG com.zaxxer.hikari.HikariConfig -- scheduledExecutor...............none
+[35mrinha2_1  |[0m 13:52:35.821 [main] DEBUG com.zaxxer.hikari.HikariConfig -- schema..........................none
+[35mrinha2_1  |[0m 13:52:35.821 [main] DEBUG com.zaxxer.hikari.HikariConfig -- threadFactory...................internal
+[35mrinha2_1  |[0m 13:52:35.821 [main] DEBUG com.zaxxer.hikari.HikariConfig -- transactionIsolation............"TRANSACTION_REPEATABLE_READ"
+[35mrinha2_1  |[0m 13:52:35.822 [main] DEBUG com.zaxxer.hikari.HikariConfig -- username........................"postgres"
+[35mrinha2_1  |[0m 13:52:35.822 [main] DEBUG com.zaxxer.hikari.HikariConfig -- validationTimeout...............5000
+[35mrinha2_1  |[0m 13:52:35.932 [main] INFO com.zaxxer.hikari.HikariDataSource -- PuddingPool - Starting...
+[35mrinha2_1  |[0m [3.995s][info][gc] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 6M->3M(14M) 3.625ms
+[35mrinha2_1  |[0m [7.191s][info][gc] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 7M->4M(14M) 4.403ms
+[35mrinha2_1  |[0m 13:52:40.719 [main] INFO com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@3bd40a57
+[35mrinha2_1  |[0m 13:52:40.724 [main] INFO com.zaxxer.hikari.HikariDataSource -- PuddingPool - Start completed.
+[35mrinha2_1  |[0m 13:52:40.825 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=1, active=0, idle=1, waiting=0)
+[35mrinha2_1  |[0m [8.788s][info][gc] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 8M->5M(14M) 90.950ms
+[35mrinha2_1  |[0m 13:52:42.022 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@684f02ef
+[35mrinha2_1  |[0m [10.086s][info][gc] GC(6) Pause Young (Concurrent Start) (GCLocker Initiated GC) 8M->5M(14M) 92.545ms
+[35mrinha2_1  |[0m [10.086s][info][gc] GC(7) Concurrent Mark Cycle
+[35mrinha2_1  |[0m [10.191s][info][gc] GC(7) Pause Remark 5M->5M(15M) 4.944ms
+[35mrinha2_1  |[0m [10.291s][info][gc] GC(7) Pause Cleanup 5M->5M(15M) 0.060ms
+[35mrinha2_1  |[0m [10.292s][info][gc] GC(7) Concurrent Mark Cycle 205.700ms
+[35mrinha2_1  |[0m 13:52:42.524 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@62b7699f
+[35mrinha2_1  |[0m 13:52:42.725 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@27b5ebad
+[35mrinha2_1  |[0m 13:52:42.814 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - After adding stats (total=4, active=0, idle=4, waiting=0)
+[35mrinha2_1  |[0m [10.888s][info][gc] GC(8) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 8M->5M(15M) 2.132ms
+[35mrinha2_1  |[0m [11.793s][info][gc] GC(9) Pause Young (Mixed) (G1 Evacuation Pause) 10M->5M(15M) 99.153ms
+[35mrinha2_1  |[0m [12.786s][info][gc] GC(10) Pause Young (Concurrent Start) (G1 Evacuation Pause) 10M->6M(15M) 88.214ms
+[35mrinha2_1  |[0m [12.786s][info][gc] GC(11) Concurrent Mark Cycle
+[35mrinha2_1  |[0m [12.989s][info][gc] GC(11) Pause Remark 6M->6M(15M) 3.857ms
+[35mrinha2_1  |[0m [13.086s][info][gc] GC(11) Pause Cleanup 6M->6M(15M) 0.059ms
+[35mrinha2_1  |[0m [13.087s][info][gc] GC(11) Concurrent Mark Cycle 300.749ms
+[35mrinha2_1  |[0m [14.589s][info][gc] GC(12) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 11M->6M(15M) 93.597ms
+[35mrinha2_1  |[0m [15.791s][info][gc] GC(13) Pause Young (Mixed) (G1 Evacuation Pause) 11M->7M(16M) 98.885ms
+[32mrinha1_1  |[0m Picked up JAVA_TOOL_OPTIONS: -verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
+[32mrinha1_1  |[0m [0.071s][info][gc] Using G1
+[32mrinha1_1  |[0m [0.771s][info][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 2M->2M(14M) 1.805ms
+[32mrinha1_1  |[0m [1.169s][info][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 3M->2M(14M) 86.436ms
+[32mrinha1_1  |[0m [2.671s][info][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 4M->3M(14M) 3.329ms
+[32mrinha1_1  |[0m 13:52:35.122 [main] INFO com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher -- OLÁ E SEJAM BEM-VINDOS A RINHA DE BACKEND 2023 Q3™
+[32mrinha1_1  |[0m 13:52:35.215 [main] INFO com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher -- *música épica de fundo*
+[32mrinha1_1  |[0m 13:52:35.216 [main] INFO com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher -- Implementação feita por MrPowerGamerBR
+[32mrinha1_1  |[0m 13:52:35.317 [main] DEBUG com.zaxxer.hikari.HikariConfig -- Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3fa77460
+[32mrinha1_1  |[0m 13:52:35.519 [main] DEBUG com.zaxxer.hikari.HikariConfig -- PuddingPool - configuration:
+[32mrinha1_1  |[0m 13:52:35.721 [main] DEBUG com.zaxxer.hikari.HikariConfig -- allowPoolSuspension.............false
+[32mrinha1_1  |[0m 13:52:35.722 [main] DEBUG com.zaxxer.hikari.HikariConfig -- autoCommit......................false
+[32mrinha1_1  |[0m 13:52:35.816 [main] DEBUG com.zaxxer.hikari.HikariConfig -- catalog.........................none
+[32mrinha1_1  |[0m 13:52:35.817 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionInitSql...............none
+[32mrinha1_1  |[0m 13:52:35.817 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionTestQuery.............none
+[32mrinha1_1  |[0m 13:52:35.820 [main] DEBUG com.zaxxer.hikari.HikariConfig -- connectionTimeout...............30000
+[32mrinha1_1  |[0m 13:52:35.821 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSource......................none
+[32mrinha1_1  |[0m 13:52:35.822 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceClassName.............none
+[32mrinha1_1  |[0m 13:52:35.822 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceJNDI..................none
+[32mrinha1_1  |[0m 13:52:35.825 [main] DEBUG com.zaxxer.hikari.HikariConfig -- dataSourceProperties............{password=<masked>, reWriteBatchedInserts=true}
+[32mrinha1_1  |[0m 13:52:35.826 [main] DEBUG com.zaxxer.hikari.HikariConfig -- driverClassName................."org.postgresql.Driver"
+[32mrinha1_1  |[0m 13:52:35.827 [main] DEBUG com.zaxxer.hikari.HikariConfig -- exceptionOverrideClassName......none
+[32mrinha1_1  |[0m 13:52:35.827 [main] DEBUG com.zaxxer.hikari.HikariConfig -- healthCheckProperties...........{}
+[32mrinha1_1  |[0m 13:52:35.827 [main] DEBUG com.zaxxer.hikari.HikariConfig -- healthCheckRegistry.............none
+[32mrinha1_1  |[0m 13:52:35.828 [main] DEBUG com.zaxxer.hikari.HikariConfig -- idleTimeout.....................600000
+[32mrinha1_1  |[0m 13:52:35.828 [main] DEBUG com.zaxxer.hikari.HikariConfig -- initializationFailTimeout.......1
+[32mrinha1_1  |[0m 13:52:35.828 [main] DEBUG com.zaxxer.hikari.HikariConfig -- isolateInternalQueries..........false
+[32mrinha1_1  |[0m 13:52:35.829 [main] DEBUG com.zaxxer.hikari.HikariConfig -- jdbcUrl.........................jdbc:postgresql://db/rinhadebackend?ApplicationName=PowerChannelPoints
+[32mrinha1_1  |[0m 13:52:35.830 [main] DEBUG com.zaxxer.hikari.HikariConfig -- keepaliveTime...................0
+[32mrinha1_1  |[0m 13:52:35.830 [main] DEBUG com.zaxxer.hikari.HikariConfig -- leakDetectionThreshold..........30000
+[32mrinha1_1  |[0m 13:52:35.830 [main] DEBUG com.zaxxer.hikari.HikariConfig -- maxLifetime.....................1800000
+[32mrinha1_1  |[0m 13:52:35.915 [main] DEBUG com.zaxxer.hikari.HikariConfig -- maximumPoolSize.................4
+[32mrinha1_1  |[0m 13:52:35.916 [main] DEBUG com.zaxxer.hikari.HikariConfig -- metricRegistry..................none
+[32mrinha1_1  |[0m 13:52:35.916 [main] DEBUG com.zaxxer.hikari.HikariConfig -- metricsTrackerFactory...........none
+[32mrinha1_1  |[0m 13:52:35.917 [main] DEBUG com.zaxxer.hikari.HikariConfig -- minimumIdle.....................4
+[32mrinha1_1  |[0m 13:52:35.917 [main] DEBUG com.zaxxer.hikari.HikariConfig -- password........................<masked>
+[32mrinha1_1  |[0m 13:52:35.918 [main] DEBUG com.zaxxer.hikari.HikariConfig -- poolName........................"PuddingPool"
+[32mrinha1_1  |[0m 13:52:35.918 [main] DEBUG com.zaxxer.hikari.HikariConfig -- readOnly........................false
+[32mrinha1_1  |[0m 13:52:35.919 [main] DEBUG com.zaxxer.hikari.HikariConfig -- registerMbeans..................false
+[32mrinha1_1  |[0m 13:52:35.919 [main] DEBUG com.zaxxer.hikari.HikariConfig -- scheduledExecutor...............none
+[32mrinha1_1  |[0m 13:52:35.919 [main] DEBUG com.zaxxer.hikari.HikariConfig -- schema..........................none
+[32mrinha1_1  |[0m 13:52:35.920 [main] DEBUG com.zaxxer.hikari.HikariConfig -- threadFactory...................internal
+[32mrinha1_1  |[0m 13:52:35.920 [main] DEBUG com.zaxxer.hikari.HikariConfig -- transactionIsolation............"TRANSACTION_REPEATABLE_READ"
+[32mrinha1_1  |[0m 13:52:35.921 [main] DEBUG com.zaxxer.hikari.HikariConfig -- username........................"postgres"
+[32mrinha1_1  |[0m 13:52:35.921 [main] DEBUG com.zaxxer.hikari.HikariConfig -- validationTimeout...............5000
+[32mrinha1_1  |[0m 13:52:36.034 [main] INFO com.zaxxer.hikari.HikariDataSource -- PuddingPool - Starting...
+[32mrinha1_1  |[0m [4.278s][info][gc] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 6M->3M(14M) 4.065ms
+[32mrinha1_1  |[0m [7.472s][info][gc] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 7M->4M(14M) 4.899ms
+[32mrinha1_1  |[0m 13:52:40.721 [main] INFO com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@3bd40a57
+[32mrinha1_1  |[0m 13:52:40.725 [main] INFO com.zaxxer.hikari.HikariDataSource -- PuddingPool - Start completed.
+[32mrinha1_1  |[0m 13:52:40.916 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=1, active=0, idle=1, waiting=0)
+[32mrinha1_1  |[0m [8.869s][info][gc] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 8M->5M(14M) 87.423ms
+[32mrinha1_1  |[0m 13:52:41.818 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@475838bd
+[32mrinha1_1  |[0m [9.979s][info][gc] GC(6) Pause Young (Concurrent Start) (G1 Evacuation Pause) 8M->5M(14M) 6.771ms
+[32mrinha1_1  |[0m [9.980s][info][gc] GC(7) Concurrent Mark Cycle
+[32mrinha1_1  |[0m [10.176s][info][gc] GC(7) Pause Remark 5M->5M(15M) 8.956ms
+[32mrinha1_1  |[0m [10.268s][info][gc] GC(7) Pause Cleanup 5M->5M(15M) 0.064ms
+[32mrinha1_1  |[0m [10.268s][info][gc] GC(7) Concurrent Mark Cycle 288.501ms
+[32mrinha1_1  |[0m 13:52:42.727 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@4da053cd
+[32mrinha1_1  |[0m [10.971s][info][gc] GC(8) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 8M->5M(15M) 3.396ms
+[32mrinha1_1  |[0m 13:52:43.224 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Added connection org.postgresql.jdbc.PgConnection@8a2d41d
+[32mrinha1_1  |[0m 13:52:43.318 [PuddingPool connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - After adding stats (total=4, active=0, idle=4, waiting=0)
+[32mrinha1_1  |[0m [12.179s][info][gc] GC(9) Pause Young (Mixed) (G1 Evacuation Pause) 10M->5M(15M) 105.335ms
+[32mrinha1_1  |[0m [13.081s][info][gc] GC(10) Pause Young (Concurrent Start) (G1 Evacuation Pause) 10M->5M(15M) 6.281ms
+[32mrinha1_1  |[0m [13.081s][info][gc] GC(11) Concurrent Mark Cycle
+[32mrinha1_1  |[0m [13.268s][info][gc] GC(11) Pause Remark 5M->5M(15M) 88.322ms
+[32mrinha1_1  |[0m [13.274s][info][gc] GC(11) Pause Cleanup 6M->6M(15M) 0.057ms
+[32mrinha1_1  |[0m [13.275s][info][gc] GC(11) Concurrent Mark Cycle 193.968ms
+[35mrinha2_1  |[0m [16.896s][info][gc] GC(14) Pause Young (Concurrent Start) (G1 Evacuation Pause) 11M->7M(31M) 98.925ms
+[35mrinha2_1  |[0m [16.896s][info][gc] GC(15) Concurrent Mark Cycle
+[35mrinha2_1  |[0m [17.194s][info][gc] GC(15) Pause Remark 8M->8M(31M) 91.431ms
+[35mrinha2_1  |[0m [17.200s][info][gc] GC(15) Pause Cleanup 8M->8M(31M) 0.058ms
+[35mrinha2_1  |[0m [17.285s][info][gc] GC(15) Concurrent Mark Cycle 389.581ms
+[35mrinha2_1  |[0m 13:52:50.837 [pool-1-thread-1] INFO Exposed -- Preparing create tables statements took 286ms
+[35mrinha2_1  |[0m 13:52:51.521 [pool-1-thread-1] DEBUG Exposed -- CREATE TABLE IF NOT EXISTS pessoas (id uuid PRIMARY KEY, apelido TEXT NOT NULL, nome TEXT NOT NULL, nascimento DATE NOT NULL)
+[35mrinha2_1  |[0m 13:52:51.522 [pool-1-thread-1] WARN Exposed -- Transaction attempt #1 failed: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+[35mrinha2_1  |[0m   Detail: Key (typname, typnamespace)=(pessoas, 2200) already exists.. Statement(s): CREATE TABLE IF NOT EXISTS pessoas (id uuid PRIMARY KEY, apelido TEXT NOT NULL, nome TEXT NOT NULL, nascimento DATE NOT NULL)
+[35mrinha2_1  |[0m org.jetbrains.exposed.exceptions.ExposedSQLException: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+[35mrinha2_1  |[0m   Detail: Key (typname, typnamespace)=(pessoas, 2200) already exists.
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:64)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:141)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:127)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:109)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:95)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec$default(Transaction.kt:94)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.SchemaUtils.execStatements(SchemaUtils.kt:266)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.SchemaUtils.createMissingTablesAndColumns(SchemaUtils.kt:328)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.SchemaUtils.createMissingTablesAndColumns$default(SchemaUtils.kt:321)
+[35mrinha2_1  |[0m 	at com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher$main$4$1.invokeSuspend(RinhaDeBackend2023Q3Launcher.kt:27)
+[35mrinha2_1  |[0m 	at com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher$main$4$1.invoke(RinhaDeBackend2023Q3Launcher.kt)
+[35mrinha2_1  |[0m 	at com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher$main$4$1.invoke(RinhaDeBackend2023Q3Launcher.kt)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1$1.invokeSuspend(SuspendableNestedTransaction.kt:61)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1.invokeSuspend(SuspendableNestedTransaction.kt:60)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.transactions.experimental.SuspendedKt$suspendedTransactionAsyncInternal$1.invokeSuspend(Suspended.kt:129)
+[35mrinha2_1  |[0m 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+[35mrinha2_1  |[0m 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[35mrinha2_1  |[0m 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[35mrinha2_1  |[0m 	at java.base/java.lang.Thread.run(Thread.java:1623)
+[35mrinha2_1  |[0m Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+[35mrinha2_1  |[0m   Detail: Key (typname, typnamespace)=(pessoas, 2200) already exists.
+[35mrinha2_1  |[0m 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2675)
+[35mrinha2_1  |[0m 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2365)
+[35mrinha2_1  |[0m 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:355)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:167)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:135)
+[35mrinha2_1  |[0m 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+[35mrinha2_1  |[0m 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.statements.jdbc.JdbcPreparedStatementImpl.executeUpdate(JdbcPreparedStatementImpl.kt:26)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction$exec$2.executeInternal(Transaction.kt:114)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:62)
+[35mrinha2_1  |[0m 	... 26 common frames omitted
+[35mrinha2_1  |[0m 13:52:51.538 [main] WARN net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransaction -- Exception while trying to execute query. Tries: 1
+[35mrinha2_1  |[0m org.jetbrains.exposed.exceptions.ExposedSQLException: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+[35mrinha2_1  |[0m   Detail: Key (typname, typnamespace)=(pessoas, 2200) already exists.
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:64)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:141)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:127)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:109)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec(Transaction.kt:95)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction.exec$default(Transaction.kt:94)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.SchemaUtils.execStatements(SchemaUtils.kt:266)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.SchemaUtils.createMissingTablesAndColumns(SchemaUtils.kt:328)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.SchemaUtils.createMissingTablesAndColumns$default(SchemaUtils.kt:321)
+[35mrinha2_1  |[0m 	at com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher$main$4$1.invokeSuspend(RinhaDeBackend2023Q3Launcher.kt:27)
+[35mrinha2_1  |[0m 	at com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher$main$4$1.invoke(RinhaDeBackend2023Q3Launcher.kt)
+[35mrinha2_1  |[0m 	at com.mrpowergamerbr.rinhadebackend2023q3.RinhaDeBackend2023Q3Launcher$main$4$1.invoke(RinhaDeBackend2023Q3Launcher.kt)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1$1.invokeSuspend(SuspendableNestedTransaction.kt:61)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1.invokeSuspend(SuspendableNestedTransaction.kt:60)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at net.perfectdreams.exposedpowerutils.sql.SuspendableNestedTransactionKt$transaction$3$1.invoke(SuspendableNestedTransaction.kt)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.transactions.experimental.SuspendedKt$suspendedTransactionAsyncInternal$1.invokeSuspend(Suspended.kt:129)
+[35mrinha2_1  |[0m 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+[35mrinha2_1  |[0m 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+[35mrinha2_1  |[0m 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[35mrinha2_1  |[0m 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[35mrinha2_1  |[0m 	at java.base/java.lang.Thread.run(Thread.java:1623)
+[35mrinha2_1  |[0m Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+[35mrinha2_1  |[0m   Detail: Key (typname, typnamespace)=(pessoas, 2200) already exists.
+[35mrinha2_1  |[0m 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2675)
+[35mrinha2_1  |[0m 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2365)
+[35mrinha2_1  |[0m 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:355)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:167)
+[35mrinha2_1  |[0m 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:135)
+[35mrinha2_1  |[0m 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+[35mrinha2_1  |[0m 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.statements.jdbc.JdbcPreparedStatementImpl.executeUpdate(JdbcPreparedStatementImpl.kt:26)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.Transaction$exec$2.executeInternal(Transaction.kt:114)
+[35mrinha2_1  |[0m 	at org.jetbrains.exposed.sql.statements.Statement.executeIn$exposed_core(Statement.kt:62)
+[35mrinha2_1  |[0m 	... 26 common frames omitted
+[35mrinha2_1  |[0m 13:52:51.631 [pool-1-thread-1] INFO Exposed -- Preparing create tables statements took 11ms
+[35mrinha2_1  |[0m 13:52:51.815 [pool-1-thread-1] INFO Exposed -- Executing create tables statements took 184ms
+[35mrinha2_1  |[0m 13:52:51.916 [pool-1-thread-1] INFO Exposed -- Extracting table columns took 101ms
+[35mrinha2_1  |[0m 13:52:51.951 [pool-1-thread-1] INFO Exposed -- Extracting column constraints took 33ms
+[35mrinha2_1  |[0m 13:52:52.015 [pool-1-thread-1] INFO Exposed -- Preparing alter table statements took 200ms
+[35mrinha2_1  |[0m 13:52:52.016 [pool-1-thread-1] INFO Exposed -- Executing alter table statements took 1ms
+[35mrinha2_1  |[0m 13:52:52.038 [pool-1-thread-1] INFO Exposed -- Checking mapping consistence took 22ms
+[35mrinha2_1  |[0m 13:52:52.422 [DefaultDispatcher-worker-1] INFO ktor.application -- Autoreload is disabled because the development mode is off.
+[35mrinha2_1  |[0m 13:52:52.730 [DefaultDispatcher-worker-1] INFO ktor.application -- Application started in 0.414 seconds.
+[35mrinha2_1  |[0m 13:52:53.115 [DefaultDispatcher-worker-2] INFO ktor.application -- Responding at http://0.0.0.0:9999
+[35mrinha2_1  |[0m 13:53:10.915 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=4, active=0, idle=4, waiting=0)
+[35mrinha2_1  |[0m 13:53:10.915 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+[35mrinha2_1  |[0m 13:53:40.915 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=4, active=0, idle=4, waiting=0)
+[35mrinha2_1  |[0m 13:53:40.916 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+[35mrinha2_1  |[0m 13:54:10.916 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=4, active=0, idle=4, waiting=0)
+[35mrinha2_1  |[0m 13:54:10.916 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+[35mrinha2_1  |[0m [99.259s][info][gc] GC(16) Pause Young (Normal) (G1 Evacuation Pause) 22M->8M(31M) 6.555ms
+[35mrinha2_1  |[0m Picked up JAVA_TOOL_OPTIONS: -verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
+[35mrinha2_1  |[0m [0.057s][info][gc] Using G1
+[32mrinha1_1  |[0m [14.473s][info][gc] GC(12) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 10M->6M(15M) 5.100ms
+[32mrinha1_1  |[0m [15.582s][info][gc] GC(13) Pause Young (Mixed) (G1 Evacuation Pause) 11M->6M(16M) 11.065ms
+[32mrinha1_1  |[0m [17.073s][info][gc] GC(14) Pause Young (Concurrent Start) (G1 Evacuation Pause) 11M->7M(22M) 81.454ms
+[32mrinha1_1  |[0m [17.073s][info][gc] GC(15) Concurrent Mark Cycle
+[32mrinha1_1  |[0m [17.370s][info][gc] GC(15) Pause Remark 8M->8M(22M) 87.523ms
+[32mrinha1_1  |[0m [17.467s][info][gc] GC(15) Pause Cleanup 8M->8M(22M) 0.059ms
+[32mrinha1_1  |[0m [17.468s][info][gc] GC(15) Concurrent Mark Cycle 394.747ms
+[32mrinha1_1  |[0m 13:52:50.915 [pool-1-thread-1] INFO Exposed -- Preparing create tables statements took 488ms
+[32mrinha1_1  |[0m 13:52:51.120 [pool-1-thread-1] DEBUG Exposed -- CREATE TABLE IF NOT EXISTS pessoas (id uuid PRIMARY KEY, apelido TEXT NOT NULL, nome TEXT NOT NULL, nascimento DATE NOT NULL)
+[32mrinha1_1  |[0m 13:52:51.215 [pool-1-thread-1] DEBUG Exposed -- CREATE INDEX pessoas_apelido ON pessoas (apelido)
+[32mrinha1_1  |[0m 13:52:51.220 [pool-1-thread-1] DEBUG Exposed -- CREATE INDEX pessoas_nome ON pessoas (nome)
+[32mrinha1_1  |[0m 13:52:51.229 [pool-1-thread-1] DEBUG Exposed -- CREATE TABLE IF NOT EXISTS stacks (id BIGSERIAL PRIMARY KEY, "name" TEXT NOT NULL, person uuid NOT NULL, CONSTRAINT fk_stacks_person__id FOREIGN KEY (person) REFERENCES pessoas(id) ON DELETE RESTRICT ON UPDATE RESTRICT)
+[32mrinha1_1  |[0m 13:52:51.233 [pool-1-thread-1] DEBUG Exposed -- CREATE INDEX stacks_name ON stacks ("name")
+[32mrinha1_1  |[0m 13:52:51.317 [pool-1-thread-1] DEBUG Exposed -- CREATE INDEX stacks_person ON stacks (person)
+[32mrinha1_1  |[0m 13:52:51.325 [pool-1-thread-1] INFO Exposed -- Executing create tables statements took 410ms
+[32mrinha1_1  |[0m 13:52:51.339 [pool-1-thread-1] INFO Exposed -- Extracting table columns took 14ms
+[32mrinha1_1  |[0m 13:52:51.474 [pool-1-thread-1] INFO Exposed -- Extracting column constraints took 49ms
+[32mrinha1_1  |[0m 13:52:51.475 [pool-1-thread-1] INFO Exposed -- Preparing alter table statements took 150ms
+[32mrinha1_1  |[0m 13:52:51.476 [pool-1-thread-1] INFO Exposed -- Executing alter table statements took 1ms
+[32mrinha1_1  |[0m 13:52:51.539 [pool-1-thread-1] INFO Exposed -- Checking mapping consistence took 63ms
+[32mrinha1_1  |[0m [19.868s][info][gc] GC(16) Pause Young (Normal) (G1 Evacuation Pause) 16M->8M(22M) 85.746ms
+[32mrinha1_1  |[0m 13:52:52.221 [DefaultDispatcher-worker-2] INFO ktor.application -- Autoreload is disabled because the development mode is off.
+[32mrinha1_1  |[0m 13:52:52.616 [DefaultDispatcher-worker-2] INFO ktor.application -- Application started in 0.596 seconds.
+[32mrinha1_1  |[0m 13:52:52.921 [DefaultDispatcher-worker-2] INFO ktor.application -- Responding at http://0.0.0.0:9999
+[32mrinha1_1  |[0m 13:53:10.918 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=4, active=0, idle=4, waiting=0)
+[32mrinha1_1  |[0m 13:53:10.918 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+[32mrinha1_1  |[0m 13:53:40.918 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=4, active=0, idle=4, waiting=0)
+[32mrinha1_1  |[0m 13:53:40.918 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+[32mrinha1_1  |[0m 13:54:10.919 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Pool stats (total=4, active=0, idle=4, waiting=0)
+[32mrinha1_1  |[0m 13:54:10.919 [PuddingPool housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool -- PuddingPool - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+[32mrinha1_1  |[0m Picked up JAVA_TOOL_OPTIONS: -verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
+[32mrinha1_1  |[0m [0.013s][info][gc] Using G1

@@ -1,0 +1,35 @@
+Attaching to proxy, api02, api01, cache, database
+[32mcache    |[0m 1:C 23 Aug 2023 13:48:11.929 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[32mcache    |[0m 1:C 23 Aug 2023 13:48:11.929 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[32mcache    |[0m 1:C 23 Aug 2023 13:48:11.930 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[32mcache    |[0m 1:C 23 Aug 2023 13:48:11.930 * Configuration loaded
+[32mcache    |[0m 1:M 23 Aug 2023 13:48:11.930 * monotonic clock: POSIX clock_gettime
+[32mcache    |[0m 1:M 23 Aug 2023 13:48:11.931 * Running mode=standalone, port=6379.
+[32mcache    |[0m 1:M 23 Aug 2023 13:48:11.931 * Server initialized
+[32mcache    |[0m 1:M 23 Aug 2023 13:48:11.931 * Ready to accept connections tcp
+[35mdatabase |[0m The files belonging to this database system will be owned by user "postgres".
+[35mdatabase |[0m This user must also own the server process.
+[35mdatabase |[0m 
+[35mdatabase |[0m The database cluster will be initialized with locale "en_US.utf8".
+[35mdatabase |[0m The default database encoding has accordingly been set to "UTF8".
+[35mdatabase |[0m The default text search configuration will be set to "english".
+[35mdatabase |[0m 
+[35mdatabase |[0m Data page checksums are disabled.
+[35mdatabase |[0m 
+[35mdatabase |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[35mdatabase |[0m creating subdirectories ... ok
+[35mdatabase |[0m selecting dynamic shared memory implementation ... posix
+[35mdatabase |[0m selecting default max_connections ... 100
+[35mdatabase |[0m selecting default shared_buffers ... 128MB
+[35mdatabase |[0m selecting default time zone ... Etc/UTC
+[35mdatabase |[0m creating configuration files ... ok
+[35mdatabase |[0m running bootstrap script ... ok
+[34mproxy    |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[34mproxy    |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[34mproxy    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[34mproxy    |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[34mproxy    |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[34mproxy    |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[34mproxy    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[34mproxy    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[34mproxy    |[0m /docker-entrypoint.sh: Configuration complete; ready for start up

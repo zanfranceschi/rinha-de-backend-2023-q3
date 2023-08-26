@@ -1,0 +1,65 @@
+Attaching to uasouz_cache_1, uasouz_db_1
+[36mcache_1  |[0m 1:C 23 Aug 2023 21:17:28.273 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[36mcache_1  |[0m 1:C 23 Aug 2023 21:17:28.273 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[36mcache_1  |[0m 1:C 23 Aug 2023 21:17:28.273 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[36mcache_1  |[0m 1:C 23 Aug 2023 21:17:28.273 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[36mcache_1  |[0m 1:M 23 Aug 2023 21:17:28.274 * monotonic clock: POSIX clock_gettime
+[36mcache_1  |[0m 1:M 23 Aug 2023 21:17:28.275 * Running mode=standalone, port=6379.
+[36mcache_1  |[0m 1:M 23 Aug 2023 21:17:28.275 * Server initialized
+[36mcache_1  |[0m 1:M 23 Aug 2023 21:17:28.275 * Ready to accept connections tcp
+[33mdb_1     |[0m The files belonging to this database system will be owned by user "postgres".
+[33mdb_1     |[0m This user must also own the server process.
+[33mdb_1     |[0m 
+[33mdb_1     |[0m The database cluster will be initialized with locale "en_US.utf8".
+[33mdb_1     |[0m The default database encoding has accordingly been set to "UTF8".
+[33mdb_1     |[0m The default text search configuration will be set to "english".
+[33mdb_1     |[0m 
+[33mdb_1     |[0m Data page checksums are disabled.
+[33mdb_1     |[0m 
+[33mdb_1     |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[33mdb_1     |[0m creating subdirectories ... ok
+[33mdb_1     |[0m selecting dynamic shared memory implementation ... posix
+[33mdb_1     |[0m selecting default max_connections ... 100
+[33mdb_1     |[0m selecting default shared_buffers ... 128MB
+[33mdb_1     |[0m selecting default time zone ... Etc/UTC
+[33mdb_1     |[0m creating configuration files ... ok
+[33mdb_1     |[0m running bootstrap script ... ok
+[33mdb_1     |[0m performing post-bootstrap initialization ... ok
+[33mdb_1     |[0m initdb: warning: enabling "trust" authentication for local connections
+[33mdb_1     |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[33mdb_1     |[0m syncing data to disk ... ok
+[33mdb_1     |[0m 
+[33mdb_1     |[0m 
+[33mdb_1     |[0m Success. You can now start the database server using:
+[33mdb_1     |[0m 
+[33mdb_1     |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[33mdb_1     |[0m 
+[33mdb_1     |[0m waiting for server to start....2023-08-23 21:17:30.494 UTC [47] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mdb_1     |[0m 2023-08-23 21:17:30.496 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mdb_1     |[0m 2023-08-23 21:17:30.511 UTC [50] LOG:  database system was shut down at 2023-08-23 21:17:30 UTC
+[33mdb_1     |[0m 2023-08-23 21:17:30.520 UTC [47] LOG:  database system is ready to accept connections
+[33mdb_1     |[0m  done
+[33mdb_1     |[0m server started
+[33mdb_1     |[0m CREATE DATABASE
+[33mdb_1     |[0m 
+[33mdb_1     |[0m 
+[33mdb_1     |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[33mdb_1     |[0m 
+[33mdb_1     |[0m waiting for server to shut down...2023-08-23 21:17:30.913 UTC [47] LOG:  received fast shutdown request
+[33mdb_1     |[0m .2023-08-23 21:17:30.915 UTC [47] LOG:  aborting any active transactions
+[33mdb_1     |[0m 2023-08-23 21:17:30.966 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+[33mdb_1     |[0m 2023-08-23 21:17:30.967 UTC [48] LOG:  shutting down
+[33mdb_1     |[0m 2023-08-23 21:17:30.969 UTC [48] LOG:  checkpoint starting: shutdown immediate
+[33mdb_1     |[0m 2023-08-23 21:17:31.017 UTC [48] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.035 s, sync=0.006 s, total=0.050 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4223 kB, estimate=4223 kB
+[33mdb_1     |[0m 2023-08-23 21:17:31.031 UTC [47] LOG:  database system is shut down
+[33mdb_1     |[0m  done
+[33mdb_1     |[0m server stopped
+[33mdb_1     |[0m 
+[33mdb_1     |[0m PostgreSQL init process complete; ready for start up.
+[33mdb_1     |[0m 
+[33mdb_1     |[0m 2023-08-23 21:17:31.160 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mdb_1     |[0m 2023-08-23 21:17:31.161 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mdb_1     |[0m 2023-08-23 21:17:31.161 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mdb_1     |[0m 2023-08-23 21:17:31.164 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mdb_1     |[0m 2023-08-23 21:17:31.171 UTC [63] LOG:  database system was shut down at 2023-08-23 21:17:31 UTC
+[33mdb_1     |[0m 2023-08-23 21:17:31.180 UTC [1] LOG:  database system is ready to accept connections

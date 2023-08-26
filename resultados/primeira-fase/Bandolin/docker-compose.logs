@@ -1,0 +1,23 @@
+Attaching to bandolin_nginx_1, bandolin_api1_1, bandolin_api2_1, node, mysql, redis
+[32mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[32mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[32mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[32mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[32mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[36mapi1_1   |[0m nc: connect to mysql (192.168.240.3) port 3306 (tcp) failed: Connection refused
+[36mapi1_1   |[0m Waiting for database connection...
+[35mmysql    |[0m 2023-08-23 13:21:20+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.1.0-1.el8 started.
+[35mmysql    |[0m 2023-08-23 13:21:21+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+[35mmysql    |[0m 2023-08-23 13:21:21+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.1.0-1.el8 started.
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:21:20.720 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:21:20.720 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:21:20.720 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:21:20.720 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:21:20.720 * monotonic clock: POSIX clock_gettime
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:21:20.721 * Running mode=standalone, port=6379.
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:21:20.722 * Server initialized
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:21:20.722 * Ready to accept connections tcp

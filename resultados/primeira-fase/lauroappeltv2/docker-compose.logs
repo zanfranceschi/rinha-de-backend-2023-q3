@@ -1,0 +1,33 @@
+Attaching to rinha-backend-api-02, rinha-backend-api-01, rinha-backend-db, rinha-backend-redis, rinha-backend-nginx
+[32mrinha-backend-db |[0m The files belonging to this database system will be owned by user "postgres".
+[32mrinha-backend-db |[0m This user must also own the server process.
+[32mrinha-backend-db |[0m 
+[32mrinha-backend-db |[0m The database cluster will be initialized with locale "en_US.utf8".
+[32mrinha-backend-db |[0m The default database encoding has accordingly been set to "UTF8".
+[32mrinha-backend-db |[0m The default text search configuration will be set to "english".
+[32mrinha-backend-db |[0m 
+[32mrinha-backend-db |[0m Data page checksums are disabled.
+[32mrinha-backend-db |[0m 
+[32mrinha-backend-db |[0m fixing permissions on existing directory /var/lib/postgresql/data/db-files ... ok
+[32mrinha-backend-db |[0m creating subdirectories ... ok
+[32mrinha-backend-db |[0m selecting dynamic shared memory implementation ... posix
+[32mrinha-backend-db |[0m selecting default max_connections ... 100
+[32mrinha-backend-db |[0m selecting default shared_buffers ... 128MB
+[32mrinha-backend-db |[0m selecting default time zone ... Etc/UTC
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mrinha-backend-nginx |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mrinha-backend-nginx |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mrinha-backend-nginx |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[34mrinha-backend-redis |[0m 1:C 23 Aug 2023 17:32:35.478 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[34mrinha-backend-redis |[0m 1:C 23 Aug 2023 17:32:35.478 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[34mrinha-backend-redis |[0m 1:C 23 Aug 2023 17:32:35.478 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[34mrinha-backend-redis |[0m 1:C 23 Aug 2023 17:32:35.478 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[34mrinha-backend-redis |[0m 1:M 23 Aug 2023 17:32:35.478 * monotonic clock: POSIX clock_gettime
+[34mrinha-backend-redis |[0m 1:M 23 Aug 2023 17:32:35.479 * Running mode=standalone, port=6379.
+[34mrinha-backend-redis |[0m 1:M 23 Aug 2023 17:32:35.479 * Server initialized
+[34mrinha-backend-redis |[0m 1:M 23 Aug 2023 17:32:35.480 * Ready to accept connections tcp

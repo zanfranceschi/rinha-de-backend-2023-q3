@@ -1,0 +1,36 @@
+Attaching to wendryo_nginx_1, wendryo_api02_1, wendryo_api01_1, wendryo_db_1, wendryo_redis_1
+[32mdb_1     |[0m about to fork child process, waiting until server is ready for connections.
+[32mdb_1     |[0m forked process: 27
+[32mdb_1     |[0m 
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.330+00:00"},"s":"I",  "c":"CONTROL",  "id":20698,   "ctx":"main","msg":"***** SERVER RESTARTED *****"}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.336+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.337+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":21},"outgoing":{"minWireVersion":6,"maxWireVersion":21},"isInternalClient":true}}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.338+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize."}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.340+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.364+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.365+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.365+00:00"},"s":"I",  "c":"TENANT_M", "id":7091600, "ctx":"main","msg":"Starting TenantMigrationAccessBlockerRegistry"}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.365+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":27,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"db"}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.365+00:00"},"s":"W",  "c":"CONTROL",  "id":20720,   "ctx":"initandlisten","msg":"Memory available to mongo process is less than total system memory","attr":{"availableMemSizeMB":768,"systemMemSizeMB":15843}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.366+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"7.0.0","gitVersion":"37d84072b5c5b9fd723db5fa133fb202ad2317f1","openSSLVersion":"OpenSSL 3.0.2 15 Mar 2022","modules":[],"allocator":"tcmalloc","environment":{"distmod":"ubuntu2204","distarch":"x86_64","target_arch":"x86_64"}}}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.366+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"22.04"}}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.366+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"127.0.0.1","port":27017,"tls":{"mode":"disabled"}},"processManagement":{"fork":true,"pidFilePath":"/tmp/docker-entrypoint-temp-mongod.pid"},"systemLog":{"destination":"file","logAppend":true,"path":"/proc/1/fd/1","quiet":true}}}}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.367+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+[32mdb_1     |[0m {"t":{"$date":"2023-08-23T20:23:10.367+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=256M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+[35mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[34mredis_1  |[0m 1:C 23 Aug 2023 20:23:10.867 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[34mredis_1  |[0m 1:C 23 Aug 2023 20:23:10.867 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[34mredis_1  |[0m 1:C 23 Aug 2023 20:23:10.867 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[34mredis_1  |[0m 1:C 23 Aug 2023 20:23:10.867 * Configuration loaded
+[34mredis_1  |[0m 1:M 23 Aug 2023 20:23:10.867 * monotonic clock: POSIX clock_gettime
+[34mredis_1  |[0m 1:M 23 Aug 2023 20:23:10.868 * Running mode=standalone, port=6379.
+[34mredis_1  |[0m 1:M 23 Aug 2023 20:23:10.965 * Server initialized
+[34mredis_1  |[0m 1:M 23 Aug 2023 20:23:10.965 * Ready to accept connections tcp

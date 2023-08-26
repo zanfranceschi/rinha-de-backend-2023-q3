@@ -1,0 +1,58 @@
+Attaching to insalubre_api2_1, insalubre_database_1
+[33mdatabase_1  |[0m The files belonging to this database system will be owned by user "postgres".
+[33mdatabase_1  |[0m This user must also own the server process.
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[33mdatabase_1  |[0m The default database encoding has accordingly been set to "UTF8".
+[33mdatabase_1  |[0m The default text search configuration will be set to "english".
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m Data page checksums are disabled.
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[33mdatabase_1  |[0m creating subdirectories ... ok
+[33mdatabase_1  |[0m selecting dynamic shared memory implementation ... posix
+[33mdatabase_1  |[0m selecting default max_connections ... 100
+[33mdatabase_1  |[0m selecting default shared_buffers ... 128MB
+[33mdatabase_1  |[0m selecting default time zone ... Etc/UTC
+[33mdatabase_1  |[0m creating configuration files ... ok
+[33mdatabase_1  |[0m running bootstrap script ... ok
+[33mdatabase_1  |[0m performing post-bootstrap initialization ... ok
+[33mdatabase_1  |[0m syncing data to disk ... ok
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m Success. You can now start the database server using:
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m initdb: warning: enabling "trust" authentication for local connections
+[33mdatabase_1  |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[33mdatabase_1  |[0m waiting for server to start....2023-08-23 16:46:04.411 UTC [48] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mdatabase_1  |[0m 2023-08-23 16:46:04.413 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mdatabase_1  |[0m 2023-08-23 16:46:04.421 UTC [51] LOG:  database system was shut down at 2023-08-23 16:46:04 UTC
+[33mdatabase_1  |[0m 2023-08-23 16:46:04.430 UTC [48] LOG:  database system is ready to accept connections
+[33mdatabase_1  |[0m  done
+[33mdatabase_1  |[0m server started
+[33mdatabase_1  |[0m CREATE DATABASE
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/schema.sql
+[33mdatabase_1  |[0m CREATE TABLE
+[33mdatabase_1  |[0m psql:/docker-entrypoint-initdb.d/schema.sql:11: ERROR:  relation "people" does not exist
+[33mdatabase_1  |[0m 2023-08-23 16:46:04.797 UTC [61] ERROR:  relation "people" does not exist
+[33mdatabase_1  |[0m 2023-08-23 16:46:04.797 UTC [61] STATEMENT:  CREATE INDEX people_id_index ON People (id);
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mdatabase_1  |[0m 
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.736 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.736 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.736 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.750 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.761 UTC [30] LOG:  database system was interrupted; last known up at 2023-08-23 16:46:04 UTC
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.777 UTC [30] LOG:  database system was not properly shut down; automatic recovery in progress
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.781 UTC [30] LOG:  redo starts at 0/1501A68
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.805 UTC [30] LOG:  invalid record length at 0/1925E60: wanted 24, got 0
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.805 UTC [30] LOG:  redo done at 0/19257D8 system usage: CPU: user: 0.00 s, system: 0.01 s, elapsed: 0.02 s
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.811 UTC [28] LOG:  checkpoint starting: end-of-recovery immediate wait
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.866 UTC [28] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.044 s, sync=0.006 s, total=0.058 s; sync files=306, longest=0.002 s, average=0.001 s; distance=4241 kB, estimate=4241 kB
+[33mdatabase_1  |[0m 2023-08-23 16:46:05.873 UTC [1] LOG:  database system is ready to accept connections
+[33mdatabase_1  |[0m 2023-08-23 16:46:10.800 UTC [41] FATAL:  database "dev" does not exist

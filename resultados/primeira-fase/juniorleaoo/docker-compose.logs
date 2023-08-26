@@ -1,0 +1,68 @@
+Attaching to juniorleaoo_nginx_1, juniorleaoo_api1_1, juniorleaoo_api2_1, juniorleaoo_cache_1, juniorleaoo_db_1
+[32mcache_1  |[0m 8:C 23 Aug 2023 17:05:33.465 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[32mcache_1  |[0m 8:C 23 Aug 2023 17:05:33.465 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[32mcache_1  |[0m 8:C 23 Aug 2023 17:05:33.465 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=8, just started
+[32mcache_1  |[0m 8:C 23 Aug 2023 17:05:33.465 * Configuration loaded
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.465 * monotonic clock: POSIX clock_gettime
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.466 * Running mode=standalone, port=6379.
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.564 * <search> Redis version found by RedisSearch : 7.2.0 - oss
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.564 * <search> RediSearch version 2.8.4 (Git=HEAD-7797d39d)
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.564 * <search> Low level api version 1 initialized successfully
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.565 * <search> concurrent writes: OFF, gc: ON, prefix min length: 2, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  10000, search pool size: 20, index pool size: 8, 
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.664 * <search> Initialized thread pools!
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.665 * <search> Enabled role change notification
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.665 * Module 'search' loaded from /opt/redis-stack/lib/redisearch.so
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.667 * <timeseries> RedisTimeSeries version 11004, git_sha=c10178d33caf11177e12ca575092b072d81a5cd2
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.667 * <timeseries> Redis version found by RedisTimeSeries : 7.2.0 - oss
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.667 * <timeseries> loaded default CHUNK_SIZE_BYTES policy: 4096
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.667 * <timeseries> loaded server DUPLICATE_POLICY: block
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.667 * <timeseries> Setting default series ENCODING to: compressed
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.667 * <timeseries> Detected redis oss
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.964 * Module 'timeseries' loaded from /opt/redis-stack/lib/redistimeseries.so
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> Created new data type 'ReJSON-RL'
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> version: 20606 git sha: unknown branch: unknown
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> Exported RedisJSON_V1 API
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> Exported RedisJSON_V2 API
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> Exported RedisJSON_V3 API
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> Exported RedisJSON_V4 API
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <ReJSON> Enabled diskless replication
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * Module 'ReJSON' loaded from /opt/redis-stack/lib/rejson.so
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <search> Acquired RedisJSON_V4 API
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * <bf> RedisBloom version 2.6.3 (Git=unknown)
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.965 * Module 'bf' loaded from /opt/redis-stack/lib/redisbloom.so
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.966 * <redisgears_2> Created new data type 'GearsType'
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.966 * <redisgears_2> Detected redis oss
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.966 # <redisgears_2> could not initialize RedisAI_InitError
+[32mcache_1  |[0m 
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.966 * <redisgears_2> Failed loading RedisAI API.
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.966 * <redisgears_2> RedisGears v2.0.11, sha='0aa55951836750ceabd9733decb200f8a5e7bac3', build_type='release', built_for='Linux-ubuntu22.04.x86_64'.
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.967 * <redisgears_2> Registered backend: js.
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.967 * Module 'redisgears_2' loaded from /opt/redis-stack/lib/redisgears.so
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.968 * Server initialized
+[32mcache_1  |[0m 8:M 23 Aug 2023 17:05:33.968 * Ready to accept connections tcp
+[35mdb_1     |[0m The files belonging to this database system will be owned by user "postgres".
+[35mdb_1     |[0m This user must also own the server process.
+[35mdb_1     |[0m 
+[35mdb_1     |[0m The database cluster will be initialized with locale "en_US.utf8".
+[35mdb_1     |[0m The default database encoding has accordingly been set to "UTF8".
+[35mdb_1     |[0m The default text search configuration will be set to "english".
+[35mdb_1     |[0m 
+[35mdb_1     |[0m Data page checksums are disabled.
+[35mdb_1     |[0m 
+[35mdb_1     |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[35mdb_1     |[0m creating subdirectories ... ok
+[35mdb_1     |[0m selecting dynamic shared memory implementation ... posix
+[35mdb_1     |[0m selecting default max_connections ... 100
+[35mdb_1     |[0m selecting default shared_buffers ... 128MB
+[35mdb_1     |[0m selecting default time zone ... Etc/UTC
+[35mdb_1     |[0m creating configuration files ... ok
+[35mdb_1     |[0m running bootstrap script ... ok
+[34mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[34mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[34mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[34mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[34mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
