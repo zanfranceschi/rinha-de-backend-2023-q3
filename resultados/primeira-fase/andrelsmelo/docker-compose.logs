@@ -1,0 +1,70 @@
+Attaching to andrelsmelo_nginx_1, andrelsmelo_api1_1, andrelsmelo_api2_1, andrelsmelo_redis_1, andrelsmelo_mysql_1
+[35mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[32mmysql_1  |[0m 2023-08-23 14:45:20+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.1.0-1.el8 started.
+[32mmysql_1  |[0m 2023-08-23 14:45:21+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+[32mmysql_1  |[0m 2023-08-23 14:45:21+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.1.0-1.el8 started.
+[32mmysql_1  |[0m 2023-08-23 14:45:21+00:00 [Note] [Entrypoint]: Initializing database files
+[32mmysql_1  |[0m 2023-08-23T14:45:21.675789Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+[32mmysql_1  |[0m 2023-08-23T14:45:21.678139Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+[32mmysql_1  |[0m 2023-08-23T14:45:21.678278Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.1.0) initializing of server in progress as process 80
+[32mmysql_1  |[0m 2023-08-23T14:45:21.687361Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[32mmysql_1  |[0m 2023-08-23T14:45:22.312272Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[32mmysql_1  |[0m 2023-08-23T14:45:25.005130Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+[32mmysql_1  |[0m 2023-08-23T14:45:30.086769Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+[32mmysql_1  |[0m 2023-08-23 14:45:30+00:00 [Note] [Entrypoint]: Database files initialized
+[32mmysql_1  |[0m 2023-08-23 14:45:30+00:00 [Note] [Entrypoint]: Starting temporary server
+[32mmysql_1  |[0m 2023-08-23T14:45:30.156867Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+[32mmysql_1  |[0m 2023-08-23T14:45:30.579503Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+[32mmysql_1  |[0m 2023-08-23T14:45:30.581511Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.1.0) starting as process 124
+[32mmysql_1  |[0m 2023-08-23T14:45:30.608731Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[32mmysql_1  |[0m 2023-08-23T14:45:31.015463Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[32mmysql_1  |[0m 2023-08-23T14:45:31.582274Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[32mmysql_1  |[0m 2023-08-23T14:45:31.582330Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+[32mmysql_1  |[0m 2023-08-23T14:45:31.585507Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[32mmysql_1  |[0m 2023-08-23T14:45:31.610121Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+[32mmysql_1  |[0m 2023-08-23T14:45:31.610482Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.1.0'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+[32mmysql_1  |[0m 2023-08-23T14:45:31.612341Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+[32mmysql_1  |[0m 2023-08-23 14:45:31+00:00 [Note] [Entrypoint]: Temporary server started.
+[32mmysql_1  |[0m '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+[32mmysql_1  |[0m Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+[32mmysql_1  |[0m Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+[32mmysql_1  |[0m Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+[32mmysql_1  |[0m Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+[32mmysql_1  |[0m Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+[32mmysql_1  |[0m Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+[32mmysql_1  |[0m 2023-08-23 14:45:40+00:00 [Note] [Entrypoint]: Creating database rinha_banco
+[32mmysql_1  |[0m 
+[32mmysql_1  |[0m 2023-08-23 14:45:40+00:00 [Note] [Entrypoint]: Stopping temporary server
+[32mmysql_1  |[0m 2023-08-23T14:45:40.565056Z 11 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.1.0).
+[32mmysql_1  |[0m 2023-08-23T14:45:42.223506Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.1.0)  MySQL Community Server - GPL.
+[32mmysql_1  |[0m 2023-08-23T14:45:42.231147Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+[32mmysql_1  |[0m 2023-08-23 14:45:42+00:00 [Note] [Entrypoint]: Temporary server stopped
+[32mmysql_1  |[0m 
+[32mmysql_1  |[0m 2023-08-23 14:45:42+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+[32mmysql_1  |[0m 
+[32mmysql_1  |[0m 2023-08-23T14:45:42.590120Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+[32mmysql_1  |[0m 2023-08-23T14:45:43.093990Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+[32mmysql_1  |[0m 2023-08-23T14:45:43.095660Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.1.0) starting as process 1
+[32mmysql_1  |[0m 2023-08-23T14:45:43.103957Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[32mmysql_1  |[0m 2023-08-23T14:45:43.523054Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[32mmysql_1  |[0m 2023-08-23T14:45:43.985283Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[32mmysql_1  |[0m 2023-08-23T14:45:43.985341Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+[32mmysql_1  |[0m 2023-08-23T14:45:43.988837Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[32mmysql_1  |[0m 2023-08-23T14:45:44.067315Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+[32mmysql_1  |[0m 2023-08-23T14:45:44.067701Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.1.0'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+[34mredis_1  |[0m 1:C 23 Aug 2023 14:45:20.870 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[34mredis_1  |[0m 1:C 23 Aug 2023 14:45:20.870 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[34mredis_1  |[0m 1:C 23 Aug 2023 14:45:20.870 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[34mredis_1  |[0m 1:C 23 Aug 2023 14:45:20.870 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[34mredis_1  |[0m 1:M 23 Aug 2023 14:45:20.871 * monotonic clock: POSIX clock_gettime
+[34mredis_1  |[0m 1:M 23 Aug 2023 14:45:20.871 * Running mode=standalone, port=6379.
+[34mredis_1  |[0m 1:M 23 Aug 2023 14:45:20.872 * Server initialized
+[34mredis_1  |[0m 1:M 23 Aug 2023 14:45:20.872 * Ready to accept connections tcp

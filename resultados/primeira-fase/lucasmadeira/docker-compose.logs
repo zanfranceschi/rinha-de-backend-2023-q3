@@ -1,0 +1,134 @@
+Attaching to nginx, api1, api2, db
+[36mapi1     |[0m 
+[36mapi1     |[0m   .   ____          _            __ _ _
+[36mapi1     |[0m  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[36mapi1     |[0m ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[36mapi1     |[0m  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[36mapi1     |[0m   '  |____| .__|_| |_|_| |_\__, | / / / /
+[36mapi1     |[0m  =========|_|==============|___/=/_/_/_/
+[36mapi1     |[0m  :: Spring Boot ::      (v2.7.15-SNAPSHOT)
+[36mapi1     |[0m 
+[36mapi1     |[0m 2023-08-23 18:02:06.575  INFO 1 --- [           main] b.c.l.apipessoas.ApiPessoasApplication   : Starting ApiPessoasApplication v0.0.1-SNAPSHOT using Java 11.0.16 on api1 with PID 1 (/app/api-pessoas-0.0.1-SNAPSHOT.jar started by root in /app)
+[36mapi1     |[0m 2023-08-23 18:02:06.669  INFO 1 --- [           main] b.c.l.apipessoas.ApiPessoasApplication   : No active profile set, falling back to 1 default profile: "default"
+[36mapi1     |[0m 2023-08-23 18:02:28.871  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[36mapi1     |[0m 2023-08-23 18:02:29.769  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 703 ms. Found 1 JPA repository interfaces.
+[36mapi1     |[0m 2023-08-23 18:02:42.875  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+[36mapi1     |[0m 2023-08-23 18:02:43.076  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[36mapi1     |[0m 2023-08-23 18:02:43.077  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+[36mapi1     |[0m 2023-08-23 18:02:44.576  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+[36mapi1     |[0m 2023-08-23 18:02:44.577  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 36912 ms
+[36mapi1     |[0m 2023-08-23 18:02:56.280  INFO 1 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+[36mapi1     |[0m 2023-08-23 18:02:56.877  INFO 1 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+[36mapi1     |[0m 2023-08-23 18:03:00.969  INFO 1 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[36mapi1     |[0m 2023-08-23 18:03:03.565  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+[36mapi1     |[0m 2023-08-23 18:03:06.479  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+[36mapi1     |[0m 2023-08-23 18:03:07.069  INFO 1 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[36mapi1     |[0m 2023-08-23 18:03:23.679  INFO 1 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[36mapi1     |[0m 2023-08-23 18:03:23.968  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[36mapi1     |[0m 2023-08-23 18:03:32.475  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[36mapi1     |[0m 2023-08-23 18:03:44.372  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+[36mapi1     |[0m 2023-08-23 18:03:45.379  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+[36mapi1     |[0m 2023-08-23 18:03:45.765  INFO 1 --- [           main] b.c.l.apipessoas.ApiPessoasApplication   : Started ApiPessoasApplication in 108.999 seconds (JVM running for 117.879)
+[36mapi1     |[0m 2023-08-23 18:03:48.269  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[36mapi1     |[0m 2023-08-23 18:03:48.270  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[36mapi1     |[0m 2023-08-23 18:03:48.274  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+[33mapi2     |[0m 
+[33mapi2     |[0m   .   ____          _            __ _ _
+[33mapi2     |[0m  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[33mapi2     |[0m ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[33mapi2     |[0m  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[33mapi2     |[0m   '  |____| .__|_| |_|_| |_\__, | / / / /
+[33mapi2     |[0m  =========|_|==============|___/=/_/_/_/
+[33mapi2     |[0m  :: Spring Boot ::      (v2.7.15-SNAPSHOT)
+[33mapi2     |[0m 
+[33mapi2     |[0m 2023-08-23 18:02:06.176  INFO 1 --- [           main] b.c.l.apipessoas.ApiPessoasApplication   : Starting ApiPessoasApplication v0.0.1-SNAPSHOT using Java 11.0.16 on api2 with PID 1 (/app/api-pessoas-0.0.1-SNAPSHOT.jar started by root in /app)
+[33mapi2     |[0m 2023-08-23 18:02:06.270  INFO 1 --- [           main] b.c.l.apipessoas.ApiPessoasApplication   : No active profile set, falling back to 1 default profile: "default"
+[33mapi2     |[0m 2023-08-23 18:02:28.776  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[33mapi2     |[0m 2023-08-23 18:02:29.777  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 810 ms. Found 1 JPA repository interfaces.
+[33mapi2     |[0m 2023-08-23 18:02:42.666  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+[33mapi2     |[0m 2023-08-23 18:02:42.779  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[33mapi2     |[0m 2023-08-23 18:02:42.865  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+[33mapi2     |[0m 2023-08-23 18:02:44.469  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+[33mapi2     |[0m 2023-08-23 18:02:44.469  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 37000 ms
+[33mapi2     |[0m 2023-08-23 18:02:55.470  INFO 1 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+[33mapi2     |[0m 2023-08-23 18:02:56.266  INFO 1 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+[33mapi2     |[0m 2023-08-23 18:02:59.376  INFO 1 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[33mapi2     |[0m 2023-08-23 18:03:00.367  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+[33mapi2     |[0m 2023-08-23 18:03:03.871  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+[33mapi2     |[0m 2023-08-23 18:03:04.180  INFO 1 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[33mapi2     |[0m 2023-08-23 18:03:18.982  INFO 1 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[33mapi2     |[0m 2023-08-23 18:03:19.171  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[33mapi2     |[0m 2023-08-23 18:03:27.270  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[33mapi2     |[0m 2023-08-23 18:03:39.166  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+[33mapi2     |[0m 2023-08-23 18:03:40.076  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+[33mapi2     |[0m 2023-08-23 18:03:40.375  INFO 1 --- [           main] b.c.l.apipessoas.ApiPessoasApplication   : Started ApiPessoasApplication in 104.105 seconds (JVM running for 112.506)
+[33mapi2     |[0m 2023-08-23 18:03:47.972  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[33mapi2     |[0m 2023-08-23 18:03:47.974  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[33mapi2     |[0m 2023-08-23 18:03:48.074  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 100 ms
+[32mdb       |[0m The files belonging to this database system will be owned by user "postgres".
+[32mdb       |[0m This user must also own the server process.
+[32mdb       |[0m 
+[32mdb       |[0m The database cluster will be initialized with locale "en_US.utf8".
+[32mdb       |[0m The default database encoding has accordingly been set to "UTF8".
+[32mdb       |[0m The default text search configuration will be set to "english".
+[32mdb       |[0m 
+[32mdb       |[0m Data page checksums are disabled.
+[32mdb       |[0m 
+[32mdb       |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[32mdb       |[0m creating subdirectories ... ok
+[32mdb       |[0m selecting dynamic shared memory implementation ... posix
+[32mdb       |[0m selecting default max_connections ... 100
+[32mdb       |[0m selecting default shared_buffers ... 128MB
+[32mdb       |[0m selecting default time zone ... Etc/UTC
+[32mdb       |[0m creating configuration files ... ok
+[32mdb       |[0m running bootstrap script ... ok
+[32mdb       |[0m performing post-bootstrap initialization ... ok
+[32mdb       |[0m syncing data to disk ... ok
+[32mdb       |[0m 
+[32mdb       |[0m initdb: warning: enabling "trust" authentication for local connections
+[32mdb       |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[32mdb       |[0m 
+[32mdb       |[0m Success. You can now start the database server using:
+[32mdb       |[0m 
+[32mdb       |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[32mdb       |[0m 
+[32mdb       |[0m waiting for server to start....2023-08-23 18:01:48.778 UTC [47] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[32mdb       |[0m 2023-08-23 18:01:48.781 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[32mdb       |[0m 2023-08-23 18:01:48.788 UTC [50] LOG:  database system was shut down at 2023-08-23 18:01:48 UTC
+[32mdb       |[0m 2023-08-23 18:01:48.795 UTC [47] LOG:  database system is ready to accept connections
+[32mdb       |[0m  done
+[32mdb       |[0m server started
+[32mdb       |[0m CREATE DATABASE
+[32mdb       |[0m 
+[32mdb       |[0m 
+[32mdb       |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[32mdb       |[0m 
+[32mdb       |[0m 2023-08-23 18:01:49.051 UTC [47] LOG:  received fast shutdown request
+[32mdb       |[0m waiting for server to shut down....2023-08-23 18:01:49.054 UTC [47] LOG:  aborting any active transactions
+[32mdb       |[0m 2023-08-23 18:01:49.071 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+[32mdb       |[0m 2023-08-23 18:01:49.072 UTC [48] LOG:  shutting down
+[32mdb       |[0m 2023-08-23 18:01:49.074 UTC [48] LOG:  checkpoint starting: shutdown immediate
+[32mdb       |[0m 2023-08-23 18:01:49.120 UTC [48] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.034 s, sync=0.005 s, total=0.048 s; sync files=301, longest=0.002 s, average=0.001 s; distance=4223 kB, estimate=4223 kB
+[32mdb       |[0m 2023-08-23 18:01:49.128 UTC [47] LOG:  database system is shut down
+[32mdb       |[0m  done
+[32mdb       |[0m server stopped
+[32mdb       |[0m 
+[32mdb       |[0m PostgreSQL init process complete; ready for start up.
+[32mdb       |[0m 
+[32mdb       |[0m 2023-08-23 18:01:49.192 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[32mdb       |[0m 2023-08-23 18:01:49.193 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[32mdb       |[0m 2023-08-23 18:01:49.193 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[32mdb       |[0m 2023-08-23 18:01:49.198 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[32mdb       |[0m 2023-08-23 18:01:49.205 UTC [63] LOG:  database system was shut down at 2023-08-23 18:01:49 UTC
+[32mdb       |[0m 2023-08-23 18:01:49.212 UTC [1] LOG:  database system is ready to accept connections
+[32mdb       |[0m 2023-08-23 18:03:18.866 UTC [127] ERROR:  constraint "uk_apelido" of relation "pessoa" does not exist
+[32mdb       |[0m 2023-08-23 18:03:18.866 UTC [127] STATEMENT:  alter table pessoa drop constraint uk_apelido
+[35mnginx    |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mnginx    |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mnginx    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mnginx    |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mnginx    |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mnginx    |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mnginx    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mnginx    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mnginx    |[0m /docker-entrypoint.sh: Configuration complete; ready for start up

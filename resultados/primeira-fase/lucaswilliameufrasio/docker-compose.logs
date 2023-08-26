@@ -1,0 +1,450 @@
+Attaching to lucaswilliameufrasio_nginx_1, lucaswilliameufrasio_api2_1, lucaswilliameufrasio_api1_1, backend-cockfighting-database
+[35mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[36mbackend-cockfighting-database |[0m The files belonging to this database system will be owned by user "postgres".
+[36mbackend-cockfighting-database |[0m This user must also own the server process.
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m The database cluster will be initialized with locale "en_US.utf8".
+[36mbackend-cockfighting-database |[0m The default database encoding has accordingly been set to "UTF8".
+[36mbackend-cockfighting-database |[0m The default text search configuration will be set to "english".
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m Data page checksums are disabled.
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[36mbackend-cockfighting-database |[0m creating subdirectories ... ok
+[36mbackend-cockfighting-database |[0m selecting dynamic shared memory implementation ... posix
+[36mbackend-cockfighting-database |[0m selecting default max_connections ... 100
+[36mbackend-cockfighting-database |[0m selecting default shared_buffers ... 128MB
+[36mbackend-cockfighting-database |[0m selecting default time zone ... Etc/UTC
+[36mbackend-cockfighting-database |[0m creating configuration files ... ok
+[36mbackend-cockfighting-database |[0m running bootstrap script ... ok
+[36mbackend-cockfighting-database |[0m performing post-bootstrap initialization ... ok
+[36mbackend-cockfighting-database |[0m syncing data to disk ... ok
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m Success. You can now start the database server using:
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[36mbackend-cockfighting-database |[0m 
+[36mbackend-cockfighting-database |[0m initdb: warning: enabling "trust" authentication for local connections
+[36mbackend-cockfighting-database |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[36mbackend-cockfighting-database |[0m waiting for server to start....2023-08-23 18:21:45.848 UTC [48] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[36mbackend-cockfighting-database |[0m 2023-08-23 18:21:45.851 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mbackend-cockfighting-database |[0m 2023-08-23 18:21:45.868 UTC [51] LOG:  database system was shut down at 2023-08-23 18:21:45 UTC
+[36mbackend-cockfighting-database |[0m 2023-08-23 18:21:45.875 UTC [48] LOG:  database system is ready to accept connections
+[36mbackend-cockfighting-database |[0m  done
+[36mbackend-cockfighting-database |[0m server started
+[33mapi1_1   |[0m Starting backend-cockfighting-api server on http://localhost:80
+[33mapi1_1   |[0m 20230823 18:21:45.079610 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101286 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101381 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101408 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101432 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101480 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101516 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101541 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101564 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101606 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101642 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.101666 UTC 11 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102159 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102195 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102204 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102211 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102218 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102225 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102232 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102239 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102246 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102253 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102971 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.102996 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103002 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103008 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103014 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103020 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103026 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103032 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103038 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103045 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103050 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.103055 UTC 10 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.116431 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.116676 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.116813 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.116958 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117103 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117245 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117386 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117527 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117686 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117829 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[33mapi1_1   |[0m 20230823 18:21:45.117970 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[33mapi1_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[33mapi1_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m Starting backend-cockfighting-api server on http://localhost:80
+[32mapi2_1   |[0m 20230823 18:21:44.991062 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.991394 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.991524 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.991675 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.991823 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.991981 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.992108 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.992251 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.992377 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.992514 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.992661 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:44.992846 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027286 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027559 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027581 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027587 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027592 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027598 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027602 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027607 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027612 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027633 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.027637 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.028417 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033134 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033367 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033349 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033600 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033654 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033794 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033819 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033828 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033872 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.033967 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034102 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034241 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034389 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034418 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034428 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034509 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034595 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034742 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.034916 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.035058 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.035085 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.991807 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.993687 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.993708 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.993713 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.993718 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996401 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996418 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996424 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996429 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996434 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996439 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:45.996444 UTC 12 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.028008 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.037743 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038283 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038331 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038341 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038349 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038380 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038393 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038402 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038409 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038416 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038422 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.038427 UTC 13 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.049130 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.050950 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051019 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051043 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051063 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051106 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051140 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051160 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051179 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051198 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051248 UTC 15 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051273 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051294 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051335 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051368 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051389 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051409 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051448 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051480 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
+[32mapi2_1   |[0m 20230823 18:21:46.051501 UTC 14 ERROR !!!Pg connection failed: Connection refused
+[32mapi2_1   |[0m 	Is the server running on that host and accepting TCP/IP connections?
+[32mapi2_1   |[0m  - PgConnection.cc:152
