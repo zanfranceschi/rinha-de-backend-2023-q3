@@ -1,0 +1,35 @@
+Attaching to luucaspole_nginx_1, luucaspole_app2_1, luucaspole_app3_1, luucaspole_app1_1, luucaspole_postgres_1, luucaspole_redis_1
+[34mpostgres_1  |[0m The files belonging to this database system will be owned by user "postgres".
+[34mpostgres_1  |[0m This user must also own the server process.
+[34mpostgres_1  |[0m 
+[34mpostgres_1  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[34mpostgres_1  |[0m The default database encoding has accordingly been set to "UTF8".
+[34mpostgres_1  |[0m The default text search configuration will be set to "english".
+[34mpostgres_1  |[0m 
+[34mpostgres_1  |[0m Data page checksums are disabled.
+[34mpostgres_1  |[0m 
+[34mpostgres_1  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[34mpostgres_1  |[0m creating subdirectories ... ok
+[34mpostgres_1  |[0m selecting dynamic shared memory implementation ... posix
+[34mpostgres_1  |[0m selecting default max_connections ... 100
+[34mpostgres_1  |[0m selecting default shared_buffers ... 128MB
+[34mpostgres_1  |[0m selecting default time zone ... Etc/UTC
+[34mpostgres_1  |[0m creating configuration files ... ok
+[34mpostgres_1  |[0m running bootstrap script ... ok
+[35mnginx_1     |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mnginx_1     |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mnginx_1     |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mnginx_1     |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mnginx_1     |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mnginx_1     |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mnginx_1     |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mnginx_1     |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mnginx_1     |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[36;1mredis_1     |[0m 1:C 23 Aug 2023 18:25:52.267 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[36;1mredis_1     |[0m 1:C 23 Aug 2023 18:25:52.288 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[36;1mredis_1     |[0m 1:C 23 Aug 2023 18:25:52.288 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[36;1mredis_1     |[0m 1:C 23 Aug 2023 18:25:52.288 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[36;1mredis_1     |[0m 1:M 23 Aug 2023 18:25:52.288 * monotonic clock: POSIX clock_gettime
+[36;1mredis_1     |[0m 1:M 23 Aug 2023 18:25:52.289 * Running mode=standalone, port=6379.
+[36;1mredis_1     |[0m 1:M 23 Aug 2023 18:25:52.290 * Server initialized
+[36;1mredis_1     |[0m 1:M 23 Aug 2023 18:25:52.290 * Ready to accept connections tcp

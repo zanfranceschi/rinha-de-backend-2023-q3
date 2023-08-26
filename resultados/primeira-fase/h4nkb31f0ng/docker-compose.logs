@@ -1,0 +1,65 @@
+Attaching to h4nkb31f0ng_nginx_1, h4nkb31f0ng_api1_1, h4nkb31f0ng_api2_1, h4nkb31f0ng_db_1, h4nkb31f0ng_cache_1
+[32mcache_1  |[0m 1:C 23 Aug 2023 16:29:21.073 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[32mcache_1  |[0m 1:C 23 Aug 2023 16:29:21.073 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[32mcache_1  |[0m 1:C 23 Aug 2023 16:29:21.073 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[32mcache_1  |[0m 1:C 23 Aug 2023 16:29:21.073 * Configuration loaded
+[32mcache_1  |[0m 1:M 23 Aug 2023 16:29:21.073 * monotonic clock: POSIX clock_gettime
+[32mcache_1  |[0m                 _._                                                  
+[32mcache_1  |[0m            _.-``__ ''-._                                             
+[32mcache_1  |[0m       _.-``    `.  `_.  ''-._           Redis 7.2.0 (00000000/0) 64 bit
+[32mcache_1  |[0m   .-`` .-```.  ```\/    _.,_ ''-._                                  
+[32mcache_1  |[0m  (    '      ,       .-`  | `,    )     Running in standalone mode
+[32mcache_1  |[0m  |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+[32mcache_1  |[0m  |    `-._   `._    /     _.-'    |     PID: 1
+[32mcache_1  |[0m   `-._    `-._  `-./  _.-'    _.-'                                   
+[32mcache_1  |[0m  |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+[32mcache_1  |[0m  |    `-._`-._        _.-'_.-'    |           https://redis.io       
+[32mcache_1  |[0m   `-._    `-._`-.__.-'_.-'    _.-'                                   
+[32mcache_1  |[0m  |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+[32mcache_1  |[0m  |    `-._`-._        _.-'_.-'    |                                  
+[32mcache_1  |[0m   `-._    `-._`-.__.-'_.-'    _.-'                                   
+[32mcache_1  |[0m       `-._    `-.__.-'    _.-'                                       
+[32mcache_1  |[0m           `-._        _.-'                                           
+[32mcache_1  |[0m               `-.__.-'                                               
+[32mcache_1  |[0m 
+[32mcache_1  |[0m 1:M 23 Aug 2023 16:29:21.074 * Server initialized
+[32mcache_1  |[0m 1:M 23 Aug 2023 16:29:21.074 * Ready to accept connections tcp
+[33mapi2_1   |[0m 2023/08/23 16:29:37.101990 rinha.go:23: [Warn] Coudn't load .env file
+[33mapi2_1   |[0m 2023/08/23 16:29:37.208938 router.go:25: [Info] Loading Sonic JSON into the router
+[33mapi2_1   |[0m 2023/08/23 16:29:37.209371 server.go:58: [Info] Starting the server...
+[33mapi2_1   |[0m 
+[33mapi2_1   |[0m  ┌───────────────────────────────────────────────────┐ 
+[33mapi2_1   |[0m  │             rinha-go by @leorcvargas              │ 
+[33mapi2_1   |[0m  │                   Fiber v2.48.0                   │ 
+[33mapi2_1   |[0m  │               http://127.0.0.1:8080               │ 
+[33mapi2_1   |[0m  │       (bound on host 0.0.0.0 and port 8080)       │ 
+[33mapi2_1   |[0m  │                                                   │ 
+[33mapi2_1   |[0m  │ Handlers ............. 7  Processes ........... 1 │ 
+[33mapi2_1   |[0m  │ Prefork ....... Disabled  PID ................. 1 │ 
+[33mapi2_1   |[0m  └───────────────────────────────────────────────────┘ 
+[33mapi2_1   |[0m 
+[36mapi1_1   |[0m 2023/08/23 16:29:37.101804 rinha.go:23: [Warn] Coudn't load .env file
+[36mapi1_1   |[0m 2023/08/23 16:29:37.208945 router.go:25: [Info] Loading Sonic JSON into the router
+[36mapi1_1   |[0m 2023/08/23 16:29:37.209294 server.go:58: [Info] Starting the server...
+[36mapi1_1   |[0m 
+[36mapi1_1   |[0m  ┌───────────────────────────────────────────────────┐ 
+[36mapi1_1   |[0m  │             rinha-go by @leorcvargas              │ 
+[36mapi1_1   |[0m  │                   Fiber v2.48.0                   │ 
+[36mapi1_1   |[0m  │               http://127.0.0.1:8080               │ 
+[36mapi1_1   |[0m  │       (bound on host 0.0.0.0 and port 8080)       │ 
+[36mapi1_1   |[0m  │                                                   │ 
+[36mapi1_1   |[0m  │ Handlers ............. 7  Processes ........... 1 │ 
+[36mapi1_1   |[0m  │ Prefork ....... Disabled  PID ................. 1 │ 
+[36mapi1_1   |[0m  └───────────────────────────────────────────────────┘ 
+[36mapi1_1   |[0m 
+[35mdb_1     |[0m 
+[35mdb_1     |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[35mdb_1     |[0m 
+[34mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[34mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[34mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf is not a file or does not exist
+[34mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up

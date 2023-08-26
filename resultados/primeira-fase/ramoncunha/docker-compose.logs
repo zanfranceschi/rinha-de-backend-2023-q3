@@ -1,0 +1,92 @@
+Attaching to ramoncunha_nginx_1, api1, api2, db-postgresql
+[36mapi1        |[0m exec /opt/java/openjdk/bin/java: exec format error
+[33mapi2        |[0m exec /opt/java/openjdk/bin/java: exec format error
+[35mnginx_1     |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mnginx_1     |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mnginx_1     |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mnginx_1     |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[35mnginx_1     |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[35mnginx_1     |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[35mnginx_1     |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[35mnginx_1     |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[35mnginx_1     |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[35mnginx_1     |[0m 2023/08/23 19:07:11 [emerg] 1#1: host not found in upstream "api1:8080" in /etc/nginx/nginx.conf:10
+[35mnginx_1     |[0m nginx: [emerg] host not found in upstream "api1:8080" in /etc/nginx/nginx.conf:10
+[32mdb-postgresql |[0m The files belonging to this database system will be owned by user "postgres".
+[32mdb-postgresql |[0m This user must also own the server process.
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m The database cluster will be initialized with locale "en_US.utf8".
+[32mdb-postgresql |[0m The default database encoding has accordingly been set to "UTF8".
+[32mdb-postgresql |[0m The default text search configuration will be set to "english".
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m Data page checksums are disabled.
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[32mdb-postgresql |[0m creating subdirectories ... ok
+[32mdb-postgresql |[0m selecting dynamic shared memory implementation ... posix
+[32mdb-postgresql |[0m selecting default max_connections ... 100
+[32mdb-postgresql |[0m selecting default shared_buffers ... 128MB
+[32mdb-postgresql |[0m selecting default time zone ... UTC
+[32mdb-postgresql |[0m creating configuration files ... ok
+[32mdb-postgresql |[0m running bootstrap script ... ok
+[32mdb-postgresql |[0m sh: locale: not found
+[32mdb-postgresql |[0m 2023-08-23 19:07:07.831 UTC [30] WARNING:  no usable system locales were found
+[32mdb-postgresql |[0m performing post-bootstrap initialization ... ok
+[32mdb-postgresql |[0m syncing data to disk ... ok
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m Success. You can now start the database server using:
+[32mdb-postgresql |[0m initdb: warning: enabling "trust" authentication for local connections
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[32mdb-postgresql |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m waiting for server to start....2023-08-23 19:07:08.957 UTC [36] LOG:  starting PostgreSQL 15.4 on x86_64-pc-linux-musl, compiled by gcc (Alpine 12.2.1_git20220924-r10) 12.2.1 20220924, 64-bit
+[32mdb-postgresql |[0m 2023-08-23 19:07:08.959 UTC [36] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[32mdb-postgresql |[0m 2023-08-23 19:07:08.968 UTC [39] LOG:  database system was shut down at 2023-08-23 19:07:08 UTC
+[32mdb-postgresql |[0m 2023-08-23 19:07:08.976 UTC [36] LOG:  database system is ready to accept connections
+[32mdb-postgresql |[0m  done
+[32mdb-postgresql |[0m server started
+[32mdb-postgresql |[0m CREATE DATABASE
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/ddl.sql
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m  set_config 
+[32mdb-postgresql |[0m ------------
+[32mdb-postgresql |[0m  
+[32mdb-postgresql |[0m (1 row)
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m ALTER SCHEMA
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m SET
+[32mdb-postgresql |[0m DROP TABLE
+[32mdb-postgresql |[0m CREATE TABLE
+[32mdb-postgresql |[0m CREATE EXTENSION
+[32mdb-postgresql |[0m CREATE INDEX
+[32mdb-postgresql |[0m CREATE INDEX
+[32mdb-postgresql |[0m ALTER TABLE
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m waiting for server to shut down...2023-08-23 19:07:09.201 UTC [36] LOG:  received fast shutdown request
+[32mdb-postgresql |[0m .2023-08-23 19:07:09.204 UTC [36] LOG:  aborting any active transactions
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.206 UTC [36] LOG:  background worker "logical replication launcher" (PID 42) exited with exit code 1
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.208 UTC [37] LOG:  shutting down
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.210 UTC [37] LOG:  checkpoint starting: shutdown immediate
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.279 UTC [37] LOG:  checkpoint complete: wrote 928 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.056 s, sync=0.006 s, total=0.071 s; sync files=306, longest=0.002 s, average=0.001 s; distance=4312 kB, estimate=4312 kB
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.289 UTC [36] LOG:  database system is shut down
+[32mdb-postgresql |[0m  done
+[32mdb-postgresql |[0m server stopped
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m PostgreSQL init process complete; ready for start up.
+[32mdb-postgresql |[0m 
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.332 UTC [1] LOG:  starting PostgreSQL 15.4 on x86_64-pc-linux-musl, compiled by gcc (Alpine 12.2.1_git20220924-r10) 12.2.1 20220924, 64-bit
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.332 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.332 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.337 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.345 UTC [54] LOG:  database system was shut down at 2023-08-23 19:07:09 UTC
+[32mdb-postgresql |[0m 2023-08-23 19:07:09.352 UTC [1] LOG:  database system is ready to accept connections

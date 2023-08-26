@@ -1,0 +1,118 @@
+Attaching to dscamargo_nginx_1, dscamargo_api2_1, dscamargo_api1_1, dscamargo_db_1, dscamargo_cache_1
+[33mapi2_1   |[0m Process id of 1 main 
+[33mapi2_1   |[0m [Fx] PROVIDE	*controllers.PessoaController <= github.com/dscamargo/rinha_backend_go/internal/http/controllers.NewPessoaController()
+[33mapi2_1   |[0m [Fx] PROVIDE	*routers.PessoaRouter <= github.com/dscamargo/rinha_backend_go/internal/http/routers.NewPessoaRouter()
+[33mapi2_1   |[0m [Fx] PROVIDE	*fiber.App <= github.com/dscamargo/rinha_backend_go/internal/http/routers.MakeRouter()
+[33mapi2_1   |[0m [Fx] PROVIDE	*fasthttp.Server <= github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer()
+[33mapi2_1   |[0m [Fx] PROVIDE	*pgxpool.Pool <= github.com/dscamargo/rinha_backend_go/internal/infra/db.NewPGDatabase()
+[33mapi2_1   |[0m [Fx] PROVIDE	*pessoasdb.PessoasDbCache <= github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoasDbCache()
+[33mapi2_1   |[0m [Fx] PROVIDE	*pessoasdb.Dispatcher <= github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewDispatcher()
+[33mapi2_1   |[0m [Fx] PROVIDE	pessoasdb.JobQueue <= github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewJobQueue()
+[33mapi2_1   |[0m [Fx] PROVIDE	pessoa.Repository <= fx.Annotate(github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoaRepository(), fx.As([[pessoa.Repository]])
+[33mapi2_1   |[0m [Fx] PROVIDE	*pessoa.CountPessoas <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCountPessoas()
+[33mapi2_1   |[0m [Fx] PROVIDE	*pessoa.FindPessoa <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewFindPessoa()
+[33mapi2_1   |[0m [Fx] PROVIDE	*pessoa.CreatePessoa <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCreatePessoa()
+[33mapi2_1   |[0m [Fx] PROVIDE	*pessoa.SearchPessoas <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewSearchPessoas()
+[33mapi2_1   |[0m [Fx] PROVIDE	fx.Lifecycle <= go.uber.org/fx.New.func1()
+[33mapi2_1   |[0m [Fx] PROVIDE	fx.Shutdowner <= go.uber.org/fx.(*App).shutdowner-fm()
+[33mapi2_1   |[0m [Fx] PROVIDE	fx.DotGraph <= go.uber.org/fx.(*App).dotGraph-fm()
+[33mapi2_1   |[0m [Fx] INVOKE		main.main.func1()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db.NewPGDatabase()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewJobQueue()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewDispatcher()
+[33mapi2_1   |[0m [Fx] INVOKE		main.main.func2()
+[33mapi2_1   |[0m [Fx] RUN	provide: go.uber.org/fx.New.func1()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoasDbCache()
+[33mapi2_1   |[0m [Fx] RUN	provide: fx.Annotate(github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoaRepository(), fx.As([[pessoa.Repository]])
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCreatePessoa()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewFindPessoa()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCountPessoas()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewSearchPessoas()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http/controllers.NewPessoaController()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http/routers.NewPessoaRouter()
+[33mapi2_1   |[0m 2023/08/23 15:31:27.942082 route.go:15: [Info] [MakeRouter] - Loading Sonic JSON...
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http/routers.MakeRouter()
+[33mapi2_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer()
+[33mapi2_1   |[0m [Fx] HOOK OnStart		github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer.func1() executing (caller: github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer)
+[33mapi2_1   |[0m [Fx] HOOK OnStart		github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer.func1() called by github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer ran successfully in 14.94µs
+[33mapi2_1   |[0m 2023/08/23 15:31:27.945199 server.go:16: [Info] Starting web server...
+[33mapi2_1   |[0m [Fx] RUNNING
+[33mapi2_1   |[0m 
+[33mapi2_1   |[0m  ┌───────────────────────────────────────────────────┐ 
+[33mapi2_1   |[0m  │                   rinha_backend                   │ 
+[33mapi2_1   |[0m  │                   Fiber v2.48.0                   │ 
+[33mapi2_1   |[0m  │               http://127.0.0.1:8080               │ 
+[33mapi2_1   |[0m  │       (bound on host 0.0.0.0 and port 8080)       │ 
+[33mapi2_1   |[0m  │                                                   │ 
+[33mapi2_1   |[0m  │ Handlers ............. 7  Processes ........... 1 │ 
+[33mapi2_1   |[0m  │ Prefork ....... Disabled  PID ................. 1 │ 
+[33mapi2_1   |[0m  └───────────────────────────────────────────────────┘ 
+[33mapi2_1   |[0m 
+[36mapi1_1   |[0m Process id of 1 main 
+[36mapi1_1   |[0m [Fx] PROVIDE	*controllers.PessoaController <= github.com/dscamargo/rinha_backend_go/internal/http/controllers.NewPessoaController()
+[36mapi1_1   |[0m [Fx] PROVIDE	*routers.PessoaRouter <= github.com/dscamargo/rinha_backend_go/internal/http/routers.NewPessoaRouter()
+[36mapi1_1   |[0m [Fx] PROVIDE	*fiber.App <= github.com/dscamargo/rinha_backend_go/internal/http/routers.MakeRouter()
+[36mapi1_1   |[0m [Fx] PROVIDE	*fasthttp.Server <= github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer()
+[36mapi1_1   |[0m [Fx] PROVIDE	*pgxpool.Pool <= github.com/dscamargo/rinha_backend_go/internal/infra/db.NewPGDatabase()
+[36mapi1_1   |[0m [Fx] PROVIDE	*pessoasdb.PessoasDbCache <= github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoasDbCache()
+[36mapi1_1   |[0m [Fx] PROVIDE	*pessoasdb.Dispatcher <= github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewDispatcher()
+[36mapi1_1   |[0m [Fx] PROVIDE	pessoasdb.JobQueue <= github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewJobQueue()
+[36mapi1_1   |[0m [Fx] PROVIDE	pessoa.Repository <= fx.Annotate(github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoaRepository(), fx.As([[pessoa.Repository]])
+[36mapi1_1   |[0m [Fx] PROVIDE	*pessoa.CountPessoas <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCountPessoas()
+[36mapi1_1   |[0m [Fx] PROVIDE	*pessoa.FindPessoa <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewFindPessoa()
+[36mapi1_1   |[0m [Fx] PROVIDE	*pessoa.CreatePessoa <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCreatePessoa()
+[36mapi1_1   |[0m [Fx] PROVIDE	*pessoa.SearchPessoas <= github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewSearchPessoas()
+[36mapi1_1   |[0m [Fx] PROVIDE	fx.Lifecycle <= go.uber.org/fx.New.func1()
+[36mapi1_1   |[0m [Fx] PROVIDE	fx.Shutdowner <= go.uber.org/fx.(*App).shutdowner-fm()
+[36mapi1_1   |[0m [Fx] PROVIDE	fx.DotGraph <= go.uber.org/fx.(*App).dotGraph-fm()
+[36mapi1_1   |[0m [Fx] INVOKE		main.main.func1()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db.NewPGDatabase()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewJobQueue()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewDispatcher()
+[36mapi1_1   |[0m [Fx] INVOKE		main.main.func2()
+[36mapi1_1   |[0m [Fx] RUN	provide: go.uber.org/fx.New.func1()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoasDbCache()
+[36mapi1_1   |[0m [Fx] RUN	provide: fx.Annotate(github.com/dscamargo/rinha_backend_go/internal/infra/db/pessoasdb.NewPessoaRepository(), fx.As([[pessoa.Repository]])
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCreatePessoa()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewFindPessoa()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewCountPessoas()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/domain/pessoa.NewSearchPessoas()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http/controllers.NewPessoaController()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http/routers.NewPessoaRouter()
+[36mapi1_1   |[0m 2023/08/23 15:31:27.941779 route.go:15: [Info] [MakeRouter] - Loading Sonic JSON...
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http/routers.MakeRouter()
+[36mapi1_1   |[0m [Fx] RUN	provide: github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer()
+[36mapi1_1   |[0m [Fx] HOOK OnStart		github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer.func1() executing (caller: github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer)
+[36mapi1_1   |[0m [Fx] HOOK OnStart		github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer.func1() called by github.com/dscamargo/rinha_backend_go/internal/http.NewHTTPServer ran successfully in 780ns
+[36mapi1_1   |[0m 2023/08/23 15:31:27.944611 server.go:16: [Info] Starting web server...
+[36mapi1_1   |[0m [Fx] RUNNING
+[36mapi1_1   |[0m 
+[36mapi1_1   |[0m  ┌───────────────────────────────────────────────────┐ 
+[36mapi1_1   |[0m  │                   rinha_backend                   │ 
+[36mapi1_1   |[0m  │                   Fiber v2.48.0                   │ 
+[36mapi1_1   |[0m  │               http://127.0.0.1:8080               │ 
+[36mapi1_1   |[0m  │       (bound on host 0.0.0.0 and port 8080)       │ 
+[36mapi1_1   |[0m  │                                                   │ 
+[36mapi1_1   |[0m  │ Handlers ............. 7  Processes ........... 1 │ 
+[36mapi1_1   |[0m  │ Prefork ....... Disabled  PID ................. 1 │ 
+[36mapi1_1   |[0m  └───────────────────────────────────────────────────┘ 
+[36mapi1_1   |[0m 
+[32mcache_1  |[0m 1:1:C 23 Aug 2023 15:31:12.365 # oO0OoO0OoO0Oo KeyDB is starting oO0OoO0OoO0Oo
+[32mcache_1  |[0m 1:1:C 23 Aug 2023 15:31:12.365 # KeyDB version=6.3.3, bits=64, commit=86ea5c7e, modified=1, pid=1, just started
+[32mcache_1  |[0m 1:1:C 23 Aug 2023 15:31:12.365 # Configuration loaded
+[32mcache_1  |[0m 1:1:C 23 Aug 2023 15:31:12.366 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[32mcache_1  |[0m 1:1:M 23 Aug 2023 15:31:12.367 * monotonic clock: POSIX clock_gettime
+[32mcache_1  |[0m 1:1:M 23 Aug 2023 15:31:12.368 * Running mode=standalone, port=6379.
+[32mcache_1  |[0m 1:1:M 23 Aug 2023 15:31:12.368 # Server initialized
+[32mcache_1  |[0m 1:23:M 23 Aug 2023 15:31:12.369 * Thread 0 alive.
+[35mdb_1     |[0m 
+[35mdb_1     |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[35mdb_1     |[0m 
+[34mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[34mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[34mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf is not a file or does not exist
+[34mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[34mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up

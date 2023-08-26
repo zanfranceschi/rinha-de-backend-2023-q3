@@ -1,0 +1,79 @@
+Attaching to willy-r_nginx_1, willy-r_slimapi1_1, willy-r_slimapi2_1, willy-r_cache-redis_1, willy-r_db-postgresql_1
+[32mnginx_1          |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[32mnginx_1          |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[32mnginx_1          |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[32mnginx_1          |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[32mnginx_1          |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[32mnginx_1          |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[32mnginx_1          |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[32mnginx_1          |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[32mnginx_1          |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[36mcache-redis_1    |[0m 1:C 23 Aug 2023 20:36:07.680 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[36mcache-redis_1    |[0m 1:C 23 Aug 2023 20:36:07.680 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[36mcache-redis_1    |[0m 1:C 23 Aug 2023 20:36:07.680 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[36mcache-redis_1    |[0m 1:C 23 Aug 2023 20:36:07.680 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[36mcache-redis_1    |[0m 1:M 23 Aug 2023 20:36:07.680 * monotonic clock: POSIX clock_gettime
+[36mcache-redis_1    |[0m 1:M 23 Aug 2023 20:36:07.681 * Running mode=standalone, port=6379.
+[36mcache-redis_1    |[0m 1:M 23 Aug 2023 20:36:07.682 * Server initialized
+[36mcache-redis_1    |[0m 1:M 23 Aug 2023 20:36:07.682 * Ready to accept connections tcp
+[33mdb-postgresql_1  |[0m The files belonging to this database system will be owned by user "postgres".
+[33mdb-postgresql_1  |[0m This user must also own the server process.
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[33mdb-postgresql_1  |[0m The default database encoding has accordingly been set to "UTF8".
+[33mdb-postgresql_1  |[0m The default text search configuration will be set to "english".
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m Data page checksums are disabled.
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[33mdb-postgresql_1  |[0m creating subdirectories ... ok
+[33mdb-postgresql_1  |[0m selecting dynamic shared memory implementation ... posix
+[33mdb-postgresql_1  |[0m selecting default max_connections ... 100
+[33mdb-postgresql_1  |[0m selecting default shared_buffers ... 128MB
+[33mdb-postgresql_1  |[0m selecting default time zone ... UTC
+[33mdb-postgresql_1  |[0m creating configuration files ... ok
+[33mdb-postgresql_1  |[0m running bootstrap script ... ok
+[33mdb-postgresql_1  |[0m sh: locale: not found
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:09.295 UTC [31] WARNING:  no usable system locales were found
+[33mdb-postgresql_1  |[0m performing post-bootstrap initialization ... ok
+[33mdb-postgresql_1  |[0m syncing data to disk ... ok
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m Success. You can now start the database server using:
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m initdb: warning: enabling "trust" authentication for local connections
+[33mdb-postgresql_1  |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[33mdb-postgresql_1  |[0m waiting for server to start....2023-08-23 20:36:11.095 UTC [44] LOG:  starting PostgreSQL 15.2 on x86_64-pc-linux-musl, compiled by gcc (Alpine 12.2.1_git20220924-r4) 12.2.1 20220924, 64-bit
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.097 UTC [44] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.105 UTC [47] LOG:  database system was shut down at 2023-08-23 20:36:10 UTC
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.114 UTC [44] LOG:  database system is ready to accept connections
+[33mdb-postgresql_1  |[0m  done
+[33mdb-postgresql_1  |[0m server started
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m waiting for server to shut down....2023-08-23 20:36:11.183 UTC [44] LOG:  received fast shutdown request
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.185 UTC [44] LOG:  aborting any active transactions
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.191 UTC [44] LOG:  background worker "logical replication launcher" (PID 50) exited with exit code 1
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.191 UTC [45] LOG:  shutting down
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.193 UTC [45] LOG:  checkpoint starting: shutdown immediate
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.203 UTC [45] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.002 s, total=0.012 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.210 UTC [44] LOG:  database system is shut down
+[33mdb-postgresql_1  |[0m  done
+[33mdb-postgresql_1  |[0m server stopped
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m PostgreSQL init process complete; ready for start up.
+[33mdb-postgresql_1  |[0m 
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.321 UTC [1] LOG:  starting PostgreSQL 15.2 on x86_64-pc-linux-musl, compiled by gcc (Alpine 12.2.1_git20220924-r4) 12.2.1 20220924, 64-bit
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.321 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.321 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.325 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.331 UTC [58] LOG:  database system was shut down at 2023-08-23 20:36:11 UTC
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:11.337 UTC [1] LOG:  database system is ready to accept connections
+[33mdb-postgresql_1  |[0m 2023-08-23 20:36:13.912 UTC [68] FATAL:  role "root" does not exist
+[35mslimapi1_1       |[0m [2023-08-23 20:36:15 +0000] [1] [INFO] Starting gunicorn 21.2.0
+[35mslimapi1_1       |[0m [2023-08-23 20:36:15 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+[35mslimapi1_1       |[0m [2023-08-23 20:36:15 +0000] [1] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[35mslimapi1_1       |[0m [2023-08-23 20:36:15 +0000] [7] [INFO] Booting worker with pid: 7

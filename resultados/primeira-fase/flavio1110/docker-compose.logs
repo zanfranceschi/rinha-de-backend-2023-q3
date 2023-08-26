@@ -1,0 +1,64 @@
+Attaching to flavio1110_api1_1, flavio1110_api2_1, db-pessoas
+[36mdb-pessoas  |[0m The files belonging to this database system will be owned by user "postgres".
+[36mdb-pessoas  |[0m This user must also own the server process.
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[36mdb-pessoas  |[0m The default database encoding has accordingly been set to "UTF8".
+[36mdb-pessoas  |[0m The default text search configuration will be set to "english".
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m Data page checksums are disabled.
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[36mdb-pessoas  |[0m creating subdirectories ... ok
+[36mdb-pessoas  |[0m selecting dynamic shared memory implementation ... posix
+[36mdb-pessoas  |[0m selecting default max_connections ... 100
+[36mdb-pessoas  |[0m selecting default shared_buffers ... 128MB
+[36mdb-pessoas  |[0m selecting default time zone ... Etc/UTC
+[36mdb-pessoas  |[0m creating configuration files ... ok
+[36mdb-pessoas  |[0m running bootstrap script ... ok
+[36mdb-pessoas  |[0m performing post-bootstrap initialization ... ok
+[36mdb-pessoas  |[0m syncing data to disk ... ok
+[36mdb-pessoas  |[0m initdb: warning: enabling "trust" authentication for local connections
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m Success. You can now start the database server using:
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m You can change this by editing pg_hba.conf or using the option -A, or
+[36mdb-pessoas  |[0m --auth-local and --auth-host, the next time you run initdb.
+[36mdb-pessoas  |[0m waiting for server to start....2023-08-23 15:53:36.682 UTC [48] LOG:  starting PostgreSQL 14.9 (Debian 14.9-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[36mdb-pessoas  |[0m 2023-08-23 15:53:36.684 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb-pessoas  |[0m 2023-08-23 15:53:36.692 UTC [49] LOG:  database system was shut down at 2023-08-23 15:53:36 UTC
+[36mdb-pessoas  |[0m 2023-08-23 15:53:36.701 UTC [48] LOG:  database system is ready to accept connections
+[36mdb-pessoas  |[0m  done
+[36mdb-pessoas  |[0m server started
+[36mdb-pessoas  |[0m CREATE DATABASE
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/initdb.sql
+[36mdb-pessoas  |[0m CREATE EXTENSION
+[36mdb-pessoas  |[0m CREATE TABLE
+[36mdb-pessoas  |[0m CREATE INDEX
+[36mdb-pessoas  |[0m CREATE TABLE
+[36mdb-pessoas  |[0m CREATE INDEX
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.042 UTC [48] LOG:  received fast shutdown request
+[36mdb-pessoas  |[0m waiting for server to shut down....2023-08-23 15:53:37.045 UTC [48] LOG:  aborting any active transactions
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.047 UTC [48] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.048 UTC [50] LOG:  shutting down
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.085 UTC [48] LOG:  database system is shut down
+[36mdb-pessoas  |[0m  done
+[36mdb-pessoas  |[0m server stopped
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m PostgreSQL init process complete; ready for start up.
+[36mdb-pessoas  |[0m 
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.180 UTC [1] LOG:  starting PostgreSQL 14.9 (Debian 14.9-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.181 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.181 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.185 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.191 UTC [65] LOG:  database system was shut down at 2023-08-23 15:53:37 UTC
+[36mdb-pessoas  |[0m 2023-08-23 15:53:37.199 UTC [1] LOG:  database system is ready to accept connections
+[33mapi1_1      |[0m exec /bin/sh: exec format error
+[32mapi2_1      |[0m exec /bin/sh: exec format error

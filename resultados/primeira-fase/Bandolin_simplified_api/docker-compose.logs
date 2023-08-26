@@ -1,0 +1,27 @@
+Attaching to bandolin_simplified_api_nginx_1, bandolin_simplified_api_api2_1, bandolin_simplified_api_api1_1, node, redis, mysql
+[35mmysql    |[0m 2023-08-23 13:26:31+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.1.0-1.el8 started.
+[35mmysql    |[0m 2023-08-23 13:26:31+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+[35mmysql    |[0m 2023-08-23 13:26:32+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.1.0-1.el8 started.
+[35mmysql    |[0m 2023-08-23 13:26:32+00:00 [Note] [Entrypoint]: Initializing database files
+[35mmysql    |[0m 2023-08-23T13:26:32.464305Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+[35mmysql    |[0m 2023-08-23T13:26:32.467172Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+[35mmysql    |[0m 2023-08-23T13:26:32.467362Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.1.0) initializing of server in progress as process 81
+[35mmysql    |[0m 2023-08-23T13:26:32.488060Z 0 [Warning] [MY-013907] [InnoDB] Deprecated configuration parameters innodb_log_file_size and/or innodb_log_files_in_group have been used to compute innodb_redo_log_capacity=1073741824. Please use innodb_redo_log_capacity instead.
+[35mmysql    |[0m 2023-08-23T13:26:32.489942Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[32mnginx_1  |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[32mnginx_1  |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[32mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+[32mnginx_1  |[0m 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+[32mnginx_1  |[0m /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+[32mnginx_1  |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:26:31.829 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:26:31.830 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:26:31.830 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+[36;1mredis    |[0m 1:C 23 Aug 2023 13:26:31.830 * Configuration loaded
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:26:31.831 * monotonic clock: POSIX clock_gettime
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:26:31.832 * Running mode=standalone, port=6379.
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:26:31.920 * Server initialized
+[36;1mredis    |[0m 1:M 23 Aug 2023 13:26:31.920 * Ready to accept connections tcp
