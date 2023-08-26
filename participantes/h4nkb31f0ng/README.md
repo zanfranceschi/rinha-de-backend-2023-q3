@@ -13,5 +13,5 @@
 
 ## Minhas redes
 - [GitHub](https://github.com/leorcvargas)
-- [Twitter](https://twitter.com/h4nkb31f0ng)
+- [Twitter](https://twitter.com/leorcvargas)
 - [LinkedIn](https://www.linkedin.com/in/leonardo-vargas-6a2216116/)
