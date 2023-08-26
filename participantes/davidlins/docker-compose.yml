@@ -27,7 +27,7 @@ services:
         soft: 1000000
         hard: 1000000
     depends_on:
-        - dp
+        - db
     deploy:
       resources:
         limits:
