@@ -2,43 +2,32 @@ version: '3.5'
 services:
   rinha1:
     hostname: "rinha1"
-    image: ghcr.io/mrpowergamerbr/rinha-de-backend-2023-q3@sha256:160373fff01b74891c613a06917859ecf845308819badc4466bd3777bd42bf93
+    image: ghcr.io/mrpowergamerbr/rinha-de-backend-2023-q3@sha256:d50541cc9b9c0e81a802be47ac7d99d77e86eaaa8c6ce75c531935b972804fd3
     depends_on:
       db:
         condition: service_healthy
+    healthcheck:
+      test: [ "CMD-SHELL", "curl 127.0.0.1:9999" ]
+      interval: 3s
+      timeout: 5s
+      retries: 10
     environment:
       POSTGRESQL_ADDRESS: db
       POSTGRESQL_USERNAME: postgres
       POSTGRESQL_PASSWORD: postgres
       POSTGRESQL_DATABASE: rinhadebackend
+      POSTGRESQL_TRGM: true
+      PUDDING_POOL_SIZE: 4
+      PUDDING_PERMITS: 32
+      RINHA_ENABLE_SEARCH: true
       WEBSERVER_PORT: 9999
-      JAVA_TOOL_OPTIONS: "-verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError"
+      WEBSERVER_ENGINE: "cio"
+      JAVA_TOOL_OPTIONS: "-verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError -Dkotlinx.coroutines.io.parallelism=256"
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: '768MB'
-    networks:
-      - rinha-network
-
-  rinha2:
-    hostname: "rinha2"
-    image: ghcr.io/mrpowergamerbr/rinha-de-backend-2023-q3@sha256:160373fff01b74891c613a06917859ecf845308819badc4466bd3777bd42bf93
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      POSTGRESQL_ADDRESS: db
-      POSTGRESQL_USERNAME: postgres
-      POSTGRESQL_PASSWORD: postgres
-      POSTGRESQL_DATABASE: rinhadebackend
-      WEBSERVER_PORT: 9999
-      JAVA_TOOL_OPTIONS: "-verbose:gc -XX:+UnlockExperimentalVMOptions -Xmx768M -Xmx768M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError"
-    deploy:
-      resources:
-        limits:
-          cpus: '0.25'
-          memory: '768MB'
+          cpus: '0.6'
+          memory: '1024MB'
     networks:
       - rinha-network
 
@@ -47,10 +36,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.75'
-          memory: '1280MB'
+          cpus: '0.85'
+          memory: '1792MB'
     environment:
-      PGUSER: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: rinhadebackend
@@ -59,11 +47,19 @@ services:
       interval: 3s
       timeout: 5s
       retries: 10
+    volumes:
+      - type: bind
+        source: init.sh
+        target: /docker-entrypoint-initdb.d/init-extension.sh
+    command: "postgres -c max_connections=200 -c shared_buffers=512MB -c effective_cache_size=1536MB -c maintenance_work_mem=128MB -c checkpoint_completion_target=0.9 -c wal_buffers=16MB -c default_statistics_target=100 -c random_page_cost=1.1 -c effective_io_concurrency=200 -c work_mem=1310kB -c huge_pages=off -c min_wal_size=1GB -c max_wal_size=4GB"
     networks:
       - rinha-network
 
   nginx: # Load Balancer
     image: nginx:latest
+    depends_on:
+      rinha1:
+        condition: service_healthy
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
@@ -71,7 +67,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
+          cpus: '0.05'
           memory: '256MB'
     networks:
       - rinha-network
