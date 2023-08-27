@@ -17,16 +17,16 @@ Você pode conferir todos os resultados e relatórios acessando o diretório [re
 
 | posição | participante | contagem de pessoas | p99 geral | submissão |
 | --- | --- | --- | --- | --- |
-| 1 | viniciusfonseca | 44936 | 17418 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/viniciusfonseca/README.md) |
-| 2 | h4nkb31f0ng | 44270 | 15690 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/h4nkb31f0ng/README.md) |
-| 3 | grupo-2a | 44200 | 17668 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/grupo-2a/README.md) |
-| 4 | sofia_aripiprazole | 43731 | 58571 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/sofia_aripiprazole/README.md) |
-| 5 | lpicanco | 42832 | 29764 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/lpicanco/README.md) |
-| 6 | isadora-souza | 42612 | 57327 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/isadora-souza/README.md) |
-| 7 | vimsos | 42041 | 3159 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/vimsos/README.md) |
-| 8 | jrodrigues | 41193 | 44445 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/jrodrigues/README.md) |
-| 9 | navarro | 39356 | 23958 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/navarro/README.md) |
-| 10 | navarro-touche | 36106 | 11772 | [README](/home/zanfranceschi/projects/rinha-de-backend-2023-q3/participantes/navarro-touche/README.md) |
+| 1 | viniciusfonseca | 44936 | 17418 | [README](/participantes/viniciusfonseca/README.md) |
+| 2 | h4nkb31f0ng | 44270 | 15690 | [README](/participantes/h4nkb31f0ng/README.md) |
+| 3 | grupo-2a | 44200 | 17668 | [README](/participantes/grupo-2a/README.md) |
+| 4 | sofia_aripiprazole | 43731 | 58571 | [README](/participantes/sofia_aripiprazole/README.md) |
+| 5 | lpicanco | 42832 | 29764 | [README](/participantes/lpicanco/README.md) |
+| 6 | isadora-souza | 42612 | 57327 | [README](/participantes/isadora-souza/README.md) |
+| 7 | vimsos | 42041 | 3159 | [README](/participantes/vimsos/README.md) |
+| 8 | jrodrigues | 41193 | 44445 | [README](/participantes/jrodrigues/README.md) |
+| 9 | navarro | 39356 | 23958 | [README](/participantes/navarro/README.md) |
+| 10 | navarro-touche | 36106 | 11772 | [README](/participantes/navarro-touche/README.md) |
 
 
 ### Resultados da Primeira Etapa
