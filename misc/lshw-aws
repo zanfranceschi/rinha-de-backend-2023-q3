@@ -1,0 +1,32 @@
+H/W path      Device           Class          Description
+=========================================================
+                               system         t3a.xlarge
+/0                             bus            Motherboard
+/0/0                           memory         64KiB BIOS
+/0/4                           processor      AMD EPYC 7571
+/0/4/5                         memory         3MiB L1 cache
+/0/4/6                         memory         16MiB L2 cache
+/0/4/7                         memory         64MiB L3 cache
+/0/8                           memory         16GiB System Memory
+/0/8/0                         memory         16GiB DIMM DDR4 Static column Pseudo-static Synchronous Window DRAM 2667 MHz (0.4 ns)
+/0/100                         bridge         440FX - 82441FX PMC [Natoma]
+/0/100/1                       bridge         82371SB PIIX3 ISA [Natoma/Triton II]
+/0/100/1/0                     system         PnP device PNP0b00
+/0/100/1/1                     input          PnP device PNP0303
+/0/100/1/2                     input          PnP device PNP0f13
+/0/100/1/3                     printer        PnP device PNP0400
+/0/100/1/4                     communication  PnP device PNP0501
+/0/100/1.3                     generic        82371AB/EB/MB PIIX4 ACPI
+/0/100/3                       display        Amazon.com, Inc.
+/0/100/4      /dev/nvme0       storage        Amazon Elastic Block Store
+/0/100/4/0    hwmon0           disk           NVMe disk
+/0/100/4/2    /dev/ng0n1       disk           NVMe disk
+/0/100/4/1    /dev/nvme0n1     disk           268GB NVMe disk
+/0/100/4/1/1  /dev/nvme0n1p1   volume         249GiB EXT4 volume
+/0/100/4/1/e  /dev/nvme0n1p14  volume         4095KiB BIOS Boot partition
+/0/100/4/1/f  /dev/nvme0n1p15  volume         105MiB Windows FAT volume
+/0/100/5      eth0             network        Elastic Network Adapter (ENA)
+/1            input0           input          Power Button
+/2            input1           input          Sleep Button
+/3            input2           input          AT Translated Set 2 keyboard
+/4            input4           input          ImPS/2 Generic Wheel Mouse
