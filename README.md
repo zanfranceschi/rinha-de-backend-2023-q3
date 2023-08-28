@@ -11,9 +11,9 @@ De 28 de Julho a 25 de Agosto foi realizada a Rinha de Backend que é um torneio
 
 ## Resultados
 A Rinha usou um critério simples e irrealista apenas para finalidade de haver um ranking qualquer: a API que tiver mais registros no banco.
-Você pode conferir todos os resultados e relatórios acessando o diretório [resultados](/resultados/) e cada submissão em [participantes](/participantes/).
+Você pode conferir todos os resultados e relatórios acessando o diretório [resultados](/resultados/) e cada submissão em [participantes](/participantes/). Todos os testes foram executados numa instância EC2 na AWS e as especificações podem ser encontradas [aqui](/misc/lshw-aws).
 
-### Resultados da Etapa Final
+### Resultado da Etapa Final
 
 | posição | participante | contagem de pessoas | p99 geral | submissão |
 | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ Você pode conferir todos os resultados e relatórios acessando o diretório [re
 | 10 | navarro-touche | 36106 | 11772 | [README](/participantes/navarro-touche/README.md) |
 
 
-### Resultados da Primeira Etapa
+### Resultado da Primeira Etapa
 
 | posição | participante | contagem de pessoas | p99 geral | submissão |
 | --- | --- | --- | --- | --- |
